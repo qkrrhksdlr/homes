@@ -18,7 +18,7 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	@Autowired
 	BoardServiceImpl svc;
-	
+
 //	public void setDDD(BoardImpl ox10) { 
 //		this.impl =  ox10;
 //	}
@@ -44,6 +44,7 @@ public class BoardController {
     	//BoardImpl impl = new BoardImpl();
 		ArrayList<BoardVO> list = svc.svcSelect();
 		System.out.println(list.size());
+		System.out.println("hello");
 		
 		model.addAttribute("MYLISTKKKKK", list);
 		//return "admin/ajax/board_list";
