@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>	
+	<!-- db.properties -->
+	<properties resource="oracle.properties" />
+	
+	<!--  oracle null 처리  -->
+    <settings>
+        <setting name="cacheEnabled" value="false" />
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+	
+	<!-- TypeAliases 
+	<typeAliases>
+		<typeAlias alias="boardVO" type="com.kpc.board.BoardVO"  />
+	</typeAliases>
+	-->  
+
+	<!-- DBCP -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driverClass}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${userid}" />
+				<property name="password" value="${userpw}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- mapper --> 
+	<mappers>
+		<mapper resource="BoardMapper.xml" />		
+	</mappers>
+	
+
+</configuration>
+
+
+	
+
+
