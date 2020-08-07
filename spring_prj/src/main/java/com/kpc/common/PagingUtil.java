@@ -6,7 +6,7 @@ public class PagingUtil {
 	private int endSeq;					// 현재 블럭의 끝 글번호
 	private int maxPage;				// 최대 페이지 수
 	private int startBlock;  			// 블럭 시작번호
-	private int endBlock;				// 블럭 끝번호kk
+	private int endBlock;				// 블럭 끝번호dd
 	private StringBuffer pagingHtml; 	// 페이징 관련 HTML
 
 	/**
