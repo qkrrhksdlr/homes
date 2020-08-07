@@ -25,32 +25,6 @@ pageEncoding="UTF-8"
 <form name="searchform" method="get" action="/aptlist.do">
 <select name="searchKey">
 	<option value ="강남구">강남구</option>
-<<<<<<< HEAD
-	<option value ="gu">강동구</option>
-	<option value ="gu">강북구</option>
-	<option value ="gu">강서구</option>
-	<option value ="gu">관악구</option>
-	<option value ="gu">광진구</option>
-	<option value ="gu">구로구</option>
-	<option value ="gu">금천구</option>
-	<option value ="gu">노원구</option>
-	<option value ="gu">도봉구</option>
-	<option value ="gu">동대문구</option>
-	<option value ="gu">동작구</option>
-	<option value ="gu">마포구</option>
-	<option value ="gu">서대문구</option>
-	<option value ="gu">서초구</option>
-	<option value ="gu">성동구</option>
-	<option value ="gu">성북구</option>
-	<option value ="gu">송파구</option>
-	<option value ="gu">양천구</option>
-	<option value ="gu">영등포구</option>
-	<option value ="gu">용산구</option>
-	<option value ="gu">은평구</option>
-	<option value ="gu">종로구</option>
-	<option value ="gu">중구</option>
-	<option value ="gu">중랑구</option>
-=======
 	<option value ="강동구">강동구</option>
 	<option value ="강북구">강북구</option>
 	<option value ="강서구">강서구</option>
@@ -75,7 +49,6 @@ pageEncoding="UTF-8"
 	<option value ="종로구">종로구</option>
 	<option value ="중구">중구</option>
 	<option value ="중랑구">중랑구</option>
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </select>
 <input type ="text" name="searchStr">
 <input type ="submit" value="검색">
