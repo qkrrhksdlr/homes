@@ -41,10 +41,10 @@
 	
 
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
-	'%' ||  #{keyword} || '%'
-		select *
+	<!--'%' ||  #{keyword} || '%'-->
+		select apt, gu, street, dong, area 
 		from apt 
-		where  = #{aptStr}
+		where  apt = #{aptStr}
 		and area = #{areaStr}
 	</select>
 	

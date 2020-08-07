@@ -38,11 +38,12 @@
 		<td>${vo.price}</td>
 		<td>${vo.archyear}</td>
 		
-	</tr>
+	</tr>	
 </c:forEach>
 
 </table>
 <br>
+
 
 
 
