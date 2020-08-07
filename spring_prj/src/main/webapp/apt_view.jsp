@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,18 +30,18 @@
 
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<c:forEach items="${APTVIEWKKK}" var="vo">
+<c:forEach items="${APTVIEWKKK}" var="voo">
 	<tr>
-	  	<td>${vo.apt}</td>
-	  	<td>${vo.area}㎡</td>
-		<td>${vo.gu} ${vo.street}</td>
-		<td>${vo.dong}</td>
-		<td>${vo.conym}</td>
-		<td>${vo.price}</td>
-		<td>${vo.archyear}</td>
-		
+	  	<td>${voo.apt}</td>
+	  	<td>${voo.area}㎡</td>
+		<td>${voo.gu} ${vo.street}</td>
+		<td>${voo.dong}</td>
+		<td>${voo.conym}</td>
+		<td>${voo.price}</td>
+		<td>${voo.archyear}</td>
 	</tr>	
 </c:forEach>
+
 
 </table>
 <br>
