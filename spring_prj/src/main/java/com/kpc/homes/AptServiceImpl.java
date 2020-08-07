@@ -29,6 +29,13 @@ public class AptServiceImpl implements AptService {
 		ArrayList<AptVO> list = dao.aptview(aptStr, areaStr);
 		return list;
 	}
+
+	@Override
+	public String svcAptCount() {
+		System.out.println("성공");
+		String num = dao.aptCount();
+		return num;
+	}
 	
 
 }

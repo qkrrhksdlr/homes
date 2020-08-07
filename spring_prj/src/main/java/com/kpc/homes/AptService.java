@@ -9,6 +9,7 @@ import com.kpc.homes.AptVO;
 @Service
 public interface AptService {
 	
+	public String svcAptCount();
 	
 	//글목록	
 	public	ArrayList<AptVO> svcAptlist(String searchKey, String searchStr);

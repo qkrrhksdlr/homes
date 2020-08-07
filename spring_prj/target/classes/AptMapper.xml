@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace : unique value, boardImple이 있을 경우에는 자유롭게 명명 -->
-<mapper namespace="aptNamespace"> 
-<!--<mapper namespace="com.kpc.mapper.AptMapper"> -->
+<!-- <mapper namespace="aptNamespace">  -->
+<mapper namespace="com.kpc.mapper.AptMapper">
 	<resultMap id="aptMap" type="com.kpc.homes.AptVO">
 		<id property="seq" column="seq" />
 		<result property="gu" column="gu"/>
@@ -30,9 +30,9 @@
 		select distinct apt, gu, street, dong, area 
 		from apt
 		where gu = #{searchKey}
-		and (dong like '%' || #{searchStr} || '%'
-		or street like '%' || #{searchStr} || '%'
-		or apt like '%' || #{searchStr} || '%')
+		and ((dong like '%' || #{searchStr} || '%') <!--수정 -->
+		or (street like '%' || #{searchStr} || '%')
+		or (apt like '%' || #{searchStr} || '%'))
 		order by apt asc, dong asc, street asc
 	</select>
 	
