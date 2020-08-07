@@ -50,7 +50,9 @@ public class AptController {
 		model.addAttribute("APTVIEWKKK", list);
 		return "apt_view";
 			
-	}
+	} 
+	
+	
 	
 	@RequestMapping(value = "/aptcount.do", method = RequestMethod.GET)
 	public String aptcount(Model model) {

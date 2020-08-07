@@ -10,9 +10,12 @@
 		<result property="addr1" column="addr1"/>
 		<result property="addr2" column="addr2"/>
 		<result property="apt" column="apt"/>
+		<result property="gubun" column="gubun"/>
 		<result property="area" column="area"/>
 		<result property="conym" column="conym"/>
 		<result property="price" column="price"/>
+		<result property="deposit" column="deposit"/>
+		<result property="mrent" column="mrent"/>
 		<result property="floor" column="floor"/>
 		<result property="archyear" column="archyear"/>
 		<result property="street" column="street"/>
@@ -30,20 +33,20 @@
 		select distinct apt, gu, street, dong, area 
 		from apt
 		where gu = #{searchKey}
-		and ((dong like '%' || #{searchStr} || '%') <!--수정 -->
+		and ((dong like '%' || #{searchStr} || '%')
 		or (street like '%' || #{searchStr} || '%')
 		or (apt like '%' || #{searchStr} || '%'))
 		order by apt asc, dong asc, street asc
 	</select>
 	
-	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
-	<!-- '%' ||  #{keyword} || '%' -->
+
+ 	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
+	'%' ||  #{keyword} || '%'
 		select *
 		from apt 
-		where apt = #{aptStr}
+		where  = #{aptStr}
 		and area = #{areaStr}
 	</select>
-	
 	
 
 </mapper>

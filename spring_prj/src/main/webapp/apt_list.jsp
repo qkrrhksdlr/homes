@@ -60,12 +60,12 @@ pageEncoding="UTF-8"
 <br><br>
 
 
-<table border="1" width="300" cellpadding="0" cellspacing="0">
+<table border="1" width="1000" cellpadding="0" cellspacing="0">
+
 	<tr>
-		<td>단지명</td>
-		<td>도로명 주소</td>
-		<td>법정동</td>
-		<td>면적(m2)</td>
+		<td><b>단지명 - 전용면적(㎡)</b></td>
+		<td><b>도로명 주소</b></td>
+		<td><b>법정동</b></td>
 	</tr>
 
 
@@ -73,15 +73,17 @@ pageEncoding="UTF-8"
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <c:forEach items="${APTLISTKKK}" var="vo">
 	<tr>
-	  	<td><a href="/aptview.do?searchKey=${vo.searchKey}&searchStr=${vo.searchStr}">${vo.apt}</a></td>
+	  	<td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
 		<td>${vo.gu} ${vo.street}</td>
 		<td>${vo.dong}</td>
-		<td>${vo.area}</td>
 	</tr>
 </c:forEach>
 
 </table>
 <br>
+
+
+
 
 
 </body>
