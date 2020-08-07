@@ -30,7 +30,7 @@
 		select distinct apt, gu, street, dong, area 
 		from apt
 		where gu = #{searchKey}
-		and ((dong like '%' || #{searchStr} || '%')
+		and ((dong like '%' || #{searchStr} || '%') <!--수정 -->
 		or (street like '%' || #{searchStr} || '%')
 		or (apt like '%' || #{searchStr} || '%'))
 		order by apt asc, dong asc, street asc
