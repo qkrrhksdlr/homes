@@ -32,7 +32,7 @@
 	
 	<!-- mapper --> 
 	<mappers>
-		<mapper resource="BoardMapper.xml" />		
+		<mapper resource="AptMapper.xml" />		
 	</mappers>
 	
 

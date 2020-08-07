@@ -22,9 +22,9 @@ pageEncoding="UTF-8"
 
 <br><br>
 
-<form name="searchform" method="post" action="/aptlist.do">
+<form name="searchform" method="get" action="/aptlist.do">
 <select name="searchKey">
-	<option value ="gu">강남구</option>
+	<option value ="강남구">강남구</option>
 	<option value ="gu">강동구</option>
 	<option value ="gu">강북구</option>
 	<option value ="gu">강서구</option>
@@ -73,7 +73,7 @@ pageEncoding="UTF-8"
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <c:forEach items="${APTLISTKKK}" var="vo">
 	<tr>
-	  	<td><a href="/bview.do?searchKey=${vo.searchKey}">${vo.apt}</a></td>
+	  	<td><a href="/aptview.do?searchKey=${vo.searchKey}&searchStr=${vo.searchStr}">${vo.apt}</a></td>
 		<td>${vo.gu} ${vo.street}</td>
 		<td>${vo.dong}</td>
 		<td>${vo.area}</td>
