@@ -52,5 +52,14 @@ public class AptController {
 			
 	}
 	
+	@RequestMapping(value = "/aptcount.do", method = RequestMethod.GET)
+	public String aptcount(Model model) {
+
+		String num = svc.svcAptCount();
+		
+		model.addAttribute("APTNUMKKK", num);
+		return "apt_count";
+			
+	}
 	
 }

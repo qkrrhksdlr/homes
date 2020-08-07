@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script>
+<!-- <script>
 function buttonEvent(prm) {
 		document.myform.action="/aptview.do";		
 		document.myform.method="get";
 		document.myform.submit();
 }
-</script>
+</script> -->
 
 </head>
 <body>
