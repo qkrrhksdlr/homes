@@ -12,11 +12,7 @@ import com.kpc.homes.AptVO;
 @Mapper
 public interface AptMapper {
 
-<<<<<<< HEAD
 	//메서드명 = BoardMapper.xml에서 sql문의 id명과 일치 11
-=======
-	//메서드명 = BoardMapper.xml에서 sql문의 id명과 일치합니다
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	
 	public String aptCount();
 
