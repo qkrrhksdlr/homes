@@ -27,7 +27,7 @@ public class AptController {
 	
 
 	
-	@RequestMapping(value = "/aptlist.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/aptlist.do", method = RequestMethod.GET)
 	public String aptlist(Model model
 			,@RequestParam(value="searchKey", required=false) String searchKey
 			,@RequestParam(value="searchStr", required=false) String searchStr) {
@@ -52,5 +52,14 @@ public class AptController {
 			
 	}
 	
+	@RequestMapping(value = "/aptcount.do", method = RequestMethod.GET)
+	public String aptcount(Model model) {
+
+		String num = svc.svcAptCount();
+		
+		model.addAttribute("APTNUMKKK", num);
+		return "apt_count";
+			
+	}
 	
 }
