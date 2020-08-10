@@ -72,8 +72,7 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 </form>
 
 <br>
-dfdkfd
-dfdfd
+${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 
 
@@ -182,21 +181,20 @@ dfdfd
                  var infowindow = new google.maps.InfoWindow();
                  infowindow.open(map);
                  var marker, i;
-                 
 
-   
                //for (i = 0; i < locations.length; i++) {
                $.map(resultList, function(kkk, i) {
                   
                   marker = new google.maps.Marker({
-                     position: new google.maps.LatLng(kkk.lat, kkk.lng),    //(locations[i][1], locations[i][2]),
+                     position: new google.maps.LatLng(kkk.lat, kkk.lng),
                      map: map,
-                     //label: kkk.apt,   //locations[i][0],
+                     //label: kkk.apt, 
                   });
-   
+                  
+    
                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                      return function() {
-                        infowindow.setContent("<b>"+kkk.apt+"</b><br>"+kkk.gu+" "+kkk.street);         //(locations[i][0]);
+                        infowindow.setContent("<a href=/aptview.do?aptStr="+kkk.apt+"&areaStr="+kkk.area+"><b>"+kkk.apt+"</b></a><br>"+kkk.gu+" "+kkk.street);
                         infowindow.open(map, marker);
                      }
                   })(marker, i));
