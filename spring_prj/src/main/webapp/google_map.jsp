@@ -98,6 +98,7 @@ dfdfd
 
 </table>
 <br><br><br>
+
 </div>
 
 
@@ -113,7 +114,7 @@ dfdfd
 			navigator.geolocation.getCurrentPosition(function(pos) {
 			    var clat = pos.coords.latitude;
 			    var clng = pos.coords.longitude;
-//			    alert("현재 위치는 : " + clat + ", "+ clng); 
+			    alert("현재 위치는 : " + clat + ", "+ clng); 
 			    initMap(clat, clng);
 			});
 		 } else {
@@ -140,56 +141,62 @@ dfdfd
 		//자신의 접속지 반경으로 마커 그리기
 		paintMarker(clat, clng,'','');
 	}
-
+/* 
 	//-------------------------------------------
 	// 동검색
 	//-------------------------------------------
 	$("#searchBtn").click(function(){ 
 		if($("#searchStr").val() == "") {
-			alert("동이름을 검색하세요");
+			alert("동이름, 도로명주소, 또는 단지명을 검색하세요");
 			$("#searchStr").focus();
 		} else {
 			//var cityCode = $("#cityCode").val();
-			var gu = $("#searchKey option:selected").val();
-			var dong = $("#searchStr").val();
-			alert(gu + "," + dong);
-			paintMarker('','', gu, dong); 
+			var searchKey = $("#searchKey option:selected").val();
+			var searchStr = $("#searchStr").val();
+//			alert(gu + "," + dong);
+			paintMarker('','', searchKey, searchStr); 
 		}
 	});
-
+*/
 	//-------------------------------------------
 	// 자신의 접속지 or 동검색 : DB의 위경도 가져와 마커그리기
 	//-------------------------------------------
 	function  paintMarker(clat, clng, searchKey, searchStr) {
 		//--------- DB의 위경도 가져와 마커그리기
 		$.ajax({
-			  url : "/aptlist.do",
-			  method : "get",  //"POST", "GET",  v1.9.0.이전 type countyName
+			  url : "/googlemap.do",
+			  method : "GET",  //"POST", "GET",  v1.9.0.이전 type countyName
 			  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-			  data : "clat="+clat+"&clng="+clng+"&searchKey="+gu+"&searchStr="+dong,  //***********
+			  data : "clat="+clat+"&clng="+clng+"&searchKey="+searchKey+"&searchStr="+searchStr,  //***********
 			  dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
 			  success : function(resultList){ 
 				  console.log(resultList); //
 				  
-				  //--------------마커출력 -------------
-				  //var locations = [
-				  //    ['Bondi Beach', -33.890542, 151.274856, 4],
-				  //    ['Coogee Beach', -33.923036, 151.259052, 5],
-				  //    ['Cronulla Beach', -34.028249, 151.157507, 3],
-				  //    ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-				  //    ['Maroubra Beach', -33.950198, 151.259302, 1]
-				  //  ];
+/* 				  --------------마커출력 -------------
+				  var locations = [
+				      ['Bondi Beach', -33.890542, 151.274856, 4],
+				      ['Coogee Beach', -33.923036, 151.259052, 5],
+				      ['Cronulla Beach', -34.028249, 151.157507, 3],
+				      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+				      ['Maroubra Beach', -33.950198, 151.259302, 1]
+				    ]; */
 	
 				  
-				  //Map Center 변경
+				//  개포동	655	개포2차현대아파트(220)  	37.48078789	127.0519053
+				  
+				  
+				  
+/* 				  //Map Center 변경
 				  if (resultList.length>0) {
 					  resetCenter = new google.maps.LatLng(resultList[0]["lat"], resultList[0]["lng"]);
 					  map.setCenter(resetCenter);					  
-				  }				  				  				  
+				  }				 */  				  				  
 				  
 				  	var infowindow = new google.maps.InfoWindow();
 				  	infowindow.open(map);
 				  	var marker, i;
+				  	
+
 	
 					//for (i = 0; i < locations.length; i++) {
 					$.map(resultList, function(kkk, i) {
@@ -202,7 +209,7 @@ dfdfd
 	
 						google.maps.event.addListener(marker, 'click', (function(marker, i) {
 							return function() {
-								infowindow.setContent(kkk.apt+"<br>"+kkk.dong);			//(locations[i][0]);
+								infowindow.setContent(kkk.apt+"<br>");			//(locations[i][0]);
 								infowindow.open(map, marker);
 							}
 						})(marker, i));
@@ -212,8 +219,8 @@ dfdfd
 			}); //e.o.$.ajax()
 	} //e.o.paintMarker()
 
+</script> 
 
-</script>
 
 
 </body>

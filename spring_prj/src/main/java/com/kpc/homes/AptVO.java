@@ -23,8 +23,10 @@ public class AptVO {
 	private String searchStr;
 	private String aptStr;
 	private String areaStr;
-	private String lat;		
-	private String lng;
+
+	private int lat;
+	private int lng;
+
 	public long getSeq() {
 		return seq;
 	}
@@ -139,18 +141,22 @@ public class AptVO {
 	public void setAreaStr(String areaStr) {
 		this.areaStr = areaStr;
 	}
-	public String getLat() {
+
+	public int getLat() {
 		return lat;
 	}
-	public void setLat(String lat) {
+	public void setLat(int lat) {
 		this.lat = lat;
 	}
-	public String getLng() {
+	public int getLng() {
 		return lng;
 	}
-	public void setLng(String lng) {
+	public void setLng(int lng) {
 		this.lng = lng;
 	}
+	
+	
+
 	@Override
 	public String toString() {
 		return "AptVO [seq=" + seq + ", gu=" + gu + ", dong=" + dong + ", addr1=" + addr1 + ", addr2=" + addr2
@@ -158,7 +164,9 @@ public class AptVO {
 				+ ", deposit=" + deposit + ", mrent=" + mrent + ", floor=" + floor + ", archyear=" + archyear
 				+ ", street=" + street + ", searchKey=" + searchKey + ", searchStr=" + searchStr + ", aptStr=" + aptStr
 				+ ", areaStr=" + areaStr + ", lat=" + lat + ", lng=" + lng + "]";
-	}			
+
+	}
+
 
 	
 

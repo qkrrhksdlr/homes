@@ -14,9 +14,12 @@ public interface AptService {
 	//글목록	
 	public	ArrayList<AptVO> svcAptlist(String searchKey, String searchStr);
 
+	//구글맵
+	public	ArrayList<AptVO> svcGooglemap(String searchKey, String searchStr);
+
 	//글상세보기	
 	public  ArrayList<AptVO> svcAptview(String aptStr, String areaStr);
-	
+
 	//매매 차트
 	public ArrayList<AptVO> svcMAptChart(String aptStr, String areaStr);
 	

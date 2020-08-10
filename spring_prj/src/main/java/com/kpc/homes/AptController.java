@@ -1,12 +1,6 @@
 package com.kpc.homes;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.google.gson.Gson;
 import com.kpc.homes.AptVO;
 
 @Controller
@@ -40,7 +33,7 @@ public class AptController {
 		model.addAttribute("APTLISTKKK", list);
 		return "apt_list";
 	}
-	
+
 	//상세보기
 	@RequestMapping(value = "/aptview.do", method = RequestMethod.GET)
 	public String aptview(Model model
@@ -48,8 +41,7 @@ public class AptController {
 			,@RequestParam(value="areaStr", required=false) String areaStr) {
 		ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);	
 		model.addAttribute("APTVIEWKKK", list);
-		return "apt_view";
-			
+		return "apt_view";	
 	} 
 	
 	//카운트
@@ -60,7 +52,6 @@ public class AptController {
 		
 		model.addAttribute("APTNUMKKK", num);
 		return "apt_count";
-			
 	}
 	
 		
