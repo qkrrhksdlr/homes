@@ -17,13 +17,10 @@ pageEncoding="UTF-8"
 </head>
 <body>
 
-
- 
-
 <br><br>
 
 <form name="searchform" method="get" action="/aptlist.do">
-<select name="searchKey">
+<select name="searchKey" id="searchKey">
 	<option value ="강남구">강남구</option>
 	<option value ="강동구">강동구</option>
 	<option value ="강북구">강북구</option>
@@ -50,14 +47,12 @@ pageEncoding="UTF-8"
 	<option value ="중구">중구</option>
 	<option value ="중랑구">중랑구</option>
 </select>
-<input type ="text" name="searchStr">
-<input type ="submit" value="검색">
+<input type ="text" name="searchStr" id="searchStr">
+<input type ="submit" id="searchBtn" value="검색">
 </form>
 
 <br><br>
 
-
-<br><br>
 
 
 <table border="1" width="1000" cellpadding="0" cellspacing="0">

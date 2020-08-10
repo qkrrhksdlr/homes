@@ -34,8 +34,8 @@
 		from apt
 		where gu = #{searchKey}
 		and ((dong like '%' || #{searchStr} || '%')
-		or (street like '%' || #{searchStr} || '%')
-		or (apt like '%' || #{searchStr} || '%'))
+ 		or (street like '%' || #{searchStr} || '%')
+		or (apt like '%' || #{searchStr} || '%')) 
 		order by apt asc, dong asc, street asc
 	</select>
 	
