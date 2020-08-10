@@ -29,8 +29,9 @@
 		select count(1) as cnt from apt
 	</select>
 	
+
 	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+	select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
 				from apt a, aptxy b
 				where a.dong = b.dong
 				and a.addr1 = b.addr1
