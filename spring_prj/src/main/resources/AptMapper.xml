@@ -30,23 +30,36 @@
 	</select>
 	
 	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select distinct apt, gu, street, dong, area 
-		from apt
-		where gu = #{searchKey}
-		and ((dong like '%' || #{searchStr} || '%')
- 		or (street like '%' || #{searchStr} || '%')
-		or (apt like '%' || #{searchStr} || '%')) 
-		order by apt asc, dong asc, street asc
+		select tt.*
+		from (
+		select rownum as rn, t.*
+		from (
+				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+				from apt a, aptxy b
+				where a.dong = b.dong
+				and a.addr1 = b.addr1
+				and a.gu = #{searchKey}
+				and ((a.dong like '%' || #{searchStr} || '%')
+				or (a.street like '%' || #{searchStr} || '%')
+				or (a.apt like '%' || #{searchStr} || '%'))
+				order by apt asc, dong asc, street asc
+		) t
+		) tt
+		where rn between #{startSeq} and #{endSeq}
 	</select>
 	
 
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
-	<!--'%' ||  #{keyword} || '%' apt, gu, street, dong, area-->
-		select *
-		from apt 
-		where  apt = #{aptStr}
-		and area = #{areaStr}
+		select distinct a.apt, a.gu, a.dong, a.addr1, a.addr2, a.street, a.area, a.archyear
+		from apt a, aptxy b
+		where a.dong = b.dong
+		and a.addr1 = b.addr1
+		and a. apt = #{aptStr}
+		and a. area = #{areaStr}
 	</select>
+	
+
+	
 	
 
 </mapper>
