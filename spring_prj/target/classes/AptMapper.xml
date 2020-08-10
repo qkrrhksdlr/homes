@@ -19,6 +19,9 @@
 		<result property="floor" column="floor"/>
 		<result property="archyear" column="archyear"/>
 		<result property="street" column="street"/>
+		<result property="lat" column="lat"/>
+		<result property="lng" column="lng"/>
+
 	</resultMap>
 	
 	<!-- <collection property="rlist" columnPrefix="r_" javaType="ArrayList" resultMap="replyMap" /> -->
@@ -29,6 +32,7 @@
 	
 
 	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
+<<<<<<< HEAD
 	select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
 	from apt a, aptxy b
 	where a.dong = b.dong
@@ -39,7 +43,56 @@
 	or (a.apt like '%' || #{searchStr} || '%'))
 	order by apt asc, dong asc, street asc
 
+=======
+		select tt.*
+		from (
+			select rownum as rn, t.*
+			from (
+				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+				from apt a, aptxy b
+				where a.dong = b.dong
+				and a.addr1 = b.addr1
+				and a.gu = #{searchKey}
+				and ((a.dong like '%' || #{searchStr} || '%')
+	 				or (a.street like '%' || #{searchStr} || '%')
+					or (a.apt like '%' || #{searchStr} || '%')) 
+				order by apt asc, dong asc, street asc
+				) t
+			) tt
+<!-- 	where rn between #{startSeq} and #{endSeq} -->
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	</select>
+	
+	
+	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select tt.*
+		from (
+			select rownum as rn, t.*
+			from (
+				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+				from apt a, aptxy b
+				where a.dong = b.dong
+				and a.addr1 = b.addr1
+				and a.gu = #{searchKey}
+				and ((a.dong like '%' || #{searchStr} || '%')
+	 				or (a.street like '%' || #{searchStr} || '%')
+					or (a.apt like '%' || #{searchStr} || '%')) 
+				order by apt asc, dong asc, street asc
+				) t
+			) tt	
+	
+<!--		select apt, gu, dong,, lat, lng
+		from aptxy
+		where gu = #{searchKey}
+		and ((dong like '%' || #{searchStr} || '%'))
+  		or (a.street like '%' || #{searchStr} || '%')
+		or (a.apt like '%' || #{searchStr} || '%')) 
+		order by apt asc, dong asc
+ -->
+<!-- 		where rn between #{startSeq} and #{endSeq} -->
+	</select>
+	
+	
 	
 
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
@@ -67,7 +120,5 @@
 		and gubun = '전세'
 	</select>
 
-	
-	
 
 </mapper>

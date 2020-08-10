@@ -24,12 +24,16 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <table width="100%" border=1>
 	<tr>
 		<td id="mchart"></td>
 		<td id="zwchart"></td>
 	</tr>
 </table>
+=======
+
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <table border="1" width="1000" cellpadding="0" cellspacing="0">
 	<tr>

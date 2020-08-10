@@ -20,6 +20,10 @@ public interface AptMapper {
 			@Param("searchKey")  String searchKey
 			,@Param("searchStr")  String searchStr);
 
+	public ArrayList<AptVO> googlemap(
+			@Param("searchKey")  String searchKey
+			,@Param("searchStr")  String searchStr);
+
 	public ArrayList<AptVO> aptview(
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
@@ -31,4 +35,5 @@ public interface AptMapper {
 	public ArrayList<AptVO> aptzwchart(
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
+	
 }

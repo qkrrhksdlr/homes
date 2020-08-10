@@ -98,6 +98,7 @@ dfdfd
 
 </table>
 <br><br><br>
+
 </div>
 
 
@@ -113,7 +114,6 @@ dfdfd
 			navigator.geolocation.getCurrentPosition(function(pos) {
 			    var clat = pos.coords.latitude;
 			    var clng = pos.coords.longitude;
-//			    alert("현재 위치는 : " + clat + ", "+ clng); 
 			    initMap(clat, clng);
 			});
 		 } else {
@@ -146,50 +146,64 @@ dfdfd
 	//-------------------------------------------
 	$("#searchBtn").click(function(){ 
 		if($("#searchStr").val() == "") {
-			alert("동이름을 검색하세요");
+			alert("동이름, 도로명주소, 또는 단지명을 검색하세요");
 			$("#searchStr").focus();
 		} else {
 			//var cityCode = $("#cityCode").val();
-			var gu = $("#searchKey option:selected").val();
-			var dong = $("#searchStr").val();
-			alert(gu + "," + dong);
-			paintMarker('','', gu, dong); 
+			var searchKey = $("#searchKey option:selected").val();
+			var searchStr = $("#searchStr").val();
+			//alert(gu + "," + dong);
+			paintMarker('','', searchKey, searchStr); 
 		}
 	});
 
+	
+	${param.clat}
+	${param.clng}
+	${param.searchKey}
+	${param.searchStr}
+	
 	//-------------------------------------------
 	// 자신의 접속지 or 동검색 : DB의 위경도 가져와 마커그리기
 	//-------------------------------------------
 	function  paintMarker(clat, clng, searchKey, searchStr) {
 		//--------- DB의 위경도 가져와 마커그리기
 		$.ajax({
-			  url : "/aptlist.do",
-			  method : "get",  //"POST", "GET",  v1.9.0.이전 type countyName
+			  url : "/googlemap.do",
+			  method : "GET",  //"POST", "GET",  v1.9.0.이전 type countyName
 			  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-			  data : "clat="+clat+"&clng="+clng+"&searchKey="+gu+"&searchStr="+dong,  //***********
+			  data : "clat=${param.clat}&clng=${param.clng}&searchKey=${param.searchKey}&searchStr=${param.searchStr}",  //***********
 			  dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
 			  success : function(resultList){ 
-				  console.log(resultList); //
+<<<<<<< HEAD
+				  console.log("ajax데이터: "+resultList); //
 				  
-				  //--------------마커출력 -------------
-				  //var locations = [
-				  //    ['Bondi Beach', -33.890542, 151.274856, 4],
-				  //    ['Coogee Beach', -33.923036, 151.259052, 5],
-				  //    ['Cronulla Beach', -34.028249, 151.157507, 3],
-				  //    ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-				  //    ['Maroubra Beach', -33.950198, 151.259302, 1]
-				  //  ];
-	
 				  
-				  //Map Center 변경
+				  
+ 				  //Map Center 변경
 				  if (resultList.length>0) {
 					  resetCenter = new google.maps.LatLng(resultList[0]["lat"], resultList[0]["lng"]);
 					  map.setCenter(resetCenter);					  
-				  }				  				  				  
+				  }				 			  				  
 				  
 				  	var infowindow = new google.maps.InfoWindow();
 				  	infowindow.open(map);
 				  	var marker, i;
+				  	
+=======
+				  console.log(resultList); //
+				  
+ 				  --------------마커출력 -------------
+ 				  var locations = [				//약국명, 위도, 경도, ___
+ 				      ['삼성현대힐스테이트1단지아파트', 37.516656, 127.048388, 4],
+ 				      ['삼성 롯데캐슬 프리미어 아파트', 37.515107, 127.044847, 5],
+ 				      ['한솔아파트', 37.517269, 127.045662, 3],
+ 				      ['청담대림E편한세상아파트', 37.520793, 127.045086, 2],
+ 				      ['청담래미안아파트', 37.517864, 127.042701, 1]
+ 				    ];
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
+
+<<<<<<< HEAD
 	
 					//for (i = 0; i < locations.length; i++) {
 					$.map(resultList, function(kkk, i) {
@@ -206,14 +220,33 @@ dfdfd
 								infowindow.open(map, marker);
 							}
 						})(marker, i));
+=======
+ 				  	var infowindow = new google.maps.InfoWindow();			//infowindow : 마커 클릭했을 때 뜨는 표시
+ 				  	infowindow.open(map);
+ 				  	var marker, i;
+
+ 					for (i = 0; i < locations.length; i++) {  
+ 						marker = new google.maps.Marker({
+ 							position: new google.maps.LatLng(locations[i][1], locations[i][2]),			//어디에 보여줄 것인가?
+ 							map: map,
+ 							label: locations[i][0],
+ 						});
+
+ 						google.maps.event.addListener(marker, 'click', (function(marker, i) {			//제대로 되는지 감시
+ 							return function() {
+ 								infowindow.setContent(locations[i][0]);
+ 								infowindow.open(map, marker);
+ 							}
+ 						})(marker, i));
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 					});	//} //e.o.for
 				  	//--------------마커출력 -------------  
 			  } //e.o.success()
 			}); //e.o.$.ajax()
 	} //e.o.paintMarker()
 
+</script> 
 
-</script>
 
 
 </body>
