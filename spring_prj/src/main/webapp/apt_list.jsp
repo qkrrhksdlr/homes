@@ -173,8 +173,6 @@ dfdfd
            success : function(resultList){ 
               //console.log("ajax데이터: "+resultList); //
               
-              
-              
                //Map Center 변경
               if (resultList.length>0) {
                  resetCenter = new google.maps.LatLng(resultList[0]["lat"], resultList[0]["lng"]);
