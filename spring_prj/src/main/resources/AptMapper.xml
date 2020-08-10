@@ -30,11 +30,7 @@
 	</select>
 	
 	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select tt.*
-		from (
-		select rownum as rn, t.*
-		from (
-				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+		select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
 				from apt a, aptxy b
 				where a.dong = b.dong
 				and a.addr1 = b.addr1
@@ -43,14 +39,12 @@
 				or (a.street like '%' || #{searchStr} || '%')
 				or (a.apt like '%' || #{searchStr} || '%'))
 				order by apt asc, dong asc, street asc
-		) t
-		) tt
-		where rn between #{startSeq} and #{endSeq}
+
 	</select>
 	
 
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select distinct a.apt, a.gu, a.dong, a.addr1, a.addr2, a.street, a.area, a.archyear
+		select distinct a.*, b.lat, b.lng
 		from apt a, aptxy b
 		where a.dong = b.dong
 		and a.addr1 = b.addr1
