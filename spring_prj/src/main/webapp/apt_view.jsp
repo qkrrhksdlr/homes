@@ -69,6 +69,18 @@ $.ajax({
 	  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
 	  data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
 	  dataType : "json",  
+<<<<<<< HEAD
+	  success : function(jsonObjList){ 
+			console.log(jsonObjList);
+		  	
+		  	var listArr = []; 
+		  	$.map(jsonObjList, function(vv, i){
+		  		var voArr = []; 
+		  		voArr.push(vv.apt);
+		  		voArr.push(vv.conym);
+		  		voArr.push(vv.price);
+		  		listArr.push(voArr);
+=======
 	  success : function(jsonObjList){
 		  var aptConym = [];	
 		  var aptPrice = []; 
@@ -76,14 +88,42 @@ $.ajax({
 		  $.map(jsonObjList, function(vv, i){
 		  		aptConym.push(vv.conym);
 		  		aptPrice.push(vv.price);
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		  	})
 		 
 		  printMLinearChart(aptConym, aptPrice);
 	  }
 });		
 
+<<<<<<< HEAD
+function printLinearChart(listArr) {
+
+=======
 function printMLinearChart(aptConym, aptPrice) {	
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	var chart = c3.generate({
+<<<<<<< HEAD
+	    data: {
+	        x: 'x',
+//	        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+	        columns: listArr,
+	        
+	    },
+	    axis: {
+	        x: {
+	            type: 'timeseries',
+	            tick: {
+	                format: '%Y-%m-%d'
+	            }
+	        }
+	    }
+	});
+
+
+
+
+	
+=======
 		bindto: "#mchart",
 	    data: {	
 	    	json:{
@@ -96,6 +136,7 @@ function printMLinearChart(aptConym, aptPrice) {
     	grid: { x: {show: false}, y: { show: true}},
 	    size: {height: 200, width: 280}
 	});
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 }
 
 /* 전월세 차트 */
@@ -106,20 +147,52 @@ $.ajax({
 	  data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
 	  dataType : "json",  
 	  success : function(jsonObjList){ 
+<<<<<<< HEAD
+			console.log(jsonObjList);
+		  	
+		  	var listArr = []; 
+		  	$.map(jsonObjList, function(vv, i){
+		  		var voArr = []; 
+		  		voArr.push(vv.apt);
+		  		voArr.push(vv.conym);
+		  		voArr.push(vv.deposit);
+		  		listArr.push(voArr);
+=======
 		  var aptConym = [];	
 		  var aptDeposit = []; 
 		  
 		  $.map(jsonObjList, function(vv, i){
 		  		aptConym.push(vv.conym);
 		  		aptDeposit.push(vv.deposit);
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		  	})
 
 		  printZWLinearChart(aptConym, aptDeposit);
 	  }
 });		
 
+<<<<<<< HEAD
+/* function printLinearChart(listArr) {
+=======
 function printZWLinearChart(aptConym, aptDeposit) {
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	var chart = c3.generate({
+<<<<<<< HEAD
+		bindto: "#chart2",
+	    data: {
+	        columns: listArr,
+		    type: 'bar',
+	    },
+	    bar: {
+	        width: {
+	            ratio: 0.5  
+	        }
+	    },
+	    grid: { x: {show: false}, y: { show: true}},
+	    size: {height: 240, width: 300}
+	}); 
+} */
+=======
 		bindto: "#zwchart",
 	    data: {	
 	    	json:{
@@ -133,5 +206,6 @@ function printZWLinearChart(aptConym, aptDeposit) {
 	    size: {height: 200, width: 280}
 	});
 }
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </script>
 </html>
