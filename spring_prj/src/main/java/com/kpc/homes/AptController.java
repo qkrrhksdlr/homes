@@ -34,7 +34,7 @@ public class AptController {
 	public String aptlist(Model model
 			,@RequestParam(value="searchKey", required=false) String searchKey
 			,@RequestParam(value="searchStr", required=false) String searchStr) {
-
+		
 		ArrayList<AptVO> list = svc.svcAptlist(searchKey, searchStr);
 
 		model.addAttribute("APTLISTKKK", list);

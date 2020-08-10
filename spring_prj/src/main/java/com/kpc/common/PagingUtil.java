@@ -87,7 +87,7 @@ public class PagingUtil {
 		return pagingHtml.toString();
 	}
 
-	public int getStartSeq() {
+	public int getStartSeq() {	
 		return this.startSeq;
 	}
 
