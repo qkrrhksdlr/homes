@@ -198,7 +198,7 @@ dfdfd
    
                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                      return function() {
-                        infowindow.setContent("<b>"+kkk.apt+"</b><br>"+kkk.gu+" "+kkk.dong);         //(locations[i][0]);
+                        infowindow.setContent("<b>"+kkk.apt+"</b><br>"+kkk.gu+" "+kkk.street);         //(locations[i][0]);
                         infowindow.open(map, marker);
                      }
                   })(marker, i));
