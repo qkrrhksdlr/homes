@@ -12,7 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title><h1>서울시 아파트 실거래 정보 찾기</h1>
+찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+(검색어: 도로명주소 or 동 or 아파트명)</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -120,7 +122,7 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
-                        <div class="row">
+                    <!--<div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Primary Card</div>
@@ -157,7 +159,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -215,7 +217,7 @@
                                                 <td>2011/04/25</td>
                                                 <td>$320,800</td>
                                             </tr>
-                                            <tr>
+                                        <!--<tr>
                                                 <td>Garrett Winters</td>
                                                 <td>Accountant</td>
                                                 <td>Tokyo</td>
@@ -662,7 +664,7 @@
                                                 <td>27</td>
                                                 <td>2011/01/25</td>
                                                 <td>$112,000</td>
-                                            </tr>
+                                            </tr>-->
                                         </tbody>
                                     </table>
                                 </div>
