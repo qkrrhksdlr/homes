@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Findnaukri</title>
+<title>Team Island - Project Homes</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">	
@@ -34,7 +34,7 @@
 <body>
 	<!-- header section start-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="logo" href="#"><img src="images/logo.png"></a>
+        <a class="logo" href="#"><img src="images/homes-logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,10 +66,42 @@
 	<!-- banner section start-->
 	<div class="banner_section layout_padding">
 		<div class="container">
-			<h1 class="best_taital">Best Naukri Search here</h1>
+			<h1 class="best_taital">서울시 아파트 실거래 정보 찾기</h1>
 			<div class="box_main">
-			    <input type="" class="email_bt" placeholder="Search Job" name="">
-				<button class="subscribe_bt"><a href="#">Subscribe</a></button>
+					<form name="searchform" method="get" action="/aptlist.do">
+					<select name="searchKey" id="searchKey">
+					   <option value ="강남구">강남구</option>
+					   <option value ="강동구">강동구</option>
+					   <option value ="강북구">강북구</option>
+					   <option value ="강서구">강서구</option>
+					   <option value ="관악구">관악구</option>
+					   <option value ="광진구">광진구</option>
+					   <option value ="구로구">구로구</option>
+					   <option value ="금천구">금천구</option>
+					   <option value ="노원구">노원구</option>
+					   <option value ="도봉구">도봉구</option>
+					   <option value ="동대문구">동대문구</option>
+					   <option value ="동작구">동작구</option>
+					   <option value ="마포구">마포구</option>
+					   <option value ="서대문구">서대문구</option>
+					   <option value ="서초구">서초구</option>
+					   <option value ="성동구">성동구</option>
+					   <option value ="성북구">성북구</option>
+					   <option value ="송파구">송파구</option>
+					   <option value ="양천구">양천구</option>
+					   <option value ="영등포구">영등포구</option>
+					   <option value ="용산구">용산구</option>
+					   <option value ="은평구">은평구</option>
+					   <option value ="종로구">종로구</option>
+					   <option value ="중구">중구</option>
+					   <option value ="중랑구">중랑구</option>
+					</select>
+					<input type ="text" placeholder="검색어: 도로명주소 or 동 or 아파트명" name="searchStr" id="searchStr">
+					<input type ="submit" id="searchBtn" value="검색">
+	 			    <input type="text" class="email_bt" placeholder="검색어: 도로명주소 or 동 or 아파트명" name="searchStr" id="searchStr"> 
+					<button class="subscribe_bt"><a href="#">검색</a></button>
+					</form>
+
 		    </div>
 		    <p class="there_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alterationThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>
 		    <div class="bt_main">

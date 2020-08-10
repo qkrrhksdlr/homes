@@ -106,7 +106,7 @@
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
-		and gubun in ('전세', '월세')
+		and gubun = '전세'
 	</select>
 
 

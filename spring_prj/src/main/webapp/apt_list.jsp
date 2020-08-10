@@ -8,8 +8,9 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <!DOCTYPE html>
 <html>
 <head>
+<title>Team Island - Project Homes</title>
 <h1>서울시 아파트 실거래 정보 찾기</h1>
-<title>서울시 구 선택 > 도로명주소 or 동 or 아파트명 입력 > 검색</title>
+
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>
