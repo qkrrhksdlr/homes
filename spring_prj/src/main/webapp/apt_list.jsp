@@ -10,10 +10,10 @@ pageEncoding="UTF-8"
 <html>
 <head>
 <meta charset="UTF-8">
-<h1>서울시 아파트 실거래 정보 찾기</h1>
-찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-(검색어: 도로명주소 or 동 or 아파트명)
 <title>서울시 구 선택 > 도로명주소 or 동 or 아파트명 입력 > 검색</title>
+<h1>서울시 아파트 실거래 정보 찾기</h1>
+찾고싶은 지역구를 선택한 후 검색어를 입력하세요. (검색어: 도로명주소 or 동 or 아파트명)
+
 </head>
 <body>
 
@@ -50,20 +50,14 @@ pageEncoding="UTF-8"
 <input type ="text" name="searchStr" id="searchStr">
 <input type ="submit" id="searchBtn" value="검색">
 </form>
-
-<br><br>
-
-
+<hr>
 
 <table border="1" width="1000" cellpadding="0" cellspacing="0">
-
 	<tr>
 		<td><b>단지명 - 전용면적(㎡)</b></td>
 		<td><b>도로명 주소</b></td>
 		<td><b>법정동</b></td>
 	</tr>
-
-
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <c:forEach items="${APTLISTKKK}" var="vo">
@@ -72,15 +66,9 @@ pageEncoding="UTF-8"
 		<td>${vo.gu} ${vo.street}</td>
 		<td>${vo.dong}</td>
 	</tr>
-
 </c:forEach>
-
 </table>
 <br>
-
-
-
-
 
 </body>
 </html>

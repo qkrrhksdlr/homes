@@ -18,7 +18,6 @@ public class AptRestController {
 	@Autowired
 	AptServiceImpl svc;	
 	
-
 	//매매 차트
 	@RequestMapping(value = "/aptmchart.do", method = RequestMethod.GET)
 	public ArrayList<AptVO> aptmchart(Model model
@@ -47,5 +46,4 @@ public class AptRestController {
 		return list;
 		}
 		
-	
 }
