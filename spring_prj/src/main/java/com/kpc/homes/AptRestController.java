@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kpc.homes.AptVO;
 
-@RestController
+@RestController	//rest 
 public class AptRestController {
 	@Autowired
-	AptServiceImpl svc;
+	AptServiceImpl svc;	
 	
 
 	//매매 차트
