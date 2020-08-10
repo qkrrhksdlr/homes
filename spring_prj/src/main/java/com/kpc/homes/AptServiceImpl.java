@@ -36,6 +36,12 @@ public class AptServiceImpl implements AptService {
 		String num = dao.aptCount();
 		return num;
 	}
+
+	@Override
+	public ArrayList<AptVO> svcGooglemap(String searchKey, String searchStr) {
+		ArrayList<AptVO> list = dao.googlemap(searchKey, searchStr);
+		return list;
+	}
 	
 
 }

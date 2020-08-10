@@ -24,33 +24,8 @@ public class AptVO {
 	private String aptStr;
 	private String areaStr;
 
-	
-	public String getSearchKey() {
-		return searchKey;
-	}
-	public void setSearchKey(String searchKey) {
-		this.searchKey = searchKey;
-	}
-	public String getSearchStr() {
-		return searchStr;
-	}
-	public void setSearchStr(String searchStr) {
-		this.searchStr = searchStr;
-	}
-	public String getAptStr() {
-		return aptStr;
-	}
-	public void setAptStr(String aptStr) {
-		this.aptStr = aptStr;
-	}
-	public String getAreaStr() {
-		return areaStr;
-	}
-	public void setAreaStr(String areaStr) {
-		this.areaStr = areaStr;
-	}
-	
-	
+	private int lat;
+	private int lng;
 	public long getSeq() {
 		return seq;
 	}
@@ -141,7 +116,42 @@ public class AptVO {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+	public String getSearchStr() {
+		return searchStr;
+	}
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
+	}
+	public String getAptStr() {
+		return aptStr;
+	}
+	public void setAptStr(String aptStr) {
+		this.aptStr = aptStr;
+	}
+	public String getAreaStr() {
+		return areaStr;
+	}
+	public void setAreaStr(String areaStr) {
+		this.areaStr = areaStr;
+	}
+	public int getLat() {
+		return lat;
+	}
+	public void setLat(int lat) {
+		this.lat = lat;
+	}
+	public int getLng() {
+		return lng;
+	}
+	public void setLng(int lng) {
+		this.lng = lng;
+	}
 	
 	
 	@Override
@@ -150,8 +160,9 @@ public class AptVO {
 				+ ", apt=" + apt + ", gubun=" + gubun + ", area=" + area + ", conym=" + conym + ", price=" + price
 				+ ", deposit=" + deposit + ", mrent=" + mrent + ", floor=" + floor + ", archyear=" + archyear
 				+ ", street=" + street + ", searchKey=" + searchKey + ", searchStr=" + searchStr + ", aptStr=" + aptStr
-				+ ", areaStr=" + areaStr + "]";
+				+ ", areaStr=" + areaStr + ", lat=" + lat + ", lng=" + lng + "]";
 	}
+
 	
 
 	

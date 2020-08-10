@@ -24,5 +24,8 @@ public interface AptMapper {
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
 
+	public ArrayList<AptVO> googlemap(
+			@Param("searchKey")  String searchKey
+			,@Param("searchStr")  String searchStr);
 
 }

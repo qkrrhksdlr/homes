@@ -71,35 +71,7 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <input type ="submit" id="searchBtn" value="검색">
 </form>
 
-<br>
-dfdkfd
-dfdfd
 
-
-
-<table border="1" width="900" cellpadding="0" cellspacing="0">
-
-	<tr>
-		<td><b>단지명 - 전용면적(㎡)</b></td>
-		<td><b>도로명 주소</b></td>
-		<td><b>법정동</b></td>
-	</tr>
-
-
-
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<c:forEach items="${APTLISTKKK}" var="vo">
-	<tr>
-	  	<td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-		<td>${vo.gu} ${vo.street}</td>
-		<td>${vo.dong}</td>
-	</tr>
-</c:forEach>
-
-</table>
-<br><br><br>
-
-</div>
 
 
 <div id="mapdiv" style="float:right"></div>
