@@ -114,7 +114,7 @@ dfdfd
 			navigator.geolocation.getCurrentPosition(function(pos) {
 			    var clat = pos.coords.latitude;
 			    var clng = pos.coords.longitude;
-			    alert("현재 위치는 : " + clat + ", "+ clng); 
+			    //alert("현재 위치는 : " + clat + ", "+ clng); 
 			    initMap(clat, clng);
 			});
 		 } else {
@@ -150,10 +150,8 @@ dfdfd
 			alert("동이름, 도로명주소, 또는 단지명을 검색하세요");
 			$("#searchStr").focus();
 		} else {
-			//var cityCode = $("#cityCode").val();
 			var searchKey = $("#searchKey option:selected").val();
 			var searchStr = $("#searchStr").val();
-			//alert(gu + "," + dong);
 			paintMarker('','', searchKey, searchStr); 
 		}
 	});
@@ -199,7 +197,7 @@ dfdfd
 	
 						google.maps.event.addListener(marker, 'click', (function(marker, i) {
 							return function() {
-								infowindow.setContent(kkk.apt+"<br>"+kkk.dong);			//(locations[i][0]);
+								infowindow.setContent(kkk.apt+"<br>"+kkk.street);			//(locations[i][0]);
 								infowindow.open(map, marker);
 							}
 						})(marker, i));
