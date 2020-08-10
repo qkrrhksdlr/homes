@@ -24,8 +24,6 @@
 
 	</resultMap>
 	
-
-	
 	<!-- <collection property="rlist" columnPrefix="r_" javaType="ArrayList" resultMap="replyMap" /> -->
 	
 	<select id="aptCount" resultType="Integer">
@@ -34,6 +32,21 @@
 	
 
 	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
+	select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+	from apt a, aptxy b
+	where a.dong = b.dong
+	and a.addr1 = b.addr1
+	and a.gu = #{searchKey}
+	and ((a.dong like '%' || #{searchStr} || '%')
+	or (a.street like '%' || #{searchStr} || '%')
+	or (a.apt like '%' || #{searchStr} || '%'))
+	order by apt asc, dong asc, street asc
+
+
+	</select>
+	
+	
+	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select tt.*
 		from (
 			select rownum as rn, t.*
@@ -48,20 +61,16 @@
 					or (a.apt like '%' || #{searchStr} || '%')) 
 				order by apt asc, dong asc, street asc
 				) t
-			) tt
-<!-- 	where rn between #{startSeq} and #{endSeq} -->
-	</select>
+			) tt	
 	
-	
-	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, gu, dong, lat, lng
+<!--		select apt, gu, dong,, lat, lng
 		from aptxy
 		where gu = #{searchKey}
 		and ((dong like '%' || #{searchStr} || '%'))
-<!--  		or (a.street like '%' || #{searchStr} || '%')
+  		or (a.street like '%' || #{searchStr} || '%')
 		or (a.apt like '%' || #{searchStr} || '%')) 
- -->		order by apt asc, dong asc
-
+		order by apt asc, dong asc
+ -->
 <!-- 		where rn between #{startSeq} and #{endSeq} -->
 	</select>
 	
@@ -78,7 +87,8 @@
 	</select>
 	
 	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, conym, avg(price)
+
+		select apt, price, conym
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
@@ -90,7 +100,8 @@
 	</select>
 	
 	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, conym, deposit
+
+		select apt, deposit, conym
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}

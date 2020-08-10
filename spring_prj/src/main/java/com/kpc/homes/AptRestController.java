@@ -16,6 +16,7 @@ import com.kpc.homes.AptVO;
 
 @RestController   //rest 
 public class AptRestController {
+
    @Autowired
    AptServiceImpl svc;   
    
@@ -64,3 +65,4 @@ public class AptRestController {
       
    
 }
+

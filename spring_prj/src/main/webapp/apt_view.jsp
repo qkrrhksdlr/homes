@@ -24,53 +24,28 @@
 </head>
 <body>
 
+<<<<<<< HEAD
+<table width="100%" border=1>
+	<tr>
+		<td id="mchart"></td>
+		<td id="zwchart"></td>
+	</tr>
+</table>
+=======
 
-<script>
-$(document).ready(function(){
-	//text형태로 보내고 json으로 받는 케이스 -> 가장 일반적
-	$("#btn_id_text").click(function(){ 
-		$.ajax({
-			  url : "/aptview.do",
-			  method : "GET",  //"POST", "GET",  v1.9.0.이전에는 type
-			  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',	//요청한글처리, 기본은 그냥 String 
-			  data : "aptStr="+aptStr+"&areaStr="+areaStr,	//k1=v1 & k2=v2
-			  dataType : "json", 			//서버로부터 오는 응답 xml, json, script, html (아무것도 지정하지 않으면 text나 list가 온다)
-			  success : function(resultObject) {	//화면리로딩없이 결과띄워라 (resultkkk=콜백결과)
-				  console.log(resultObject);
-
-			  	  var str = "";
-			  	  
-			  	  $.map(resultObject, function(kkk,i) { 
-			  			console.log(kkk.apt);
-			  			str += kkk.apt + "<br>";
-			  	  });
-			  	  
-			  	  
-//			  	  $("#resdiv").html(resultObject[0]["pharmName"]);
-			  	  $("#resdiv").html(str);
-
-			  }
-		});
-	}); 
-	
-	
-});	
-</script>
-
-
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <table border="1" width="1000" cellpadding="0" cellspacing="0">
 	<tr>
-		<td><b>단지명</td>
-		<td><b>전용면적(㎡)</td>
-		<td>도로명 주소</td>
-		<td>법정동</td>
-		<td>계약년월</td>
-		<td>계약금액</td>
-		<td>준공년도</td>
+		<td><b>단지명</b></td>
+		<td><b>전용면적(㎡)</b></td>
+		<td><b>도로명 주소</b></td>
+		<td><b>법정동</b></td>
+		<td><b>계약년월</b></td>
+		<td><b>계약금액</b></td>
+		<td><b>준공년도</b></td>
 	</tr>
 
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <c:forEach items="${APTVIEWKKK}" var="voo">
 	<tr>
 	  	<td>${voo.apt}</td>
@@ -82,17 +57,7 @@ $(document).ready(function(){
 		<td>${voo.archyear}</td>
 	</tr>	
 </c:forEach>
-
-</table>
-<br>
-
-<table width="100%" border=1>
-	<tr>
-		<td id="chart1"></td>
-		<td id="chart2"></td>
-	</tr>
-</table>
-
+</table><br>
 </body>
 
 <script>
@@ -104,6 +69,7 @@ $.ajax({
 	  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
 	  data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
 	  dataType : "json",  
+<<<<<<< HEAD
 	  success : function(jsonObjList){ 
 			console.log(jsonObjList);
 		  	
@@ -114,15 +80,29 @@ $.ajax({
 		  		voArr.push(vv.conym);
 		  		voArr.push(vv.price);
 		  		listArr.push(voArr);
+=======
+	  success : function(jsonObjList){
+		  var aptConym = [];	
+		  var aptPrice = []; 
+		  
+		  $.map(jsonObjList, function(vv, i){
+		  		aptConym.push(vv.conym);
+		  		aptPrice.push(vv.price);
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		  	})
-		  	console.log(listArr);
-		  	printLinearChart(listArr);
+		 
+		  printMLinearChart(aptConym, aptPrice);
 	  }
 });		
 
+<<<<<<< HEAD
 function printLinearChart(listArr) {
 
+=======
+function printMLinearChart(aptConym, aptPrice) {	
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	var chart = c3.generate({
+<<<<<<< HEAD
 	    data: {
 	        x: 'x',
 //	        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
@@ -143,6 +123,20 @@ function printLinearChart(listArr) {
 
 
 	
+=======
+		bindto: "#mchart",
+	    data: {	
+	    	json:{
+		    	x: aptConym,
+		    	매매: aptPrice
+	    	},
+			x:'x',
+    		type : 'line'
+	    	},
+    	grid: { x: {show: false}, y: { show: true}},
+	    size: {height: 200, width: 280}
+	});
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 }
 
 /* 전월세 차트 */
@@ -153,6 +147,7 @@ $.ajax({
 	  data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
 	  dataType : "json",  
 	  success : function(jsonObjList){ 
+<<<<<<< HEAD
 			console.log(jsonObjList);
 		  	
 		  	var listArr = []; 
@@ -162,14 +157,27 @@ $.ajax({
 		  		voArr.push(vv.conym);
 		  		voArr.push(vv.deposit);
 		  		listArr.push(voArr);
+=======
+		  var aptConym = [];	
+		  var aptDeposit = []; 
+		  
+		  $.map(jsonObjList, function(vv, i){
+		  		aptConym.push(vv.conym);
+		  		aptDeposit.push(vv.deposit);
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		  	})
-		  	console.log(listArr);
-		  	printLinearChart(listArr);
+
+		  printZWLinearChart(aptConym, aptDeposit);
 	  }
 });		
 
+<<<<<<< HEAD
 /* function printLinearChart(listArr) {
+=======
+function printZWLinearChart(aptConym, aptDeposit) {
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	var chart = c3.generate({
+<<<<<<< HEAD
 		bindto: "#chart2",
 	    data: {
 	        columns: listArr,
@@ -184,6 +192,20 @@ $.ajax({
 	    size: {height: 240, width: 300}
 	}); 
 } */
+=======
+		bindto: "#zwchart",
+	    data: {	
+	    	json:{
+		    	x: aptConym,
+		    	전세: aptDeposit
+	    	},
+			x:'x',
+    		type : 'line'
+	    	},
+    	grid: { x: {show: false}, y: { show: true}},
+	    size: {height: 200, width: 280}
+	});
+}
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </script>
-
 </html>
