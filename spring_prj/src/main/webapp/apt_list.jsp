@@ -77,6 +77,7 @@ pageEncoding="UTF-8"
 		<td>${vo.gu} ${vo.street}</td>
 		<td>${vo.dong}</td>
 	</tr>
+
 </c:forEach>
 
 </table>

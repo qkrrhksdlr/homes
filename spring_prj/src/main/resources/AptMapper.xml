@@ -48,5 +48,20 @@
 		and area = #{areaStr}
 	</select>
 	
+	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select apt, price
+		from apt 
+		where apt = #{aptStr}
+		and area = #{areaStr}
+		and gubun = '매매'
+	</select>
+	
+	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select apt, deposit
+		from apt 
+		where apt = #{aptStr}
+		and area = #{areaStr}
+		and gubun in ('전세', '월세')
+	</select>
 
 </mapper>
