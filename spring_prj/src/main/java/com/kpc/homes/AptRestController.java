@@ -16,43 +16,10 @@ import com.kpc.homes.AptVO;
 
 @RestController   //rest 
 public class AptRestController {
-<<<<<<< HEAD
+
 	@Autowired
 	AptServiceImpl svc;	
-	
-	//매매 차트
-	@RequestMapping(value = "/aptmchart.do", method = RequestMethod.GET)
-	public ArrayList<AptVO> aptmchart(Model model
-			,@RequestParam(value="aptStr", required=false) String aptStr
-			,@RequestParam(value="areaStr", required=false) String areaStr
-			,HttpServletRequest request, HttpServletResponse response) {
-		
-		System.out.println("매매차트");
-		ArrayList<AptVO> list = svc.svcMAptChart(aptStr, areaStr);
-		System.out.println(list);
-		
-		return list;
-		}
-	
-	//전월세 차트
-	@RequestMapping(value = "/aptzwchart.do", method = RequestMethod.GET)
-	public ArrayList<AptVO> aptzwchart(Model model
-			,@RequestParam(value="aptStr", required=false) String aptStr
-			,@RequestParam(value="areaStr", required=false) String areaStr
-			,HttpServletRequest request, HttpServletResponse response) {
-		
-		System.out.println("전월세차트");
-		ArrayList<AptVO> list = svc.svcZWAptChart(aptStr, areaStr);
-		System.out.println(list);
-		
-		return list;
-		}
-		
-}
-=======
-   @Autowired
-   AptServiceImpl svc;   
-   
+
     //구글맵 파라미터
 	@RequestMapping(value = "/googlemap.do", method = RequestMethod.GET)
 	public ArrayList<AptVO> aptmap(Model model
@@ -66,7 +33,6 @@ public class AptRestController {
       System.out.println("구글맵데이터:"+list);               
       return list;      
    }   
-
 
    //매매 차트
    @RequestMapping(value = "/aptmchart.do", method = RequestMethod.GET)
@@ -96,6 +62,5 @@ public class AptRestController {
       return list;
       }
       
-   
 }
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
+
