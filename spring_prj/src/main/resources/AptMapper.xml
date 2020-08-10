@@ -19,6 +19,8 @@
 		<result property="floor" column="floor"/>
 		<result property="archyear" column="archyear"/>
 		<result property="street" column="street"/>
+		<result property="lat" column="lat"/>
+		<result property="lng" column="lng"/>		
 	</resultMap>
 	
 

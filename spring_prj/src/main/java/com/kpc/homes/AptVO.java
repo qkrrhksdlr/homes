@@ -23,34 +23,8 @@ public class AptVO {
 	private String searchStr;
 	private String aptStr;
 	private String areaStr;
-
-	
-	public String getSearchKey() {
-		return searchKey;
-	}
-	public void setSearchKey(String searchKey) {
-		this.searchKey = searchKey;
-	}
-	public String getSearchStr() {
-		return searchStr;
-	}
-	public void setSearchStr(String searchStr) {
-		this.searchStr = searchStr;
-	}
-	public String getAptStr() {
-		return aptStr;
-	}
-	public void setAptStr(String aptStr) {
-		this.aptStr = aptStr;
-	}
-	public String getAreaStr() {
-		return areaStr;
-	}
-	public void setAreaStr(String areaStr) {
-		this.areaStr = areaStr;
-	}
-	
-	
+	private String lat;		
+	private String lng;
 	public long getSeq() {
 		return seq;
 	}
@@ -141,17 +115,51 @@ public class AptVO {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
-	
-	
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+	public String getSearchStr() {
+		return searchStr;
+	}
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
+	}
+	public String getAptStr() {
+		return aptStr;
+	}
+	public void setAptStr(String aptStr) {
+		this.aptStr = aptStr;
+	}
+	public String getAreaStr() {
+		return areaStr;
+	}
+	public void setAreaStr(String areaStr) {
+		this.areaStr = areaStr;
+	}
+	public String getLat() {
+		return lat;
+	}
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+	public String getLng() {
+		return lng;
+	}
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
 	@Override
 	public String toString() {
 		return "AptVO [seq=" + seq + ", gu=" + gu + ", dong=" + dong + ", addr1=" + addr1 + ", addr2=" + addr2
 				+ ", apt=" + apt + ", gubun=" + gubun + ", area=" + area + ", conym=" + conym + ", price=" + price
 				+ ", deposit=" + deposit + ", mrent=" + mrent + ", floor=" + floor + ", archyear=" + archyear
 				+ ", street=" + street + ", searchKey=" + searchKey + ", searchStr=" + searchStr + ", aptStr=" + aptStr
-				+ ", areaStr=" + areaStr + "]";
-	}
+				+ ", areaStr=" + areaStr + ", lat=" + lat + ", lng=" + lng + "]";
+	}			
+
 	
 
 	
