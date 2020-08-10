@@ -111,6 +111,7 @@ $.ajax({
 		  	$.map(jsonObjList, function(vv, i){
 		  		var voArr = []; 
 		  		voArr.push(vv.apt);
+		  		voArr.push(vv.conym);
 		  		voArr.push(vv.price);
 		  		listArr.push(voArr);
 		  	})
@@ -120,20 +121,28 @@ $.ajax({
 });		
 
 function printLinearChart(listArr) {
+
 	var chart = c3.generate({
-		bindto: "#chart1",
 	    data: {
+	        x: 'x',
+//	        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
 	        columns: listArr,
-		    type: 'bar',
+	        
 	    },
-	    bar: {
-	        width: {
-	            ratio: 0.5  
+	    axis: {
+	        x: {
+	            type: 'timeseries',
+	            tick: {
+	                format: '%Y-%m-%d'
+	            }
 	        }
-	    },
-	    grid: { x: {show: false}, y: { show: true}},
-	    size: {height: 240, width: 300}
-	}); 
+	    }
+	});
+
+
+
+
+	
 }
 
 /* 전월세 차트 */
@@ -150,6 +159,7 @@ $.ajax({
 		  	$.map(jsonObjList, function(vv, i){
 		  		var voArr = []; 
 		  		voArr.push(vv.apt);
+		  		voArr.push(vv.conym);
 		  		voArr.push(vv.deposit);
 		  		listArr.push(voArr);
 		  	})
@@ -158,7 +168,7 @@ $.ajax({
 	  }
 });		
 
-function printLinearChart(listArr) {
+/* function printLinearChart(listArr) {
 	var chart = c3.generate({
 		bindto: "#chart2",
 	    data: {
@@ -173,7 +183,7 @@ function printLinearChart(listArr) {
 	    grid: { x: {show: false}, y: { show: true}},
 	    size: {height: 240, width: 300}
 	}); 
-}
+} */
 </script>
 
 </html>

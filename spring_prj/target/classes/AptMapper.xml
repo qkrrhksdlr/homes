@@ -78,19 +78,23 @@
 	</select>
 	
 	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, price
+		select apt, conym, avg(price)
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
 		and gubun = '매매'
+		group by apt, area, gubun, conym
+		order by conym;
+		
+		
 	</select>
 	
 	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, deposit
+		select apt, conym, deposit
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
-		and gubun in ('전세', '월세')
+		and gubun = '전세'
 	</select>
 
 
