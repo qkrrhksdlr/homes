@@ -53,7 +53,7 @@
 	
 	
 	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, lat, lng
+		select distinct apt, lat, lng
 		from aptxy
 		where gu = #{searchKey}
 		and ((dong like '%' || #{searchStr} || '%'))

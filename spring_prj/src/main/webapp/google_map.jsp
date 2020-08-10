@@ -141,7 +141,7 @@ dfdfd
 		//자신의 접속지 반경으로 마커 그리기
 		paintMarker(clat, clng,'','');
 	}
-/* 
+
 	//-------------------------------------------
 	// 동검색
 	//-------------------------------------------
@@ -153,11 +153,17 @@ dfdfd
 			//var cityCode = $("#cityCode").val();
 			var searchKey = $("#searchKey option:selected").val();
 			var searchStr = $("#searchStr").val();
-//			alert(gu + "," + dong);
+			//alert(gu + "," + dong);
 			paintMarker('','', searchKey, searchStr); 
 		}
 	});
-*/
+
+	
+	${param.clat}
+	${param.clng}
+	${param.searchKey}
+	${param.searchStr}
+	
 	//-------------------------------------------
 	// 자신의 접속지 or 동검색 : DB의 위경도 가져와 마커그리기
 	//-------------------------------------------
@@ -167,30 +173,18 @@ dfdfd
 			  url : "/googlemap.do",
 			  method : "GET",  //"POST", "GET",  v1.9.0.이전 type countyName
 			  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-			  data : "clat="+clat+"&clng="+clng+"&searchKey="+searchKey+"&searchStr="+searchStr,  //***********
+			  data : "clat=${param.clat}&clng=${param.clng}&searchKey=${param.searchKey}&searchStr=${param.searchStr}",  //***********
 			  dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
 			  success : function(resultList){ 
-				  console.log(resultList); //
-				  
-/* 				  --------------마커출력 -------------
-				  var locations = [
-				      ['Bondi Beach', -33.890542, 151.274856, 4],
-				      ['Coogee Beach', -33.923036, 151.259052, 5],
-				      ['Cronulla Beach', -34.028249, 151.157507, 3],
-				      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-				      ['Maroubra Beach', -33.950198, 151.259302, 1]
-				    ]; */
-	
-				  
-				//  개포동	655	개포2차현대아파트(220)  	37.48078789	127.0519053
+				  console.log("ajax데이터: "+resultList); //
 				  
 				  
 				  
-/* 				  //Map Center 변경
+ 				  //Map Center 변경
 				  if (resultList.length>0) {
 					  resetCenter = new google.maps.LatLng(resultList[0]["lat"], resultList[0]["lng"]);
 					  map.setCenter(resetCenter);					  
-				  }				 */  				  				  
+				  }				 			  				  
 				  
 				  	var infowindow = new google.maps.InfoWindow();
 				  	infowindow.open(map);
@@ -209,7 +203,7 @@ dfdfd
 	
 						google.maps.event.addListener(marker, 'click', (function(marker, i) {
 							return function() {
-								infowindow.setContent(kkk.apt+"<br>");			//(locations[i][0]);
+								infowindow.setContent(kkk.apt+"<br>"+kkk.dong);			//(locations[i][0]);
 								infowindow.open(map, marker);
 							}
 						})(marker, i));

@@ -29,14 +29,14 @@ public class AptServiceImpl implements AptService {
 
 	@Override
 	public ArrayList<AptVO> svcGooglemap(String searchKey, String searchStr) {
-		System.out.println("구글맵성공!");
+		System.out.println("구글맵서비스.....");
 		ArrayList<AptVO> list = dao.googlemap(searchKey, searchStr);
 		return list;
 	}
 	
 	@Override
 	public ArrayList<AptVO> svcAptview(String aptStr, String areaStr) {
-		System.out.println("Service 실행.....");
+		System.out.println("VIEW서비스.....");
 		ArrayList<AptVO> list = dao.aptview(aptStr, areaStr);
 		return list;
 	}
@@ -44,7 +44,7 @@ public class AptServiceImpl implements AptService {
 	//매매
 	@Override
 	public ArrayList<AptVO> svcMAptChart(String aptStr, String areaStr) {
-		System.out.println("매매차트성공!");
+		System.out.println("매매차트서비스.....");
 		ArrayList<AptVO> list = dao.aptmchart(aptStr, areaStr);
 		return list;
 	}
@@ -52,7 +52,7 @@ public class AptServiceImpl implements AptService {
 	//전월세
 	@Override
 	public ArrayList<AptVO> svcZWAptChart(String aptStr, String areaStr) {
-		System.out.println("전월세차트성공!");
+		System.out.println("전월세차트서비스.....");
 		ArrayList<AptVO> list = dao.aptzwchart(aptStr, areaStr);
 		return list;
 	}

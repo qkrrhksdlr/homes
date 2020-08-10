@@ -33,7 +33,7 @@ $(document).ready(function(){
 			  url : "/aptview.do",
 			  method : "GET",  //"POST", "GET",  v1.9.0.이전에는 type
 			  contentType : 'application/x-www-form-urlencoded; charset=UTF-8',	//요청한글처리, 기본은 그냥 String 
-			  data : "aptStr="+aptStr+"&endSeq="+areaStr,	//k1=v1 & k2=v2
+			  data : "aptStr="+aptStr+"&areaStr="+areaStr,	//k1=v1 & k2=v2
 			  dataType : "json", 			//서버로부터 오는 응답 xml, json, script, html (아무것도 지정하지 않으면 text나 list가 온다)
 			  success : function(resultObject) {	//화면리로딩없이 결과띄워라 (resultkkk=콜백결과)
 				  console.log(resultObject);

@@ -22,20 +22,14 @@ public class AptRestController {
     //구글맵 파라미터
 	@RequestMapping(value = "/googlemap.do", method = RequestMethod.GET)
 	public ArrayList<AptVO> aptmap(Model model
+			,@RequestParam(value="clat", required=false) String clat
+			,@RequestParam(value="clng", required=false) String clng
+			,@RequestParam(value="searchKey", required=false) String searchKey
+			,@RequestParam(value="searchStr", required=false) String searchStr
 			,HttpServletRequest request, HttpServletResponse response) {
 
-		System.out.println("ajax요청");
-		//기본값 설정
-		Gson gson = new Gson();
-		
-    	String lat = request.getParameter("clat");  
-    	String lng = request.getParameter("clng");
-    	String searchKey = request.getParameter("searchKey");
-    	String searchStr = request.getParameter("searchStr");
-    			
 		ArrayList<AptVO> list = svc.svcGooglemap(searchKey, searchStr);
-		System.out.println(list);
-					
+		System.out.println("구글맵데이터:"+list);					
 		return list;
 		
 	}	
