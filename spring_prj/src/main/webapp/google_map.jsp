@@ -114,7 +114,6 @@ dfdfd
 			navigator.geolocation.getCurrentPosition(function(pos) {
 			    var clat = pos.coords.latitude;
 			    var clng = pos.coords.longitude;
-			    alert("현재 위치는 : " + clat + ", "+ clng); 
 			    initMap(clat, clng);
 			});
 		 } else {
@@ -176,6 +175,7 @@ dfdfd
 			  data : "clat=${param.clat}&clng=${param.clng}&searchKey=${param.searchKey}&searchStr=${param.searchStr}",  //***********
 			  dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
 			  success : function(resultList){ 
+<<<<<<< HEAD
 				  console.log("ajax데이터: "+resultList); //
 				  
 				  
@@ -190,7 +190,20 @@ dfdfd
 				  	infowindow.open(map);
 				  	var marker, i;
 				  	
+=======
+				  console.log(resultList); //
+				  
+ 				  --------------마커출력 -------------
+ 				  var locations = [				//약국명, 위도, 경도, ___
+ 				      ['삼성현대힐스테이트1단지아파트', 37.516656, 127.048388, 4],
+ 				      ['삼성 롯데캐슬 프리미어 아파트', 37.515107, 127.044847, 5],
+ 				      ['한솔아파트', 37.517269, 127.045662, 3],
+ 				      ['청담대림E편한세상아파트', 37.520793, 127.045086, 2],
+ 				      ['청담래미안아파트', 37.517864, 127.042701, 1]
+ 				    ];
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
+<<<<<<< HEAD
 	
 					//for (i = 0; i < locations.length; i++) {
 					$.map(resultList, function(kkk, i) {
@@ -207,6 +220,25 @@ dfdfd
 								infowindow.open(map, marker);
 							}
 						})(marker, i));
+=======
+ 				  	var infowindow = new google.maps.InfoWindow();			//infowindow : 마커 클릭했을 때 뜨는 표시
+ 				  	infowindow.open(map);
+ 				  	var marker, i;
+
+ 					for (i = 0; i < locations.length; i++) {  
+ 						marker = new google.maps.Marker({
+ 							position: new google.maps.LatLng(locations[i][1], locations[i][2]),			//어디에 보여줄 것인가?
+ 							map: map,
+ 							label: locations[i][0],
+ 						});
+
+ 						google.maps.event.addListener(marker, 'click', (function(marker, i) {			//제대로 되는지 감시
+ 							return function() {
+ 								infowindow.setContent(locations[i][0]);
+ 								infowindow.open(map, marker);
+ 							}
+ 						})(marker, i));
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 					});	//} //e.o.for
 				  	//--------------마커출력 -------------  
 			  } //e.o.success()
