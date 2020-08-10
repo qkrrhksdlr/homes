@@ -21,18 +21,30 @@
 	<context:property-placeholder location="classpath:oracle.properties" />
 	<bean id="mydataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
 	-->
-	<bean id="mydataSource"
+	<bean id="dataSourceSpied"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@172.30.1.12:1521:XE" />
 		<property name="username" value="homes" />
 		<property name="password" value="0000" />
 	</bean>
-
-<!-- Mybatis-Spring 연동 -->
+	
+	<!-- mybatis log4j 로그 설정 -->
+	<bean id="mydataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="dataSourceSpied" />
+		<property name="logFormatter">
+			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<property name="loggingType" value="MULTI_LINE" />
+				<property name="sqlPrefix" value="SQL : " />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- Mybatis-Spring 연동 -->
 	<bean id="mysqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="mydataSource" />
 		<property name="mapperLocations" value="classpath:*Mapper.xml"/>
+		<property name="configLocation" value="classpath:mybatis-context.xml"></property>
 	</bean>
 	<bean id="mysqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="mysqlSessionFactory" />

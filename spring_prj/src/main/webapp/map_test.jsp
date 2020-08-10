@@ -145,7 +145,7 @@ function  paintMarker(clat, clng, searchKey, searchBtn) {
 		  },
 		  error : function(request, status, error) {
 			  console.log("error");
-		  }
+		  
  			  //----------마커 출력 ------------
 			  var locations = [				//약국명, 위도, 경도, ___
 			      ['삼성현대힐스테이트1단지아파트', 37.516656, 127.048388, 4],
@@ -174,7 +174,7 @@ function  paintMarker(clat, clng, searchKey, searchBtn) {
 					})(marker, i));
 				} //e.o.for
 			  //--------------마커 출력 --------------
-		  } / //e.o.success()
+		  }  //e.o.success()
 	}); //e.o.$.ajax()
 } //e.o.paintMarker()	
 

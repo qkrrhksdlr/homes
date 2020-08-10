@@ -1,8 +1,12 @@
 package com.kpc.homes;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.kpc.homes.AptVO;
-
 
 @Controller
 public class AptController {
@@ -25,8 +29,7 @@ public class AptController {
 	@Autowired
 	AptServiceImpl svc;
 	
-
-	
+	//목록보기
 	@RequestMapping(value = "/aptlist.do", method = RequestMethod.GET)
 	public String aptlist(Model model
 			,@RequestParam(value="searchKey", required=false) String searchKey
@@ -38,22 +41,18 @@ public class AptController {
 		return "apt_list";
 	}
 	
-	
-	
+	//상세보기
 	@RequestMapping(value = "/aptview.do", method = RequestMethod.GET)
 	public String aptview(Model model
 			,@RequestParam(value="aptStr", required=false) String aptStr
 			,@RequestParam(value="areaStr", required=false) String areaStr) {
-
-		ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);
-		
+		ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);	
 		model.addAttribute("APTVIEWKKK", list);
 		return "apt_view";
 			
 	} 
 	
-	
-	
+	//카운트
 	@RequestMapping(value = "/aptcount.do", method = RequestMethod.GET)
 	public String aptcount(Model model) {
 
@@ -64,4 +63,5 @@ public class AptController {
 			
 	}
 	
+		
 }

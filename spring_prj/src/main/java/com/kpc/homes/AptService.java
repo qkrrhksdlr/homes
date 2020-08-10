@@ -16,7 +16,11 @@ public interface AptService {
 
 	//글상세보기	
 	public  ArrayList<AptVO> svcAptview(String aptStr, String areaStr);
-
 	
+	//매매 차트
+	public ArrayList<AptVO> svcMAptChart(String aptStr, String areaStr);
+	
+	//전월세 차트
+	public ArrayList<AptVO> svcZWAptChart(String aptStr, String areaStr);
 	
 }
