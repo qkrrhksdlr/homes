@@ -65,7 +65,11 @@ public class AptController {
 		ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);	
 		model.addAttribute("APTVIEWKKK", list);
 		//return "apt_view";
-		return "apt_view2";
+	
+		InfoCraw info = new InfoCraw();
+		ArrayList<InfoVO> list1 = info.getInfo(aptStr);
+		model.addAttribute("AptInfoKKK", list1);
+		return "apt_view";
 	} 
 	
 	//카운트
@@ -78,6 +82,7 @@ public class AptController {
 		return "apt_count";
 	}
 	
+	//오늘의 부동산 시장 동향 뉴스
 	@RequestMapping(value = "/news.do", method = RequestMethod.GET)
 	public String news(Model model) {
 
