@@ -32,9 +32,7 @@ import java.util.ArrayList;
 //* doc.select("[width=500]") : width 속성의 값이 500인 모든 요소들을 선택합니다.
 
 
-public class ForSaleCraw {
-	
-	
+public class NewsCraw {
 	//----------- SSL 통신 인증서 관련 코드 -------------
 	public void makeCert() {
 		try {
@@ -57,68 +55,56 @@ public class ForSaleCraw {
 		} 
 	}	
 	
-	
-	
 	public static void main(String[] args) {
-		ForSaleCraw forsale = new ForSaleCraw();
-		ArrayList<ForSaleVO> list = forsale.getData();
+		NewsCraw news = new NewsCraw();
+		ArrayList<NewsVO> list = news.getNews();
 
 //		System.out.println(list.get(0).getTitle());
-		for(ForSaleVO vo : list) {
+		for(NewsVO vo : list) {
 			System.out.println(vo.toString());
 		}
 	}
 	
 	
-	public ArrayList<ForSaleVO> getData() {	
+	public ArrayList<NewsVO> getNews() {	
 //		Jsoup jsoup = new Jsoup();		//new Jsoup에 에러 -> Jsoup은 static
 
 //jsoup https 인증서 필요
 		makeCert();
 
-		ArrayList<ForSaleVO> list = new ArrayList<ForSaleVO>();
+		ArrayList<NewsVO> list = new ArrayList<NewsVO>();
 		
 		try {
 //Jsoup.connect(url).get();
-			Document doc = Jsoup.connect("https://new.land.naver.com/complexes/18213?ms=37.498452,127.046103,17&a=APT:ABYG:JGC&e=RETAIL").get();	
+			Document doc = Jsoup.connect("https://land.naver.com/news/field.nhn").get();	
 
 //끌어올 시작점 지정
-			Elements eles = doc.select("#articleListArea div:nth-child(1) div");
+			Elements eles = doc.select("#content .section_headline .headline_list li dl");
 
-			
 //for문으로 루프돌리면서 크롤링 (위치 : 마우스우클릭+copy selector)									
 			for(Element ele : eles) {
-				ForSaleVO vo = new ForSaleVO();
-
-/*				매물명	#articleListArea div:nth-child(1) div > a div.item_title span
-				구분		#articleListArea > div:nth-child(1) > div > a div.price_line span.type
-				가격		#articleListArea > div:nth-child(1) > div > a div.price_line span.price
-				월세		#articleListArea > div:nth-child(1) > div > a div.price_line span.price span
-				스펙		#articleListArea > div:nth-child(1) > div > a div.info_area p:nth-child(1) span
-				커멘트	#articleListArea > div:nth-child(1) > div > a div.info_area p:nth-child(2) span
-				공인중개사	#articleListArea > div:nth-child(1) > div > div.cp_area div span:nth-child(2) a
-				정보출처	#articleListArea > div:nth-child(1) > div > div.cp_area div span:nth-child(1) a
-				확인일자	#articleListArea > div:nth-child(1) > div > div.label_area span em.data
-				*/
+				NewsVO vo = new NewsVO();
 				
-				vo.setApt(ele.select("a div.item_title span").text());
-				vo.setGubun(ele.select("a div.price_line span.type").text());
-				vo.setPrice(ele.select("a div.price_line span.price").text());
-				vo.setMrent(ele.select("a div.price_line span.price span").text());
-				vo.setSpec(ele.select("a div.info_area p:nth-child(1) span").text());
-				vo.setComment(ele.select("a div.info_area p:nth-child(2) span").text());
-				vo.setAgent(ele.select("div.cp_area div span:nth-child(2) a").text());
-				vo.setSource(ele.select("div.cp_area div span:nth-child(1) a").text());
-				vo.setConfirmdate(ele.select("div.label_area span em.data").text());
+/*				#content > div.section_headline > ul > li:nth-child(1) > dl > dt.photo > a > img
+				#content > div.section_headline > ul > li:nth-child(1) > dl > dt:nth-child(2) > a
+				#content > div.section_headline > ul > li:nth-child(1) > dl > dd
+				#content > div.section_headline > ul > li:nth-child(1) > dl > dd > span.writing
+				#content > div.section_headline > ul > li:nth-child(1) > dl > dd > span.date*/
+				
+				vo.setImg(ele.select("dt.photo a img").attr("src"));
+				vo.setUrl("https://land.naver.com" + ele.select("dt a").attr("href"));
+				vo.setTitle(ele.select("dt a").text());
+				vo.setContents(ele.select("dd").text());
+				vo.setWriting(ele.select("dd span.writing").text());
+				vo.setDate(ele.select("dd span.date").text());
 				
 				list.add(vo);
-			}					
+			}						
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		} 
 		return list;
-		
 	}
 }
 
