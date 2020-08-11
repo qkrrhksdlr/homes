@@ -9,6 +9,7 @@ import com.kpc.homes.AptVO;
 @Service
 public interface AptService {
 	
+	//카운트
 	public String svcAptCount();
 	
 	//글목록	
@@ -26,4 +27,6 @@ public interface AptService {
 	//전월세 차트
 	public ArrayList<AptVO> svcZWAptChart(String aptStr, String areaStr);
 	
+	//가격지수 차트
+	public ArrayList<AptVO> svcAptIndex();
 }
