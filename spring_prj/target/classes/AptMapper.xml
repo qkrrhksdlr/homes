@@ -98,8 +98,13 @@
 	
 	<!-- 전세/매매 가격지수 -->
 	<select id="aptindex" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select year, deal_index, rent_index
+		select *
 		from aptprice_index 
 	</select>
-
+	
+	<!-- 자치구별 아파트비율 -->
+	<select id="aptratio" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select gu, apt_cnt
+		from apt_gucnt_2018
+	</select>
 </mapper>

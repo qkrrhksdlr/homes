@@ -67,6 +67,14 @@ public class AptServiceImpl implements AptService {
 		ArrayList<AptVO> list = dao.aptindex();
 		return list;
 	}
+
+	//아파트비율
+	@Override
+	public ArrayList<AptVO> svcAptRatio() {
+		System.out.println("아파트비율서비스.....");
+		ArrayList<AptVO> list = dao.aptratio();
+		return list;
+	}
 	
 	
 	

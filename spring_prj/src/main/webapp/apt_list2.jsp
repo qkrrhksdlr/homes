@@ -1,26 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+   
+<!-- 
+AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
+ -->
 <!DOCTYPE html>
-
-    <head>
-    	<!--  
-        <meta charset="utf-8" />
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Team Island - Project Homes</title>
+<h1>아파트 정보 상세보기 (apt_view.jsp)<hr></h1>
+<meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        -->
-        <!--  <title>Dashboard - SB Admin</title> 
+        
+        
         <link href="admin/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        -->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   
-   	<style type="text/css">
+
+<style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #mapdiv {
@@ -35,17 +42,42 @@
         margin: 0;
         padding: 0;
       }
-	</style>
-    </head>
-    <body>
-        <!--
+</style>
+</head>
+
+<body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">HOMES</a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <!--  
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            -->
+        </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-               
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    
                     <div class="sb-sidenav-menu">
-                       <div class="nav">
+                        <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -104,63 +136,22 @@
                                 Tables
                             </a>
                         </div>
-                        
                     </div>
-                    -->
-                    <!--  
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         Start Bootstrap
                     </div>
-                    
                 </nav>
-                
-                
-                
             </div>
-            
-            -->
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">직보다집</h1>
+                        <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">찾고싶은 지역구를 선택한 후 검색어를 입력하세요. (검색어: 도로명주소 or 동 or 아파트명)</li>											
+                            <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
-                        
-<form name="searchform" method="get" action="/aptlist.do">
-<select name="searchKey" id="searchKey">
-   <option value ="강남구">강남구</option>
-   <option value ="강동구">강동구</option>
-   <option value ="강북구">강북구</option>
-   <option value ="강서구">강서구</option>
-   <option value ="관악구">관악구</option>
-   <option value ="광진구">광진구</option>
-   <option value ="구로구">구로구</option>
-   <option value ="금천구">금천구</option>
-   <option value ="노원구">노원구</option>
-   <option value ="도봉구">도봉구</option>
-   <option value ="동대문구">동대문구</option>
-   <option value ="동작구">동작구</option>
-   <option value ="마포구">마포구</option>
-   <option value ="서대문구">서대문구</option>
-   <option value ="서초구">서초구</option>
-   <option value ="성동구">성동구</option>
-   <option value ="성북구">성북구</option>
-   <option value ="송파구">송파구</option>
-   <option value ="양천구">양천구</option>
-   <option value ="영등포구">영등포구</option>
-   <option value ="용산구">용산구</option>
-   <option value ="은평구">은평구</option>
-   <option value ="종로구">종로구</option>
-   <option value ="중구">중구</option>
-   <option value ="중랑구">중랑구</option>
-</select>
-<input type ="text" name="searchStr" id="searchStr">
-<input type ="submit" id="searchBtn" value="검색">
-</form>
-                        <!--  
                         <div class="row">
+                            <!--  
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Primary Card</div>
@@ -197,8 +188,9 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
-                        -->
+                        
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -215,44 +207,86 @@
                                         <i class="fas fa-chart-bar mr-1"></i>
                                         Bar Chart Example
                                     </div>
+                                     
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                     
-                                    <div class="card-body">
-                                    
-                                    <!--
-                                    <canvas id="myBarChart" width="100%" height="40">
-                                   
-                                    </canvas>
-                                    -->
-                                    <div id="mapdiv" style="float:right"></div>
-                                    
-                                    
-                                    
-                                    </div>
                                     
                                 </div>
                             </div>
                         </div>
                         
-                    </div>
-                    
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                DataTable Example
                             </div>
+                        
                         </div>
+                         
                     </div>
-                </footer>
+                       <div id="mapdiv" style="float:right"></div>  
+                                  
+<div id="infodiv"  style="float:left">
+찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+(검색어: 도로명주소 or 동 or 아파트명)
+
+<form name="searchform" method="get" action="/aptlist.do">
+<select name="searchKey" id="searchKey">
+   <option value ="강남구">강남구</option>
+   <option value ="강동구">강동구</option>
+   <option value ="강북구">강북구</option>
+   <option value ="강서구">강서구</option>
+   <option value ="관악구">관악구</option>
+   <option value ="광진구">광진구</option>
+   <option value ="구로구">구로구</option>
+   <option value ="금천구">금천구</option>
+   <option value ="노원구">노원구</option>
+   <option value ="도봉구">도봉구</option>
+   <option value ="동대문구">동대문구</option>
+   <option value ="동작구">동작구</option>
+   <option value ="마포구">마포구</option>
+   <option value ="서대문구">서대문구</option>
+   <option value ="서초구">서초구</option>
+   <option value ="성동구">성동구</option>
+   <option value ="성북구">성북구</option>
+   <option value ="송파구">송파구</option>
+   <option value ="양천구">양천구</option>
+   <option value ="영등포구">영등포구</option>
+   <option value ="용산구">용산구</option>
+   <option value ="은평구">은평구</option>
+   <option value ="종로구">종로구</option>
+   <option value ="중구">중구</option>
+   <option value ="중랑구">중랑구</option>
+</select>
+<input type ="text" name="searchStr" id="searchStr">
+<input type ="submit" id="searchBtn" value="검색">
+</form>
+<hr>
+<br>
+${param.searchKey} ${param.searchStr} 검색 결과 입니다.
+              
+                </main>
+                
+                
+                
+                
+          
+                
+                
+                
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             </div>
-        </div>
-        
-        <div id="mapdiv" style="float:right"></div>
-        <!-- 
+        </div> 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
@@ -262,12 +296,54 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
-        
-        
-        
-        
-        <div id="mapdiv" style="float:right"></div>
-         -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+    
+    
+    
+          
+ 
+
+
+
+<table border="1" width="900" cellpadding="0" cellspacing="0">
+   <tr>
+      <td><b>단지명 - 전용면적(㎡)</b></td>
+      <td><b>도로명 주소</b></td>
+      <td><b>법정동</b></td>
+   </tr>
+
+
+<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
+<c:forEach items="${APTLISTKKK}" var="vo">
+   <tr>
+        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+      <td>${vo.gu} ${vo.street}</td>
+      <td>${vo.dong}</td>
+   </tr>
+</c:forEach>
+</table>
+<br><br><br>
+
+</div>    
+    
+    
 <script>
 //-------------------------------------------
 //접속자 현재 위치
@@ -346,21 +422,20 @@
                  var infowindow = new google.maps.InfoWindow();
                  infowindow.open(map);
                  var marker, i;
-                 
 
-   
                //for (i = 0; i < locations.length; i++) {
                $.map(resultList, function(kkk, i) {
                   
                   marker = new google.maps.Marker({
-                     position: new google.maps.LatLng(kkk.lat, kkk.lng),    //(locations[i][1], locations[i][2]),
+                     position: new google.maps.LatLng(kkk.lat, kkk.lng),
                      map: map,
-                     //label: kkk.apt,   //locations[i][0],
+                     //label: kkk.apt, 
                   });
-   
+                  
+    
                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                      return function() {
-                        infowindow.setContent("<b>"+kkk.apt+"</b><br>"+kkk.gu+" "+kkk.street);         //(locations[i][0]);
+                        infowindow.setContent("<a href=/aptview.do?aptStr="+kkk.apt+"&areaStr="+kkk.area+"><b>"+kkk.apt+"</b></a><br>"+kkk.gu+" "+kkk.street);
                         infowindow.open(map, marker);
                      }
                   })(marker, i));
@@ -371,5 +446,18 @@
    } //e.o.paintMarker()
 
 </script> 
+    <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
     </body>
+
 </html>

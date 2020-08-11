@@ -22,11 +22,11 @@
 </head>
 
 <script>
+/* 서울시 아파트 가격지수 차트 */
 $.ajax({
     url : "/aptindexchart.do",
     method : "GET",  
     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    //data : ,
     dataType : "json",  
     success : function(jsonObjList){
        var year = [];   
@@ -55,18 +55,53 @@ function printIndexLinearChart(year, deal, rent) {
 	          	type : 'line'
 	         },
 	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 500, width: 800}
+	       size: {height: 600, width: 800}
+	   });
+}
+
+/* 서울시 자치구별 아파트 비율 차트 */
+$.ajax({
+    url : "aptratiochart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+    	   dataJson[vv.gu] = (vv.apt_cnt);
+    	   keyArray.push(vv.gu);  	     
+          })  
+          printRatioLinearChart(dataJson, keyArray);
+    }
+});
+
+function printRatioLinearChart(dataJson, keyArray) { 
+	var chart = c3.generate({
+	      bindto: "#ratiochart",
+	       data: {   
+	    	   	json: [dataJson],
+	         	keys: {value: keyArray},
+	          	type : 'donut'
+	         },
+	         donut: {
+	        	 title: "서울시 자치구별 아파트 비율"
+	         },
+	         legend : {position : 'right'},
+	       grid: { x: {show: false}, y: { show: true}},
+	       size: {height: 600, width: 800}
 	   });
 }
 </script>
 
 <body> 
-<h1 align='left'>서울시 가격지수</h1>
-<table width="60%" border=1>
-   <tr>
-      <td id="indexchart"></td>
-   </tr>
-</table>
+서울시 아파트 가격지수 (2017년 11월 기준 : 100)
+<div id="indexchart"></div><hr>
+
+서울시 자치구별 아파트 비율 (총 1,679,639채)
+<div id="ratiochart"></div>
+
 </body>
 
 </html>

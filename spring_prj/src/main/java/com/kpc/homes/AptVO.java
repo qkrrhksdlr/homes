@@ -31,6 +31,29 @@ public class AptVO {
 	private double deal_index;
 	private double rent_index;
 	
+	private int total_cnt;
+	private int apt_cnt;
+	
+	public int getTotal_cnt() {
+		return total_cnt;
+	}
+
+	
+	public void setTotal_cnt(int total_cnt) {
+		this.total_cnt = total_cnt;
+	}
+
+
+	public int getApt_cnt() {
+		return apt_cnt;
+	}
+
+
+	public void setApt_cnt(int apt_cnt) {
+		this.apt_cnt = apt_cnt;
+	}
+
+
 	public int getYear() {
 		return year;
 	}
@@ -278,7 +301,8 @@ public class AptVO {
 				+ ", deposit=" + deposit + ", mrent=" + mrent + ", floor=" + floor + ", archyear=" + archyear
 				+ ", street=" + street + ", searchKey=" + searchKey + ", searchStr=" + searchStr + ", aptStr=" + aptStr
 				+ ", areaStr=" + areaStr + ", lat=" + lat + ", lng=" + lng + ", year=" + year + ", deal_index="
-				+ deal_index + ", rent_index=" + rent_index + "]";
+				+ deal_index + ", rent_index=" + rent_index + ", total_cnt=" + total_cnt + ", apt_cnt=" + apt_cnt + "]";
 	}
+	
 	
 }
