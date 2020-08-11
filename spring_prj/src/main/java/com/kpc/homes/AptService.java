@@ -25,5 +25,6 @@ public interface AptService {
 	
 	//전월세 차트
 	public ArrayList<AptVO> svcZWAptChart(String aptStr, String areaStr);
+
 	
 }
