@@ -529,7 +529,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 								  
 								  
 							</div>-->
-						    
+						     
 						</div>
 						
 					</div>
