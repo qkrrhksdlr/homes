@@ -73,6 +73,7 @@ public class AptRestController {
       
       return list;
    }
+<<<<<<< HEAD
    
    //아파트비율 차트
    @RequestMapping(value = "/aptratiochart.do", method = RequestMethod.GET)
@@ -85,5 +86,8 @@ public class AptRestController {
       
       return list;
    }
+=======
+   
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 }
 
