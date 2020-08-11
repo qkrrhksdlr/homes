@@ -49,6 +49,7 @@
 			) tt	
 	</select>
 	
+<<<<<<< HEAD
 	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select tt.*
 		from (
@@ -67,30 +68,50 @@
 			) tt		
 <!-- 		where rn between #{startSeq} and #{endSeq} -->
 	</select>
+=======
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select distinct a.*, b.lat, b.lng
-		from apt a, aptxy b
-		where a.dong = b.dong
-		and a.addr1 = b.addr1
-		and a. apt = #{aptStr}
-		and a. area = #{areaStr}
+		select distinct apt, area, gu, street, dong, archyear
+		from apt 
+		where apt = #{aptStr}
+		and area = #{areaStr}
 	</select>
 	
+<<<<<<< HEAD
 	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select apt, price, conym
+=======
+	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+
+		select apt, conym, price
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
 		and gubun = '매매'
+<<<<<<< HEAD
+=======
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 	</select>
 	
+<<<<<<< HEAD
 	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select apt, deposit, conym
+=======
+	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+
+		select apt, conym, deposit
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
 		and gubun = '전세'
+		
+
 	</select>
 
 
