@@ -41,7 +41,8 @@ public class AptController {
 			,@RequestParam(value="areaStr", required=false) String areaStr) {
 		ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);	
 		model.addAttribute("APTVIEWKKK", list);
-		return "apt_view";	
+		//return "apt_view";
+		return "apt_view2";
 	} 
 	
 	//카운트
