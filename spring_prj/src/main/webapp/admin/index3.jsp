@@ -6,12 +6,27 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+
+
+<!-- Load c3.css -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.min.css" rel="stylesheet">
+
+<!-- Load d3.js and c3.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.min.js"></script>
+
 
 	
 <!-- JGH추가20200811----------------------------------------------S -->
@@ -45,23 +60,14 @@
 	
 	
 	<!-- 메인 그래프 관익 S----------------------------------- -->
-	<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-<!-- Load c3.css -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.min.css" rel="stylesheet">
-
-<!-- Load d3.js and c3.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.min.js"></script>
 	
 	<!-- 메인 그래프 관익 E------------------------------------ -->
 	
 </head>
 
 <!--  메인 그래프 관익----------------------------------------S -->
+
 <script>
 /* 서울시 아파트 가격지수 차트 */
 $.ajax({
@@ -96,10 +102,12 @@ function printIndexLinearChart(year, deal, rent) {
 	          	type : 'line'
 	         },
 	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 600, width: 800}
+	       size: {height: 500, width: 1300}
 	   });
 }
+</script>
 
+<script>
 /* 서울시 자치구별 아파트 비율 차트 */
 $.ajax({
     url : "aptratiochart.do",
@@ -131,10 +139,20 @@ function printRatioLinearChart(dataJson, keyArray) {
 	         },
 	         legend : {position : 'right'},
 	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 300, width: 400}
+	       size: {height: 600, width: 800}
 	   });
 }
+
+
+
+
+/* 서울시 자치구별 아파트 건축연도 비율 차트 */
+
 </script>
+
+
+
+
 
 <!--  메인 그래프 관익----------------------------------------E -->
 
@@ -518,14 +536,21 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 				<!-- JGH추가 원형 그래프 선 그래프용 -->
 				<div>
-					<div>
 					서울시 자치구별 아파트 비율 (총 1,679,639채)
-					<div id="ratiochart"></div>
-					</div>
-					<div>
+					<table width="100%" border=1>
+					   <tr>
+					      <td id="ratiochart"></td>
+					   </tr>
+					</table>
+
+		
+					
+					
 					서울시 아파트 가격지수 (2017년 11월 기준 : 100)
 					<div id="indexchart"></div>
-					</div>
+					<hr>
+					
+
 				</div>
 
 
