@@ -93,6 +93,9 @@ function printRatioLinearChart(dataJson, keyArray) {
 	       size: {height: 600, width: 800}
 	   });
 }
+
+/* 서울시 자치구별 아파트 건축연도 비율 차트 */
+
 </script>
 
 <body> 
@@ -102,6 +105,9 @@ function printRatioLinearChart(dataJson, keyArray) {
 
 서울시 자치구별 아파트 비율 (총 1,679,639채)
 <div id="ratiochart"></div>
+
+서울시 자치구별 아파트 건축연도 비율 (1980년 ~ 2020년)
+<div id="archchart"></div>
 
 </body>
 
