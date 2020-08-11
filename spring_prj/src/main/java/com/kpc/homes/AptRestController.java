@@ -16,9 +16,10 @@ import com.kpc.homes.AptVO;
 
 @RestController   //rest 
 public class AptRestController {
-   @Autowired
-   AptServiceImpl svc;   
-   
+
+	@Autowired
+	AptServiceImpl svc;	
+
     //구글맵 파라미터
 	@RequestMapping(value = "/googlemap.do", method = RequestMethod.GET)
 	public ArrayList<AptVO> aptmap(Model model
@@ -32,7 +33,6 @@ public class AptRestController {
       System.out.println("구글맵데이터:"+list);               
       return list;      
    }   
-
 
    //매매 차트
    @RequestMapping(value = "/aptmchart.do", method = RequestMethod.GET)
@@ -62,5 +62,5 @@ public class AptRestController {
       return list;
       }
       
-   
 }
+

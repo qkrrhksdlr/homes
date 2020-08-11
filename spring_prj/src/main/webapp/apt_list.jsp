@@ -8,8 +8,9 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <!DOCTYPE html>
 <html>
 <head>
-<h1>서울시 아파트 실거래 정보 찾기</h1>
-<title>서울시 구 선택 > 도로명주소 or 동 or 아파트명 입력 > 검색</title>
+<meta charset="UTF-8">
+<title>Team Island - Project Homes</title>
+<h1>아파트 정보 상세보기 (apt_view.jsp)<hr></h1>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>
@@ -31,7 +32,6 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
         padding: 0;
       }
 </style>
-
 </head>
 <body>
 
@@ -70,21 +70,18 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <input type ="text" name="searchStr" id="searchStr">
 <input type ="submit" id="searchBtn" value="검색">
 </form>
-
+<hr>
 <br>
-dfdkfd
-dfdfd
+${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 
 
 <table border="1" width="900" cellpadding="0" cellspacing="0">
-
    <tr>
       <td><b>단지명 - 전용면적(㎡)</b></td>
       <td><b>도로명 주소</b></td>
       <td><b>법정동</b></td>
    </tr>
-
 
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
@@ -95,11 +92,11 @@ dfdfd
       <td>${vo.dong}</td>
    </tr>
 </c:forEach>
-
 </table>
 <br><br><br>
 
 </div>
+
 
 
 <div id="mapdiv" style="float:right"></div>
@@ -182,21 +179,20 @@ dfdfd
                  var infowindow = new google.maps.InfoWindow();
                  infowindow.open(map);
                  var marker, i;
-                 
 
-   
                //for (i = 0; i < locations.length; i++) {
                $.map(resultList, function(kkk, i) {
                   
                   marker = new google.maps.Marker({
-                     position: new google.maps.LatLng(kkk.lat, kkk.lng),    //(locations[i][1], locations[i][2]),
+                     position: new google.maps.LatLng(kkk.lat, kkk.lng),
                      map: map,
-                     //label: kkk.apt,   //locations[i][0],
+                     //label: kkk.apt, 
                   });
-   
+                  
+    
                   google.maps.event.addListener(marker, 'click', (function(marker, i) {
                      return function() {
-                        infowindow.setContent("<b>"+kkk.apt+"</b><br>"+kkk.gu+" "+kkk.street);         //(locations[i][0]);
+                        infowindow.setContent("<a href=/aptview.do?aptStr="+kkk.apt+"&areaStr="+kkk.area+"><b>"+kkk.apt+"</b></a><br>"+kkk.gu+" "+kkk.street);
                         infowindow.open(map, marker);
                      }
                   })(marker, i));
@@ -207,7 +203,6 @@ dfdfd
    } //e.o.paintMarker()
 
 </script> 
-
 
 
 </body>

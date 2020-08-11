@@ -56,4 +56,6 @@ public class AptServiceImpl implements AptService {
 		ArrayList<AptVO> list = dao.aptzwchart(aptStr, areaStr);
 		return list;
 	}
+	
+	
 }
