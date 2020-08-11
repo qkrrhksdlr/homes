@@ -62,13 +62,25 @@ public class AptRestController {
       return list;
    }
    
-   //가격지수차트
+   //가격지수 차트
    @RequestMapping(value = "/aptindexchart.do", method = RequestMethod.GET)
    public ArrayList<AptVO> aptindexchart(Model model
          ,HttpServletRequest request, HttpServletResponse response) {
       
       System.out.println("가격지수차트");
       ArrayList<AptVO> list = svc.svcAptIndex();
+      System.out.println(list);
+      
+      return list;
+   }
+   
+   //아파트비율 차트
+   @RequestMapping(value = "/aptratiochart.do", method = RequestMethod.GET)
+   public ArrayList<AptVO> aptratiochart(Model model
+         ,HttpServletRequest request, HttpServletResponse response) {
+      
+      System.out.println("아파트비율차트");
+      ArrayList<AptVO> list = svc.svcAptRatio();
       System.out.println(list);
       
       return list;

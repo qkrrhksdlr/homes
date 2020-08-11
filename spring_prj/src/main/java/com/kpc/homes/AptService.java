@@ -29,4 +29,7 @@ public interface AptService {
 	
 	//가격지수 차트
 	public ArrayList<AptVO> svcAptIndex();
+	
+	//아파트 비율
+	public ArrayList<AptVO> svcAptRatio();
 }
