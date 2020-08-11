@@ -107,4 +107,11 @@
 		select gu, apt_cnt
 		from apt_gucnt_2018
 	</select>
+	
+	<!-- 자치구별 아파트 건축년도 비율 -->
+	<select id="aptarch" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select *
+		from apt_arch
+	</select>
+	
 </mapper>
