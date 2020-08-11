@@ -54,5 +54,16 @@ public class AptController {
 		return "apt_count";
 	}
 	
+
+	@RequestMapping(value = "/forsale.do", method = RequestMethod.GET)	
+	public String forsale(Model model) {
+
+		ForSaleCraw forsale = new ForSaleCraw();
+		ArrayList<ForSaleVO> list = forsale.getData();
+
+		model.addAttribute("FORSALEKKK", list);
+		return "forsale_list";
+	}
+	
 		
 }

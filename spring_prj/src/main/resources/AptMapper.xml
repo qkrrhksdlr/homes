@@ -24,8 +24,6 @@
 
 	</resultMap>
 	
-
-	
 	<!-- <collection property="rlist" columnPrefix="r_" javaType="ArrayList" resultMap="replyMap" /> -->
 	
 	<select id="aptCount" resultType="Integer">
@@ -48,10 +46,8 @@
 					or (a.apt like '%' || #{searchStr} || '%')) 
 				order by apt asc, dong asc, street asc
 				) t
-			) tt
-<!-- 	where rn between #{startSeq} and #{endSeq} -->
+			) tt	
 	</select>
-	
 	
 	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select tt.*
@@ -68,22 +64,10 @@
 					or (a.apt like '%' || #{searchStr} || '%')) 
 				order by apt asc, dong asc, street asc
 				) t
-			) tt	
-	
-<!--		select apt, gu, dong,, lat, lng
-		from aptxy
-		where gu = #{searchKey}
-		and ((dong like '%' || #{searchStr} || '%'))
-  		or (a.street like '%' || #{searchStr} || '%')
-		or (a.apt like '%' || #{searchStr} || '%')) 
-		order by apt asc, dong asc
- -->
+			) tt		
 <!-- 		where rn between #{startSeq} and #{endSeq} -->
 	</select>
 	
-	
-	
-
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select distinct a.*, b.lat, b.lng
 		from apt a, aptxy b
@@ -94,7 +78,7 @@
 	</select>
 	
 	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, price
+		select apt, price, conym
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
@@ -102,7 +86,7 @@
 	</select>
 	
 	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select apt, deposit
+		select apt, deposit, conym
 		from apt 
 		where apt = #{aptStr}
 		and area = #{areaStr}
