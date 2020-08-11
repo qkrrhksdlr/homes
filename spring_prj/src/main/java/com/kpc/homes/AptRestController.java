@@ -1,6 +1,9 @@
 package com.kpc.homes;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -85,5 +88,19 @@ public class AptRestController {
       
       return list;
    }
+   
+/*   //아파트 단지 상세 정보
+   @RequestMapping(value = "/aptinfo.do", method = RequestMethod.GET)
+   public ArrayList<InfoVO> aptinfo(Model model
+         ,@RequestParam(value="aptStr", required=false) String aptStr
+         ,HttpServletRequest request, HttpServletResponse response) {
+		
+		InfoCraw info = new InfoCraw();
+		ArrayList<InfoVO> list = info.getInfo(aptStr);
+
+	    System.out.println("단지상세정보:"+list);     
+		//model.addAttribute("AptInfoKKK", list);
+	    return list;      		
+	}*/
 }
 

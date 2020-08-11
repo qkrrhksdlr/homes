@@ -26,20 +26,29 @@
 
 <table border="1" width="1000" cellpadding="0" cellspacing="0">
    <tr>
-      <td><b>단지명</b></td>
-      <td><b>전용면적(㎡)</b></td>
-      <td><b>도로명 주소</b></td>
-      <td><b>법정동</b></td>
-      <td><b>준공년도</b></td>
+      <td>단지명</td>
+      <td>종류</td>
+      <td>세대수</td>
+      <td>동수</td>
+      <td>준공년도</td>
+      <td>관리실</td>
+      <td>면적</td>
+      <td>학군정보</td>
+      <td>도로명주소</td>
+      
    </tr>
 
-<c:forEach items="${APTVIEWKKK}" var="voo">
+<c:forEach items="${AptInfoKKK}" var="voo">
    <tr>
         <td>${voo.apt}</td>
-        <td>${voo.area}㎡</td>
-      <td>${voo.gu} ${voo.street}</td>
-      <td>${voo.dong}</td>
-      <td>${voo.archyear}</td>
+      	<td>${voo.type}</td>
+		<td>${voo.numhouse}</td>	
+		<td>${voo.numbldg}</td>	
+		<td>${voo.archyear}</td>			
+		<td>${voo.office}</td>	
+		<td>${voo.arealist}</td>	
+		<td>${voo.school}</td>			
+		<td>${voo.street}</td>	
    </tr>   
 
 </c:forEach>
