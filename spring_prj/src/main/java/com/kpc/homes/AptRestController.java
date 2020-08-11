@@ -62,7 +62,7 @@ public class AptRestController {
       return list;
    }
    
-   //전월세 차트
+   //가격지수차트
    @RequestMapping(value = "/aptindexchart.do", method = RequestMethod.GET)
    public ArrayList<AptVO> aptindexchart(Model model
          ,HttpServletRequest request, HttpServletResponse response) {
