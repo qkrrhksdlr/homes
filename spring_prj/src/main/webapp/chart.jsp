@@ -96,6 +96,7 @@ function printRatioLinearChart(dataJson, keyArray) {
 </script>
 
 <body> 
+  
 서울시 아파트 가격지수 (2017년 11월 기준 : 100)
 <div id="indexchart"></div><hr>
 

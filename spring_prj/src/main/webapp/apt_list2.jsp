@@ -73,6 +73,7 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
             </ul>
             -->
         </nav>
+        <!--  
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -143,13 +144,15 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
+             
                 <main>
+                
                     <div class="container-fluid">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
+                        
                         <div class="row">
                             <!--  
                             <div class="col-xl-3 col-md-6">
@@ -191,6 +194,7 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
                             -->
                         </div>
                         
+                         
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -222,10 +226,14 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
                             </div>
                         
                         </div>
-                         
+                        
                     </div>
-                       <div id="mapdiv" style="float:right"></div>  
-                                  
+                     
+  
+                </main>
+                <div id="layoutSidenav_content">   
+                
+                                                
 <div id="infodiv"  style="float:left">
 찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
 (검색어: 도로명주소 or 동 or 아파트명)
@@ -265,10 +273,6 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <br>
 ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
               
-                </main>
-                
-                
-                
                 
           
                 
@@ -287,6 +291,10 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                 
             </div>
         </div> 
+		-->
+		
+		<div id="mapdiv" style="float:right"></div>  
+		
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
