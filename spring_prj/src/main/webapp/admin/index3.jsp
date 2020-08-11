@@ -534,7 +534,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 						
 					</div>
 
-				<!-- JGH추가 원형 그래프 선 그래프용 -->
+				<!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
 				<div>
 					
 					<table width="75%" border=0>
