@@ -270,31 +270,39 @@ $(document).ready(function(){
 });   
 </script>
 
+
+
+                                            
+
+
+
    <tr>
-      <td><b>단지명</td>
-      <td><b>전용면적(㎡)</td>
-      <td>도로명 주소</td>
-      <td>법정동</td>
-      <td>계약년월</td>
-      <td>계약금액</td>
+      <td>단지명</td>
+      <td>종류</td>
+      <td>세대수</td>
+      <td>동수</td>
       <td>준공년도</td>
+      <td>관리실</td>
+      <td>면적</td>
+      <td>학군정보</td>
+      <td>도로명주소</td>
+      
    </tr>
 
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<c:forEach items="${APTVIEWKKK}" var="voo">
+<c:forEach items="${AptInfoKKK}" var="voo">
    <tr>
         <td>${voo.apt}</td>
-        <td>${voo.area}㎡</td>
-      <td>${voo.gu} ${vo.street}</td>
-      <td>${voo.dong}</td>
-      <td>${voo.conym}</td>
-      <td>${voo.price}</td>
-      <td>${voo.archyear}</td>
+      	<td>${voo.type}</td>
+		<td>${voo.numhouse}</td>	
+		<td>${voo.numbldg}</td>	
+		<td>${voo.archyear}</td>			
+		<td>${voo.office}</td>	
+		<td>${voo.arealist}</td>	
+		<td>${voo.school}</td>			
+		<td>${voo.street}</td>	
    </tr>   
-</c:forEach>
 
-                                            
-                                            
+</c:forEach>                                   
                                             
                                             
                                             
