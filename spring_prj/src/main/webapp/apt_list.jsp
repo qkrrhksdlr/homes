@@ -10,7 +10,7 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
 <head>
 <meta charset="UTF-8">
 <title>Team Island - Project Homes</title>
-<h1>아파트 정보 상세보기 (apt_view.jsp)<hr></h1>
+<h1>서울시 아파트 정보 분석 및 단지 정보 검색 (apt_list.jsp)<hr></h1>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>

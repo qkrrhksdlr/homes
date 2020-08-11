@@ -15,7 +15,6 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 
-
 //JSOUP : 웹 크롤링을 위한 Open API
 
 //* getElementById(String id) : Element 객체를 반환합니다. 하나를 반환합니다. 없으면 null 을 반환합니다.

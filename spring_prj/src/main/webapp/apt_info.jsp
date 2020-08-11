@@ -11,6 +11,7 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
 
+
 <!-- YTNLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <c:forEach items="${AptInfoKKK}" var="vo">
 	<tr>

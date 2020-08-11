@@ -14,6 +14,7 @@ public class InfoVO {
 	private String school;
 	private String street;
 	
+	
 	public String getApt() {
 		return apt;
 	}
