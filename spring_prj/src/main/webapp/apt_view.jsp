@@ -48,7 +48,7 @@
    <tr>
       <td id="mchart"></td>
    </tr>
-      <tr>
+   <tr>
       <td id="zwchart"></td>
    </tr>
 </table>
