@@ -1,13 +1,29 @@
 package com.kpc.homes;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kpc.homes.AptVO;
-
+import com.kpc.homes.NewsVO;
 
 @Controller
 public class AptController {
@@ -62,6 +78,18 @@ public class AptController {
 		return "apt_count";
 	}
 	
+	@RequestMapping(value = "/news.do", method = RequestMethod.GET)
+	public String news(Model model) {
 
+		NewsCraw news = new NewsCraw();
+		ArrayList<NewsVO> list = news.getNews();
+
+		model.addAttribute("NEWSLISTKKK", list);
+		return "news_list";
+	}
 		
+
+	
+	
+	
 }
