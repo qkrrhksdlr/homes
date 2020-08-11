@@ -60,7 +60,7 @@ function printIndexLinearChart(year, deal, rent) {
 }
 </script>
 
-<body>
+<body> 
 <h1 align='left'>서울시 가격지수</h1>
 <table width="60%" border=1>
    <tr>
