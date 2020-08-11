@@ -2,20 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
-
+<!-- 
+AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
+ -->
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <title>Team Island - Project Homes</title>
 <h1>아파트 정보 상세보기 (apt_view.jsp)<hr></h1>
-=======
-<head>
-<meta charset="UTF-8">
-<h1>서울시 아파트 실거래 정보 찾기</h1>
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>
@@ -26,7 +21,7 @@
        * element that contains the map. */
       #mapdiv {
         height: 90%;
-        width: 60%;
+        width: 50%;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -37,11 +32,6 @@
         padding: 0;
       }
 </style>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </head>
 <body>
 
@@ -79,65 +69,35 @@
 </select>
 <input type ="text" name="searchStr" id="searchStr">
 <input type ="submit" id="searchBtn" value="검색">
-<<<<<<< HEAD
 </form>
-=======
-</form>
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 <hr>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 <br>
 ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 
-<<<<<<< HEAD
 
 <table border="1" width="900" cellpadding="0" cellspacing="0">
-=======
-<table border="1" width="500" cellpadding="0" cellspacing="0">
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
    <tr>
       <td><b>단지명 - 전용면적(㎡)</b></td>
       <td><b>도로명 주소</b></td>
       <td><b>법정동</b></td>
    </tr>
-<<<<<<< HEAD
 
-=======
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<<<<<<< HEAD
 <c:forEach items="${APTLISTKKK}" var="vo">
-=======
-<c:forEach items="${APTLISTKKK}" var="vo">
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
    <tr>
         <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
       <td>${vo.gu} ${vo.street}</td>
       <td>${vo.dong}</td>
-<<<<<<< HEAD
    </tr>
-=======
-   </tr>
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </c:forEach>
 </table>
 <br><br><br>
 
 </div>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <div id="mapdiv" style="float:right"></div>
 
@@ -244,11 +204,6 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 </script> 
 
-<<<<<<< HEAD
 
-=======
-
-
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </body>
 </html>
