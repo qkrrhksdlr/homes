@@ -88,7 +88,7 @@ $.ajax({
           printIndexLinearChart(year, deal, rent);
     }
 });
-
+//리니어 차트 -------------------------------------------------
 function printIndexLinearChart(year, deal, rent) {   
 	   var chart = c3.generate({
 	      bindto: "#indexchart",
@@ -102,15 +102,15 @@ function printIndexLinearChart(year, deal, rent) {
 	          	type : 'line'
 	         },
 	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 500, width: 1300}
+	       size: {height: 500, width: 600}
 	   });
-}
+} 
 </script>
 
 <script>
 /* 서울시 자치구별 아파트 비율 차트 */
-$.ajax({
-    url : "aptratiochart.do",
+$.ajax({  
+    url : "/aptratiochart.do",
     method : "GET",  
     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
     dataType : "json",  
@@ -125,7 +125,7 @@ $.ajax({
           printRatioLinearChart(dataJson, keyArray);
     }
 });
-
+// 도넛 차트 -------------------------------------------------
 function printRatioLinearChart(dataJson, keyArray) { 
 	var chart = c3.generate({
 	      bindto: "#ratiochart",
@@ -536,21 +536,18 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 				<!-- JGH추가 원형 그래프 선 그래프용 -->
 				<div>
-					서울시 자치구별 아파트 비율 (총 1,679,639채)
-					<table width="100%" border=1>
+					
+					<table width="75%" border=0>
+						<tr>
+					      <td align="center"><b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b></td>
+					      <td align="center"><b>서울시 아파트 가격지수 (2017년 11월 기준 : 100)</b></td>
+					   </tr>
 					   <tr>
 					      <td id="ratiochart"></td>
+					      <td id="indexchart"></td>
 					   </tr>
 					</table>
-
-		
 					
-					
-					서울시 아파트 가격지수 (2017년 11월 기준 : 100)
-					<div id="indexchart"></div>
-					<hr>
-					
-
 				</div>
 
 
