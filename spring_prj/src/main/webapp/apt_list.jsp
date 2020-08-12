@@ -55,7 +55,7 @@
 
    <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
 
-   <link href="css/app.css" rel="stylesheet">
+   <link href="admin/css/app.css" rel="stylesheet">
    
    
    
