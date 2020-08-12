@@ -1,4 +1,4 @@
-package com.kpc.homes;
+/*package com.kpc.homes;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,3 +39,4 @@ public class InfoServlet extends HttpServlet {
 	}
 
 }
+*/
