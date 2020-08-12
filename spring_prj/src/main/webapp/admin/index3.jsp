@@ -171,7 +171,7 @@
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">서울 매매 가격 지수</h5>
+									<h5 class="card-title mb-0">서울시 아파트 가격지수 (2017.11=100 기준)</h5>
 								</div>
 								<div class="card-body py-3">
 									<div class="chart chart-sm">
