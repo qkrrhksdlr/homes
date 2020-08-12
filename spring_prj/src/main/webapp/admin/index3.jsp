@@ -60,9 +60,6 @@
    
 </head>
 
-
-<!--  메인 그래프 관익----------------------------------------E -->
-
 <body>
    <div class="wrapper">
       <div class="main">
@@ -122,8 +119,7 @@
                   <div class="col-12 col-md-12 col-xxl-10 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-
-                           <h5 class="card-title mb-0">지도</h5>
+                          <h5 class="card-title mb-0">아파트 위치</h5>
                         </div>
                         <div class="card-body px-4">
                          <!--<div id="world_map" style="height:350px;"></div>-->
@@ -137,7 +133,7 @@
                   <div class="col-12 col-md-6 col-xxl-5 d-flex order-2 order-xxl-3">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-                           <h5 class="card-title mb-0">매매/전세/월세 비율</h5>
+                           <h5 class="card-title mb-0">서울시 자치구별 아파트 비율 (총 1,679,639채)</h5>
                         </div>
                         <div class="card-body d-flex">
                            <div class="align-self-center w-100">
@@ -147,19 +143,7 @@
                                  </div>
                               </div>
                               <table class="table mb-0">
-                                 <tbody>
-                                    <tr>
-                                       <td>매매</td>
-                                       <td class="text-right">4306</td>
-                                    </tr>
-                                    <tr>
-                                       <td>전세</td>
-                                       <td class="text-right">3801</td>
-                                    </tr>
-                                    <tr>
-                                       <td>월세</td>
-                                       <td class="text-right">1689</td>
-                                    </tr>
+                                    
                                  </tbody>
                               </table>
                            </div>
@@ -191,22 +175,6 @@
                   </div>
                   
                </div>
-
-            <!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
-            <div>
-               
-               <table width="75%" border=0>
-                  <tr>
-                     <td align="center"><b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b></td>
-                     <td align="center"><b>서울시 아파트 가격지수 (2017년 11월 기준 : 100)</b></td>
-                  </tr>
-                  <tr>
-                     <td id="ratiochart"></td>
-                     <td id="indexchart"></td>
-                  </tr>
-               </table>
-               
-            </div>
 
          </main>
 
@@ -240,8 +208,6 @@
       
       </div>
    </div>
-   
-   <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
    
    
    						<!-- 아파트 검색 결과 테이블 -->						
@@ -336,15 +302,67 @@
          new Chart(document.getElementById("chartjs-dashboard-pie"), {
             type: 'pie',
             data: {
-               labels: ["Chrome", "Firefox", "IE"],
+               labels: [
+            	   "종로구",
+            	   "중구",
+            	   "용산구",
+            	   "성동구",
+            	   "광진구",
+            	   "동대문구",
+            	   "중랑구",
+            	   "성북구",
+            	   "강북구",
+            	   "도봉구",
+            	   "노원구",
+            	   "은평구",
+            	   "서대문구",
+            	   "마포구",
+            	   "양천구",
+            	   "강서구",
+            	   "구로구",
+            	   "금천구",
+            	   "영등포구",
+            	   "동작구",
+            	   "관악구",
+            	   "서초구",
+            	   "강남구",
+            	   "송파구",
+            	   "강동구"
+            	   ],
                datasets: [{
-                  data: [4306, 3801, 1689],
+                  data: [
+                	  14530,
+                	  24417,
+                	  35728,
+                	  63976,
+                	  30425,
+                	  60386,
+                	  51475,
+                	  71754,
+                	  33282,
+                	  64580,
+                	  161273,
+                	  52607,
+                	  48277,
+                	  66582,
+                	  85921,
+                	  111811,
+                	  77194,
+                	  30918,
+                	  68984,
+                	  59188,
+                	  53915,
+                	  93299,
+                	  124418,
+                	  119226,
+                	  75473,
+                	  ],
                   backgroundColor: [
                      window.theme.primary,
                      window.theme.warning,
                      window.theme.danger
                   ],
-                  borderWidth: 5
+                  borderWidth: 7
                }]
             },
             options: {
@@ -671,7 +689,7 @@ function printRatioLinearChart(dataJson, keyArray) {
 
 
 
-/* 서울시 자치구별 아파트 건축연도 비율 차트 */
+
 
 </script>
 
