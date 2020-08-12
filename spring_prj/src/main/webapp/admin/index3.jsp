@@ -280,36 +280,39 @@ function printRatioLinearChart(dataJson, keyArray) {
          <main class="content">
             <div class="container-fluid p-0">
 
-               <div class="row mb-2 mb-xl-3">
-                  <div class="col-auto d-none d-sm-block">
-                     <h3><strong>Analytics</strong> Dashboard</h3>
-                  </div>
-                  <!--  
-                  <div class="col-auto ml-auto text-right mt-n1">
-                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-                           <li class="breadcrumb-item"><a href="#">AdminKit</a></li>
-                           <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                           <li class="breadcrumb-item active" aria-current="page">Analytics</li>
-                        </ol>
-                     </nav>
-                  </div>
-                  -->
-               </div>
-               
-               
-               
-               
-               
-               
-               <div class="row">
-               <!--  -->
-               
+
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3><strong>Analytics 3</strong> Dashboard</h3>
+						</div>
+						<!--  
+						<div class="col-auto ml-auto text-right mt-n1">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
+									<li class="breadcrumb-item"><a href="#">AdminKit</a></li>
+									<li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Analytics</li>
+								</ol>
+							</nav>
+						</div>
+						-->
+					</div>
+					
+					
+					
+					
+					
+					
+					<div class="row">
+					<!--  -->
+					
+
 <div id="infodiv"  style="float:left">
 찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
 (검색어: 도로명주소 or 동 or 아파트명)
 
-<form name="searchform" method="get" action="/aptlist.do">
+  <form name="searchform" method="get" action="/aptlist.do">
+<!--<form name="searchform" method="get" action="http://localhost/admin/index4.jsp"> -->
 <select name="searchKey" id="searchKey">
    <option value ="강남구">강남구</option>
    <option value ="강동구">강동구</option>
@@ -515,7 +518,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                            
                         <div class="card-header">
 
-<<<<<<< HEAD
+
                            <h5 class="card-title mb-0">Calendar</h5>
                         </div>
                         
@@ -534,26 +537,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                   </div>
                   
                </div>
-=======
-									<h5 class="card-title mb-0">Calendar</h5>
-								</div>
-								
-								
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="chart">
-											<div id="datetimepicker-dashboard"></div>
-										</div>
-									</div>
-								</div>
-								  
-								  
-							</div>-->
-						     
-						</div>
-						
-					</div>
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
+
 
             <!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
             <div>
