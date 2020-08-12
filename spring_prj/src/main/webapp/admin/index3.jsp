@@ -75,7 +75,7 @@
 						<div id="infodiv"  style="float:left">
 						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
 						(검색어: 도로명주소 or 동 or 아파트명)
- 						
+						
 							<form name="searchform" method="get" action="/aptlist.do">
 							<select name="searchKey" id="searchKey">
 						   <option value ="강남구">강남구</option>
@@ -113,11 +113,6 @@
 						</div>					
 					
 					</div>
-					
-					
-
-
-		
 			<div class="row">
 				<div class="col-12 col-xl-7 col-xxl-7 d-flex">
 							<div class="w-100">
@@ -226,32 +221,33 @@
          </main>
 
   
-         <footer class="footer">
-            <div class="container-fluid">
-               <div class="row text-muted">
-                  <div class="col-6 text-left">
-                     <p class="mb-0">
-                     </p>
-                  </div>
-                  <div class="col-6 text-right">
-                     <ul class="list-inline">
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Support</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Help Center</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Privacy</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <a class="text-muted" href="#">Terms</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </footer>
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="index.html" class="text-muted"><strong>Team ISLAND</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
       
       </div>
    </div>

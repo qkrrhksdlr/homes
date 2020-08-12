@@ -43,7 +43,6 @@ public class AptController {
    public String aptview(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr) {
-	   
       ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);   
       model.addAttribute("APTVIEWKKK", list);
       //return "apt_view";
