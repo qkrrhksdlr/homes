@@ -515,26 +515,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                            
                         <div class="card-header">
 
-<<<<<<< HEAD
-                           <h5 class="card-title mb-0">Calendar</h5>
-                        </div>
-                        
-                        
-                        <div class="card-body d-flex">
-                           <div class="align-self-center w-100">
-                              <div class="chart">
-                                 <div id="datetimepicker-dashboard"></div>
-                              </div>
-                           </div>
-                        </div>
-                          
-                          
-                     </div>-->
-                      
-                  </div>
-                  
-               </div>
-=======
+
 									<h5 class="card-title mb-0">Calendar</h5>
 								</div>
 								
@@ -553,7 +534,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 						</div>
 						
 					</div>
->>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
+
 
             <!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
             <div>
@@ -638,7 +619,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                               <canvas id="chartjs-dashboard-line"></canvas>
                            </div>
                         </div>
-                     </div>
+                     </div>d
                   </div>
                   -->
                </div>
