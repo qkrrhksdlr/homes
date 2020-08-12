@@ -809,7 +809,7 @@ function printMLinearChart(aptConym, aptPrice) {
              매매: aptPrice
           },
          x:'x',
-          type : 'line'
+          type : 'area'
           },
        grid: { x: {show: false}, y: { show: true}},
        size: {height: 200, width: 800}
@@ -847,7 +847,7 @@ function printZWLinearChart(aptConym, aptDeposit) {
              전세: aptDeposit
           },
          x:'x',
-          type : 'line'
+          type : 'area'
           },
        grid: { x: {show: false}, y: { show: true}},
        size: {height: 200, width: 800}
