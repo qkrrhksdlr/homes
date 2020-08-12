@@ -216,7 +216,7 @@
 							</p>
 						</div>
 						<div class="col-6 text-right">
-							<ul class="list-inline">
+		 					<ul class="list-inline">
 								<li class="list-inline-item">
 									<a class="text-muted" href="#">Support</a>
 								</li>
