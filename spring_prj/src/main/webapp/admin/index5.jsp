@@ -64,109 +64,78 @@
    <div class="wrapper">
       <div class="main">
          <main class="content">
-            <div class="container-fluid p-0">
-					<div class="row mb-2 mb-xl-3">
-						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
-							</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div id="infodiv"  style="float:left">
-						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-						(검색어: 도로명주소 or 동 or 아파트명)
-						
-							<form name="searchform" method="get" action="/aptlist.do">
-							<select name="searchKey" id="searchKey">
-						   <option value ="강남구">강남구</option>
-						   <option value ="강동구">강동구</option>
-						   <option value ="강북구">강북구</option>
-						   <option value ="강서구">강서구</option>
-						   <option value ="관악구">관악구</option>
-						   <option value ="광진구">광진구</option>
-						   <option value ="구로구">구로구</option>
-						   <option value ="금천구">금천구</option>
-						   <option value ="노원구">노원구</option>
-						   <option value ="도봉구">도봉구</option>
-						   <option value ="동대문구">동대문구</option>
-						   <option value ="동작구">동작구</option>
-						   <option value ="마포구">마포구</option>
-						   <option value ="서대문구">서대문구</option>
-						   <option value ="서초구">서초구</option>
-						   <option value ="성동구">성동구</option>
-						   <option value ="성북구">성북구</option>
-						   <option value ="송파구">송파구</option>
-						   <option value ="양천구">양천구</option>
-						   <option value ="영등포구">영등포구</option>
-						   <option value ="용산구">용산구</option>
-						   <option value ="은평구">은평구</option>
-						   <option value ="종로구">종로구</option>
-						   <option value ="중구">중구</option>
-						   <option value ="중랑구">중랑구</option>
-							</select>
-							<input type ="text" name="searchStr" id="searchStr">
-							<input type ="submit" id="searchBtn" value="검색">
-							</form>
-						<hr>
-						<br>
-
-						</div>					
-					
-					</div>
-					
-					
-
-			<div class="row">
-                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
-                     <div class="card flex-fill w-100">
-                        <div class="card-header">
-                          <h5 class="card-title mb-0">아파트 위치</h5>
-                        </div>
-                        <div class="card-body px-4">
-                         <!--<div id="world_map" style="height:350px;"></div>-->
-                             <div id="mapdiv" style="height:500px"></div>  
-                        </div>
-                     </div>
-                  </div>                          		
-			</div>
-		
-
-               
-			<div class="row">
-					<div class="col-12 col-xl-12 col-xxl-12 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">아파트 목록</h5>
-								</div>
-								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>단지명 - 전용면적(㎡)</th>
-											<th class="d-none d-xl-table-cell">도로명 주소</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											
-										</tr>
-									</thead>
-									<tbody>
-	 									
-										<c:forEach items="${APTLISTKKK}" var="vo">
-										   <tr>
-										        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-										      <td>${vo.gu} ${vo.street}</td>
-										      <td>${vo.dong}</td>
-										   </tr>
-										</c:forEach>
-						
+	           <div class="container-fluid">
+	               <h1 class="mt-4">아파트 상세정보</h1>    
+	                  <div class="row">
+	                       <div class="col-xl-6">
+	                          <div class="card mb-4">
+	                             <div class="card-header">
+	                                 <i class="fas fa-chart-area mr-1"></i>
+	                                		 아파트 매매 가격 변화 추이
+	                             </div>
+	                          <table width="100%" border=1>
+	                            <tr>
+	                           		<td id="mchart"></td>
+	                         	</tr> 			                                                
+	                   		  </table>
+	                          </div>
+	                       </div>
+	                       <div class="col-xl-6">
+	                         <div class="card mb-4">
+	                          <div class="card-header">
+	                          	<i class="fas fa-chart-bar mr-1"></i>
+	                          		전세 가격 변화 추이		                                
+		                      </div>	                            
+		                      <table>
+		                         <tr>
+		                            <td id="zwchart"></td>
+		                         </tr>
+		                      </table>
+	                          </div>
+	                       </div>
+	                   </div>
+	
+	           <div class="card mb-4">
+	           	<div class="card-header">
+	           		<i class="fas fa-table mr-1"></i>
+	           				건물 상세정보
+	            </div>
+	            <div class="card-body">
+	            	<div class="table-responsive">
+	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	            			<!-- 상세정보 표 -->
+							<tr>
+							   <td>단지명</td>
+							   <td>종류</td>
+							   <td>세대수</td>
+							   <td>동수</td>
+							   <td>준공년도</td>
+							   <td>관리실</td>
+							   <td>면적</td>
+							   <td>학군정보</td>
+							   <td>도로명주소</td>
+							</tr>									
 										
-									</tbody>
-								</table>
-							</div>
-						</div>
-			</div>
-               
-
-         </main>
+							<!-- 상세정보 받아온 값 뿌리기 -->
+							<c:forEach items="${AptInfoKKK}" var="voo">
+								<tr>
+								    <td>${voo.apt}</td>
+									<td>${voo.type}</td>
+									<td>${voo.numhouse}</td>	
+									<td>${voo.numbldg}</td>	
+									<td>${voo.archyear}</td>			
+									<td>${voo.office}</td>	
+									<td>${voo.arealist}</td>	
+									<td>${voo.school}</td>			
+									<td>${voo.street}</td>	
+								</tr>   
+							</c:forEach>                                   
+	                   </table>
+	                 </div>
+	              </div>
+	           </div>
+	         </div>
+	      </main>
 
   
          <footer class="footer">
@@ -740,7 +709,83 @@ function printRatioLinearChart(dataJson, keyArray) {
 
 </script>
 
+<script>
+/* 매매차트 그리기*/
+$.ajax({
+     url : "/aptmchart.do",
+     method : "GET",  
+     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+     data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
+     dataType : "json",  
+     success : function(jsonObjList){
+        var aptConym = [];   
+        var aptPrice = []; 
+        
+        $.map(jsonObjList, function(vv, i){
+              aptConym.push(vv.conym);
+              aptPrice.push(vv.price);
+           })
+       
+        printMLinearChart(aptConym, aptPrice);
+     }
+});      
 
+/* 매매차트 함수 */
+function printMLinearChart(aptConym, aptPrice) {   
+   var chart = c3.generate({
+
+      bindto: "#mchart",
+       data: {   
+          json:{
+             x: aptConym,
+             매매: aptPrice
+          },
+         x:'x',
+          type : 'line'
+          },
+       grid: { x: {show: false}, y: { show: true}},
+       size: {height: 200, width: 800}
+   });
+
+}
+
+/* 전월세 차트 그리기 */
+$.ajax({
+     url : "/aptzwchart.do",
+     method : "GET",  
+     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+     data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
+     dataType : "json",  
+     success : function(jsonObjList){ 
+        var aptConym = [];   
+        var aptDeposit = []; 
+        $.map(jsonObjList, function(vv, i){
+              aptConym.push(vv.conym);
+              aptDeposit.push(vv.deposit);
+
+           })
+
+        printZWLinearChart(aptConym, aptDeposit);
+     }
+});      
+
+/* 전월세 차트 함수 */
+function printZWLinearChart(aptConym, aptDeposit) {
+   var chart = c3.generate({
+      bindto: "#zwchart",
+       data: {   
+          json:{
+             x: aptConym,
+             전세: aptDeposit
+          },
+         x:'x',
+          type : 'line'
+          },
+       grid: { x: {show: false}, y: { show: true}},
+       size: {height: 200, width: 800}
+   });
+}
+</script>
 
 </body>
 

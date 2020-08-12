@@ -237,19 +237,7 @@
    </div>
    
 
-   
-   						<!-- 아파트 검색 결과 테이블 -->						
-						<table border="1" width="900" cellpadding="0" cellspacing="0">
 
-						<c:forEach items="${APTLISTKKK}" var="vo">
-						   <tr>
-						        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-						      <td>${vo.gu} ${vo.street}</td>
-						      <td>${vo.dong}</td>
-						   </tr>
-						</c:forEach>
-						</table>
-   
    
    
    

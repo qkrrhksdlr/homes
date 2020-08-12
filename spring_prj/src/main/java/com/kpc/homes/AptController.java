@@ -50,7 +50,7 @@ public class AptController {
       InfoCraw info = new InfoCraw();
       ArrayList<InfoVO> list1 = info.getInfo(aptStr);
       model.addAttribute("AptInfoKKK", list1);
-      return "apt_view2";
+      return "admin/index5";
    } 
    
    //카운트
