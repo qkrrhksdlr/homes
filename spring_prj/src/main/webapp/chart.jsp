@@ -34,29 +34,29 @@ $.ajax({
        var rent = []; 
        
        $.map(jsonObjList, function(vv, i){
-    	   year.push(vv.year);
-    	   deal.push(vv.deal_index);
-    	   rent.push(vv.rent_index);    	     
+          year.push(vv.year);
+          deal.push(vv.deal_index);
+          rent.push(vv.rent_index);            
           })  
           printIndexLinearChart(year, deal, rent);
     }
 });
 
 function printIndexLinearChart(year, deal, rent) {   
-	   var chart = c3.generate({
-	      bindto: "#indexchart",
-	       data: {   
-	          json:{
-	             	x: year,
-	             	매매: deal,
-	            	전세 : rent
-	          		},
-	         	x:'x',
-	          	type : 'line'
-	         },
-	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 600, width: 800}
-	   });
+      var chart = c3.generate({
+         bindto: "#indexchart",
+          data: {   
+             json:{
+                   x: year,
+                   매매: deal,
+                  전세 : rent
+                   },
+               x:'x',
+                type : 'line'
+            },
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 600, width: 800}
+      });
 }
 
 /* 서울시 자치구별 아파트 비율 차트 */
@@ -70,28 +70,28 @@ $.ajax({
        var keyArray = []; 
        
        $.map(jsonObjList, function(vv, i){
-    	   dataJson[vv.gu] = (vv.apt_cnt);
-    	   keyArray.push(vv.gu);  	     
+          dataJson[vv.gu] = (vv.apt_cnt);
+          keyArray.push(vv.gu);          
           })  
           printRatioLinearChart(dataJson, keyArray);
     }
 });
 
 function printRatioLinearChart(dataJson, keyArray) { 
-	var chart = c3.generate({
-	      bindto: "#ratiochart",
-	       data: {   
-	    	   	json: [dataJson],
-	         	keys: {value: keyArray},
-	          	type : 'donut'
-	         },
-	         donut: {
-	        	 title: "서울시 자치구별 아파트 비율"
-	         },
-	         legend : {position : 'right'},
-	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 600, width: 800}
-	   });
+   var chart = c3.generate({
+         bindto: "#ratiochart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "서울시 자치구별 아파트 비율"
+            },
+            legend : {position : 'right'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 600, width: 800}
+      });
 }
 
 /* 서울시 자치구별 아파트 건축연도 비율 차트 */
