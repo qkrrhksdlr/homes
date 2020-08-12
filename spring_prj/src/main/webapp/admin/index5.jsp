@@ -53,7 +53,7 @@
 
    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-   <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+   <title>ISLAND APT SYSTEM</title>
 
    <link href="css/app.css" rel="stylesheet">
 
