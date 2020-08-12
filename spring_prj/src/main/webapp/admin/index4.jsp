@@ -67,7 +67,8 @@
             <div class="container-fluid p-0">
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템</h3>
+							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							</h3>
 						</div>
 					</div>
 					<div class="row">
@@ -130,13 +131,13 @@
 			</div>
 		
 
-
-				<div class="row">
+               
+			<div class="row">
 					<div class="col-12 col-xl-12 col-xxl-12 d-flex">
 							<div class="card flex-fill">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Latest Projects</h5>
+									<h5 class="card-title mb-0">아파트 목록</h5>
 								</div>
 								<table class="table table-hover my-0">
 									<thead>
@@ -162,14 +163,12 @@
 								</table>
 							</div>
 						</div>
-			
-				</div> 
-						
-
+			</div>
+               
 
          </main>
 
- 
+  
          <footer class="footer">
             <div class="container-fluid">
                <div class="row text-muted">
@@ -202,9 +201,17 @@
    
 
    
+   						<!-- 아파트 검색 결과 테이블 -->						
+						<table border="1" width="900" cellpadding="0" cellspacing="0">
 
-   
-   
+						<c:forEach items="${APTLISTKKK}" var="vo">
+						   <tr>
+						        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+						      <td>${vo.gu} ${vo.street}</td>
+						      <td>${vo.dong}</td>
+						   </tr>
+						</c:forEach>
+						</table>
    
    
    
