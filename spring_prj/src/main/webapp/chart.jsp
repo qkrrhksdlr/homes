@@ -61,7 +61,7 @@ function printIndexLinearChart(year, deal, rent) {
 
 /* 서울시 자치구별 아파트 비율 차트 */
 $.ajax({
-    url : "aptratiochart.do",
+    url : "/aptratiochart.do", 
     method : "GET",  
     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
     dataType : "json",  

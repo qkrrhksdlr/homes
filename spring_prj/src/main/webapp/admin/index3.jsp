@@ -56,419 +56,96 @@
    <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
 
    <link href="css/app.css" rel="stylesheet">
-   
-   
-   
-   <!-- 메인 그래프 관익 S----------------------------------- -->
 
-   
-   <!-- 메인 그래프 관익 E------------------------------------ -->
    
 </head>
-
-<!--  메인 그래프 관익----------------------------------------S -->
-
-<script>
-/* 서울시 아파트 가격지수 차트 */
-$.ajax({
-    url : "/aptindexchart.do",
-    method : "GET",  
-    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    dataType : "json",  
-    success : function(jsonObjList){
-       var year = [];   
-       var deal = []; 
-       var rent = []; 
-       
-       $.map(jsonObjList, function(vv, i){
-          year.push(vv.year);
-          deal.push(vv.deal_index);
-          rent.push(vv.rent_index);            
-          })  
-          printIndexLinearChart(year, deal, rent);
-    }
-});
-//리니어 차트 -------------------------------------------------
-function printIndexLinearChart(year, deal, rent) {   
-      var chart = c3.generate({
-         bindto: "#indexchart",
-          data: {   
-             json:{
-                   x: year,
-                   매매: deal,
-                  전세 : rent
-                   },
-               x:'x',
-                type : 'line'
-            },
-          grid: { x: {show: false}, y: { show: true}},
-          size: {height: 500, width: 600}
-      });
-} 
-</script>
-
-<script>
-/* 서울시 자치구별 아파트 비율 차트 */
-$.ajax({  
-    url : "/aptratiochart.do",
-    method : "GET",  
-    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    dataType : "json",  
-    success : function(jsonObjList){
-       var dataJson = {};   
-       var keyArray = []; 
-       
-       $.map(jsonObjList, function(vv, i){
-          dataJson[vv.gu] = (vv.apt_cnt);
-          keyArray.push(vv.gu);          
-          })  
-          printRatioLinearChart(dataJson, keyArray);
-    }
-});
-// 도넛 차트 -------------------------------------------------
-function printRatioLinearChart(dataJson, keyArray) { 
-   var chart = c3.generate({
-         bindto: "#ratiochart",
-          data: {   
-                json: [dataJson],
-               keys: {value: keyArray},
-                type : 'donut'
-            },
-            donut: {
-               title: "서울시 자치구별 아파트 비율"
-            },
-            legend : {position : 'right'},
-          grid: { x: {show: false}, y: { show: true}},
-          size: {height: 600, width: 800}
-      });
-}
-
-
-
-
-/* 서울시 자치구별 아파트 건축연도 비율 차트 */
-
-</script>
-
-
-
 
 
 <!--  메인 그래프 관익----------------------------------------E -->
 
-
-
-
-
-
 <body>
    <div class="wrapper">
-      <!--  
-      <nav id="sidebar" class="sidebar">
-         <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
-        </a>
-
-            <ul class="sidebar-nav">
-               <li class="sidebar-header">
-                  Pages
-               </li>
-
-               <li class="sidebar-item active">
-                  <a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="pages-settings.html">
-              <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="pages-invoice.html">
-              <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Invoice</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-               </li>
-
-               <li class="sidebar-header">
-                  Tools & Components
-               </li>
-               <li class="sidebar-item">
-                  <a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
-              <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">UI Elements</span>
-            </a>
-                  <ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Buttons</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Cards</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
-                  </ul>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a href="#forms" data-toggle="collapse" class="sidebar-link collapsed">
-              <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
-            </a>
-                  <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-                     <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
-                  </ul>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="tables-bootstrap.html">
-              <i class="align-middle" data-feather="list"></i> <span class="align-middle">Tables</span>
-            </a>
-               </li>
-
-               <li class="sidebar-header">
-                  Plugins & Addons
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-            </a>
-               </li>
-
-               <li class="sidebar-item">
-                  <a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-            </a>
-               </li>
-            </ul>
-
-            <div class="sidebar-cta">
-               <div class="sidebar-cta-content">
-                  <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                  <div class="mb-3 text-sm">
-                     Are you looking for more components?
-                  </div>
-                  <a href="https://adminkit.io/pricing" target="_blank" class="btn btn-outline-primary btn-block">Upgrade</a>
-               </div>
-            </div>
-         </div>
-      </nav>-->
-
       <div class="main">
-         
-
          <main class="content">
             <div class="container-fluid p-0">
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3><strong>Analytics 3</strong> Dashboard</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div id="infodiv"  style="float:left">
+						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+						(검색어: 도로명주소 or 동 or 아파트명)
+						
+							<form name="searchform" method="get" action="/aptlist.do">
+							<select name="searchKey" id="searchKey">
+						   <option value ="강남구">강남구</option>
+						   <option value ="강동구">강동구</option>
+						   <option value ="강북구">강북구</option>
+						   <option value ="강서구">강서구</option>
+						   <option value ="관악구">관악구</option>
+						   <option value ="광진구">광진구</option>
+						   <option value ="구로구">구로구</option>
+						   <option value ="금천구">금천구</option>
+						   <option value ="노원구">노원구</option>
+						   <option value ="도봉구">도봉구</option>
+						   <option value ="동대문구">동대문구</option>
+						   <option value ="동작구">동작구</option>
+						   <option value ="마포구">마포구</option>
+						   <option value ="서대문구">서대문구</option>
+						   <option value ="서초구">서초구</option>
+						   <option value ="성동구">성동구</option>
+						   <option value ="성북구">성북구</option>
+						   <option value ="송파구">송파구</option>
+						   <option value ="양천구">양천구</option>
+						   <option value ="영등포구">영등포구</option>
+						   <option value ="용산구">용산구</option>
+						   <option value ="은평구">은평구</option>
+						   <option value ="종로구">종로구</option>
+						   <option value ="중구">중구</option>
+						   <option value ="중랑구">중랑구</option>
+							</select>
+							<input type ="text" name="searchStr" id="searchStr">
+							<input type ="submit" id="searchBtn" value="검색">
+							</form>
+						<hr>
+						<br>
 
-               <div class="row mb-2 mb-xl-3">
-                  <div class="col-auto d-none d-sm-block">
-                     <h3><strong>Analytics</strong> Dashboard</h3>
-                  </div>
-                  <!--  
-                  <div class="col-auto ml-auto text-right mt-n1">
-                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-                           <li class="breadcrumb-item"><a href="#">AdminKit</a></li>
-                           <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                           <li class="breadcrumb-item active" aria-current="page">Analytics</li>
-                        </ol>
-                     </nav>
-                  </div>
-                  -->
-               </div>
-               
-               
-               
-               
-               
-               
-               <div class="row">
-               <!--  -->
-               
-<div id="infodiv"  style="float:left">
-찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-(검색어: 도로명주소 or 동 or 아파트명)
+						</div>					
+					
+					</div>
+					
+					
 
-<form name="searchform" method="get" action="/aptlist.do">
-<select name="searchKey" id="searchKey">
-   <option value ="강남구">강남구</option>
-   <option value ="강동구">강동구</option>
-   <option value ="강북구">강북구</option>
-   <option value ="강서구">강서구</option>
-   <option value ="관악구">관악구</option>
-   <option value ="광진구">광진구</option>
-   <option value ="구로구">구로구</option>
-   <option value ="금천구">금천구</option>
-   <option value ="노원구">노원구</option>
-   <option value ="도봉구">도봉구</option>
-   <option value ="동대문구">동대문구</option>
-   <option value ="동작구">동작구</option>
-   <option value ="마포구">마포구</option>
-   <option value ="서대문구">서대문구</option>
-   <option value ="서초구">서초구</option>
-   <option value ="성동구">성동구</option>
-   <option value ="성북구">성북구</option>
-   <option value ="송파구">송파구</option>
-   <option value ="양천구">양천구</option>
-   <option value ="영등포구">영등포구</option>
-   <option value ="용산구">용산구</option>
-   <option value ="은평구">은평구</option>
-   <option value ="종로구">종로구</option>
-   <option value ="중구">중구</option>
-   <option value ="중랑구">중랑구</option>
-</select>
-<input type ="text" name="searchStr" id="searchStr">
-<input type ="submit" id="searchBtn" value="검색">
-</form>
-<hr>
-<br>
-<!--  
-${param.searchKey} ${param.searchStr} 검색 결과 입니다.
--->
-
-
-<table border="1" width="900" cellpadding="0" cellspacing="0">
-   <!--  
-   <tr>
-      <td><b>단지명 - 전용면적(㎡)</b></td>
-      <td><b>도로명 주소</b></td>
-      <td><b>법정동</b></td>
-   </tr>
-   -->
-
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<c:forEach items="${APTLISTKKK}" var="vo">
-   <tr>
-        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-      <td>${vo.gu} ${vo.street}</td>
-      <td>${vo.dong}</td>
-   </tr>
-</c:forEach>
-</table>
-
-
-</div>
-            
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-                  <!--  
-                  <div class="col-12 col-lg-8 col-xxl-9 d-flex">
-                     <div class="card flex-fill">
-                        <div class="card-header">
-
-                           <h5 class="card-title mb-0">Latest Projects</h5>
-                        </div>
-                        <table class="table table-hover my-0">
-                           <thead>
-                              <tr>
-                                 <th>Name</th>
-                                 <th class="d-none d-xl-table-cell">Start Date</th>
-                                 <th class="d-none d-xl-table-cell">End Date</th>
-                                 <th>Status</th>
-                                 <th class="d-none d-md-table-cell">Assignee</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <tr>
-                                 <td>Project Apollo</td>
-                                 <td class="d-none d-xl-table-cell">01/01/2020</td>
-                                 <td class="d-none d-xl-table-cell">31/06/2020</td>
-                                 <td><span class="badge badge-success">Done</span></td>
-                                 <td class="d-none d-md-table-cell">Vanessa Tucker</td>
-                              </tr>
-                              <tr>
-                                 <td>Project Fireball</td>
-                                 <td class="d-none d-xl-table-cell">01/01/2020</td>
-                                 <td class="d-none d-xl-table-cell">31/06/2020</td>
-                                 <td><span class="badge badge-danger">Cancelled</span></td>
-                                 <td class="d-none d-md-table-cell">William Harris</td>
-                              </tr>
-                              <tr>
-                                 <td>Project Hades</td>
-                                 <td class="d-none d-xl-table-cell">01/01/2020</td>
-                                 <td class="d-none d-xl-table-cell">31/06/2020</td>
-                                 <td><span class="badge badge-success">Done</span></td>
-                                 <td class="d-none d-md-table-cell">Sharon Lessman</td>
-                              </tr>
-                  
-                              
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  -->
-               
-               
-               
-               
-                  <!-- 원형그래프 추가 -->
-                  <div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
-                     
-                       
+			<div class="row">
+                  <div class="col-12 col-md-12 col-xxl-10 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
-                         
                         <div class="card-header">
 
+                           <h5 class="card-title mb-0">지도</h5>
+                        </div>
+                        <div class="card-body px-4">
+                         <!--<div id="world_map" style="height:350px;"></div>-->
+                             <div id="mapdiv" style="height:500px"></div>  
+                        </div>
+                     </div>
+                  </div>                          		
+			</div>
+		
+			<div class="row">
+                  <div class="col-12 col-md-6 col-xxl-5 d-flex order-2 order-xxl-3">
+                     <div class="card flex-fill w-100">
+                        <div class="card-header">
                            <h5 class="card-title mb-0">매매/전세/월세 비율</h5>
                         </div>
-                        
-                        
                         <div class="card-body d-flex">
-                             
                            <div class="align-self-center w-100">
                               <div class="py-3">
                                  <div class="chart chart-xs">
                                     <canvas id="chartjs-dashboard-pie"></canvas>
                                  </div>
                               </div>
-
                               <table class="table mb-0">
                                  <tbody>
                                     <tr>
@@ -486,55 +163,34 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                                  </tbody>
                               </table>
                            </div>
-                           
-                            
-                        </div>
-                     
-                     </div>
-                     
-                  </div>
-                  
-                  
-                  <div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-                     <div class="card flex-fill w-100">
-                        <div class="card-header">
-
-                           <h5 class="card-title mb-0">Real-Time</h5>
-                        </div>
-                        <div class="card-body px-4">
-                         <!--<div id="world_map" style="height:350px;"></div>--> <!-- JGH202000811 -->
-      
-                             <div id="mapdiv" style="float:right"></div>  <!-- JGH202000811 -->
                         </div>
                      </div>
                   </div>
                   
-                  <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
-                      
-                     <!--<div class="card flex-fill">
-                           
-                        <div class="card-header">
+                  		<div class="col-xl-6 col-xxl-5">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
 
-
-									<h5 class="card-title mb-0">Calendar</h5>
+									<h5 class="card-title mb-0">서울 매매 가격 지수</h5>
 								</div>
-								
-								
-								<div class="card-body d-flex">
-									<div class="align-self-center w-100">
-										<div class="chart">
-											<div id="datetimepicker-dashboard"></div>
-										</div>
+								<div class="card-body py-3">
+									<div class="chart chart-sm">
+										<canvas id="chartjs-dashboard-line"></canvas>
 									</div>
 								</div>
-								  
-								  
-							</div>-->
-						     
-						</div>
-						
-					</div>
+							</div>
+						</div>		 	
+			</div>
 
+
+                  
+                   <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+                      
+
+                      
+                  </div>
+                  
+               </div>
 
             <!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
             <div>
@@ -552,107 +208,14 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                
             </div>
 
-
-
-
-            <!-- 
-               <div class="row">
-                  <div class="col-xl-6 col-xxl-5 d-flex">
-                     <div class="w-100">
-                        <div class="row">
-                           <div class="col-sm-6">
-                              <div class="card">
-                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">Sales</h5>
-                                    <h1 class="display-5 mt-1 mb-3">2.382</h1>
-                                    <div class="mb-1">
-                                       <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
-                                       <span class="text-muted">Since last week</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="card">
-                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">Visitors</h5>
-                                    <h1 class="display-5 mt-1 mb-3">14.212</h1>
-                                    <div class="mb-1">
-                                       <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
-                                       <span class="text-muted">Since last week</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="card">
-                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">Earnings</h5>
-                                    <h1 class="display-5 mt-1 mb-3">$21.300</h1>
-                                    <div class="mb-1">
-                                       <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-                                       <span class="text-muted">Since last week</span>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="card">
-                                 <div class="card-body">
-                                    <h5 class="card-title mb-4">Orders</h5>
-                                    <h1 class="display-5 mt-1 mb-3">64</h1>
-                                    <div class="mb-1">
-                                       <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-                                       <span class="text-muted">Since last week</span>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  
-                  <div class="col-xl-6 col-xxl-7">
-                     <div class="card flex-fill w-100">
-                        <div class="card-header">
-
-                           <h5 class="card-title mb-0">Recent Movement</h5>
-                        </div>
-                        <div class="card-body py-3">
-                           <div class="chart chart-sm">
-                              <canvas id="chartjs-dashboard-line"></canvas>
-                           </div>
-                        </div>
-                     </div>d
-                  </div>
-                  -->
-               </div>
-
-               
-               <!--  
-               <div class="row">
-                  
-                  <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                     <div class="card flex-fill w-100">
-                        <div class="card-header">
-
-                           <h5 class="card-title mb-0">Monthly Sales</h5>
-                        </div>
-                        <div class="card-body d-flex w-100">
-                           <div class="align-self-center chart chart-lg">
-                              <canvas id="chartjs-dashboard-bar"></canvas>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               -->
-            </div>
          </main>
 
-         <!--  -->
+  
          <footer class="footer">
             <div class="container-fluid">
                <div class="row text-muted">
                   <div class="col-6 text-left">
                      <p class="mb-0">
-                        <!--  <a href="index.html" class="text-muted"><strong>AdminKit Demo</strong></a> &copy; -->
                      </p>
                   </div>
                   <div class="col-6 text-right">
@@ -681,7 +244,21 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
    
    
+   						<!-- 아파트 검색 결과 테이블 -->						
+						<table border="1" width="900" cellpadding="0" cellspacing="0">
 
+						<c:forEach items="${APTLISTKKK}" var="vo">
+						   <tr>
+						        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+						      <td>${vo.gu} ${vo.street}</td>
+						      <td>${vo.dong}</td>
+						   </tr>
+						</c:forEach>
+						</table>
+   
+   
+   
+   
    <script src="js/vendor.js"></script>
    <script src="js/app.js"></script>
 
@@ -695,25 +272,23 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
          new Chart(document.getElementById("chartjs-dashboard-line"), {
             type: 'line',
             data: {
-               labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+               labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
                datasets: [{
-                  label: "Sales ($)",
+                  label: "매매가격지수",
                   fill: true,
                   backgroundColor: gradient,
                   borderColor: window.theme.primary,
                   data: [
-                     2115,
-                     1562,
-                     1584,
-                     1892,
-                     1587,
-                     1923,
-                     2566,
-                     2448,
-                     2805,
-                     3438,
-                     2917,
-                     3327
+                	  93.4,
+                	  93,
+                	  86.8,
+                	  85.7,
+                	  87.4,
+                	  93.3,
+                	  96.3,
+                	  100.8,
+                	  108.9,
+                	  110.1
                   ]
                }]
             },
@@ -742,7 +317,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                   }],
                   yAxes: [{
                      ticks: {
-                        stepSize: 1000
+                        stepSize: 100
                      },
                      display: true,
                      borderDash: [3, 3],
@@ -1018,7 +593,87 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 </script> 
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
+<script>
+/* 서울시 아파트 가격지수 차트 */
+$.ajax({
+    url : "/aptindexchart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var year = [];   
+       var deal = []; 
+       var rent = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          year.push(vv.year);
+          deal.push(vv.deal_index);
+          rent.push(vv.rent_index);            
+          })  
+          printIndexLinearChart(year, deal, rent);
+    }
+});
+//리니어 차트 -------------------------------------------------
+function printIndexLinearChart(year, deal, rent) {   
+      var chart = c3.generate({
+         bindto: "#indexchart",
+          data: {   
+             json:{
+                   x: year,
+                   매매: deal,
+                  전세 : rent
+                   },
+               x:'x',
+                type : 'line'
+            },
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 500, width: 600}
+      });
+} 
+</script>
 
+<script>
+/* 서울시 자치구별 아파트 비율 차트 */
+$.ajax({  
+    url : "/aptratiochart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          dataJson[vv.gu] = (vv.apt_cnt);
+          keyArray.push(vv.gu);          
+          })  
+          printRatioLinearChart(dataJson, keyArray);
+    }
+});
+// 도넛 차트 -------------------------------------------------
+function printRatioLinearChart(dataJson, keyArray) { 
+   var chart = c3.generate({
+         bindto: "#ratiochart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "서울시 자치구별 아파트 비율"
+            },
+            legend : {position : 'right'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 600, width: 800}
+      });
+}
+
+
+
+
+/* 서울시 자치구별 아파트 건축연도 비율 차트 */
+
+</script>
 
 
 
