@@ -37,6 +37,21 @@ public class AptRestController {
       return list;      
    }   
 
+   
+   //구글맵 파라미터2
+  @RequestMapping(value = "/clickmap.do", method = RequestMethod.GET)
+  public ArrayList<AptVO> clickmap(Model model
+        ,@RequestParam(value="clat", required=false) String clat
+        ,@RequestParam(value="clng", required=false) String clng
+        ,@RequestParam(value="aptStr", required=false) String aptStr
+        ,HttpServletRequest request, HttpServletResponse response) {
+
+     ArrayList<AptVO> list = svc.svcClickmap(aptStr);
+     System.out.println("클릭맵데이터:"+list);               
+     return list;      
+  }   
+   
+   
    //매매 차트
    @RequestMapping(value = "/aptmchart.do", method = RequestMethod.GET)
    public ArrayList<AptVO> aptmchart(Model model

@@ -64,38 +64,76 @@
    <div class="wrapper">
       <div class="main">
          <main class="content">
-	           <div class="container-fluid">
-	               <h1 class="mt-4">아파트 상세정보</h1>    
-	                  <div class="row">
-	                       <div class="col-xl-6">
-	                          <div class="card mb-4">
-	                             <div class="card-header">
-	                                 <i class="fas fa-chart-area mr-1"></i>
-	                                		 아파트 매매 가격 변화 추이
-	                             </div>
-	                          <table width="100%" border=1>
-	                            <tr>
-	                           		<td id="mchart"></td>
-	                         	</tr> 			                                                
-	                   		  </table>
-	                          </div>
-	                       </div>
-	                       <div class="col-xl-6">
-	                         <div class="card mb-4">
-	                          <div class="card-header">
-	                          	<i class="fas fa-chart-bar mr-1"></i>
-	                          		전세 가격 변화 추이		                                
-		                      </div>	                            
-		                      <table>
-		                         <tr>
-		                            <td id="zwchart"></td>
-		                         </tr>
-		                      </table>
-	                          </div>
-	                       </div>
-	                   </div>
-	
-	           <div class="card mb-4">
+            <div class="container-fluid p-0">
+					<div class="row mb-2 mb-xl-3">
+						<div class="col-auto d-none d-sm-block">
+							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div id="infodiv"  style="float:left">
+						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+						(검색어: 도로명주소 or 동 or 아파트명)
+						
+							<form name="searchform" method="get" action="/aptlist.do">
+							<select name="searchKey" id="searchKey">
+						   <option value ="강남구">강남구</option>
+						   <option value ="강동구">강동구</option>
+						   <option value ="강북구">강북구</option>
+						   <option value ="강서구">강서구</option>
+						   <option value ="관악구">관악구</option>
+						   <option value ="광진구">광진구</option>
+						   <option value ="구로구">구로구</option>
+						   <option value ="금천구">금천구</option>
+						   <option value ="노원구">노원구</option>
+						   <option value ="도봉구">도봉구</option>
+						   <option value ="동대문구">동대문구</option>
+						   <option value ="동작구">동작구</option>
+						   <option value ="마포구">마포구</option>
+						   <option value ="서대문구">서대문구</option>
+						   <option value ="서초구">서초구</option>
+						   <option value ="성동구">성동구</option>
+						   <option value ="성북구">성북구</option>
+						   <option value ="송파구">송파구</option>
+						   <option value ="양천구">양천구</option>
+						   <option value ="영등포구">영등포구</option>
+						   <option value ="용산구">용산구</option>
+						   <option value ="은평구">은평구</option>
+						   <option value ="종로구">종로구</option>
+						   <option value ="중구">중구</option>
+						   <option value ="중랑구">중랑구</option>
+							</select>
+							<input type ="text" name="searchStr" id="searchStr">
+							<input type ="submit" id="searchBtn" value="검색">
+							</form>
+						<hr>
+						<br>
+
+						</div>					
+					
+					</div>
+					
+					
+
+			<div class="row">
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
+                     <div class="card flex-fill w-100">
+                        <div class="card-header">
+                          <h5 class="card-title mb-0">아파트 위치</h5>
+                        </div>
+                        <div class="card-body px-4">
+                         <!--<div id="world_map" style="height:350px;"></div>-->
+                             <div id="mapdiv" style="height:500px"></div>  
+                        </div>
+                     </div>
+                  </div>                          		
+			</div>
+            
+
+               	<div class="row">	
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
+                     <div class="card flex-fill w-100">
 	           	<div class="card-header">
 	           		<i class="fas fa-table mr-1"></i>
 	           				건물 상세정보
@@ -134,8 +172,39 @@
 	                 </div>
 	              </div>
 	           </div>
-	         </div>
-	      </main>
+	           </div>
+             </div>
+               	                  <div class="row">
+	                       <div class="col-xl-6">
+	                          <div class="card mb-4">
+	                             <div class="card-header">
+	                                 <i class="fas fa-chart-area mr-1"></i>
+	                                		 아파트 매매 가격 변화 추이
+	                             </div>
+	                          <table width="100%" border=1>
+	                            <tr>
+	                           		<td id="mchart"></td>
+	                         	</tr> 			                                                
+	                   		  </table>
+	                          </div>
+	                       </div>
+	                       <div class="col-xl-6">
+	                         <div class="card mb-4">
+	                          <div class="card-header">
+	                          	<i class="fas fa-chart-bar mr-1"></i>
+	                          		전세 가격 변화 추이		                                
+		                      </div>	                            
+		                      <table>
+		                         <tr>
+		                            <td id="zwchart"></td>
+		                         </tr>
+		                      </table>
+	                          </div>
+	                       </div>
+	                   </div>
+               
+
+         </main>
 
   
          <footer class="footer">
@@ -564,30 +633,26 @@
    //-------------------------------------------
    // 동검색
    //-------------------------------------------
-   $("#searchBtn").click(function(){ 
-      if($("#searchStr").val() == "") {
-         alert("동이름, 도로명주소, 또는 단지명을 검색하세요");
-         $("#searchStr").focus();
-      } else {
-         var searchKey = $("#searchKey option:selected").val();
-         var searchStr = $("#searchStr").val();
-         //alert(gu + "," + dong);
-         paintMarker('','', searchKey, searchStr); 
-      }
+   $("#aptviewBtn").click(function(){ 
+         var aptStr = $("#aptStr").val();
+         var areaStr = $("#areaStr").val();
+         paintMarker('','', aptStr); 
+      
    });
 
+   
 
    
    //-------------------------------------------
    // 자신의 접속지 or 동검색 : DB의 위경도 가져와 마커그리기
    //-------------------------------------------
-   function  paintMarker(clat, clng, searchKey, searchStr) {
+   function  paintMarker(clat, clng, aptStr) {
       //--------- DB의 위경도 가져와 마커그리기
       $.ajax({
-           url : "/googlemap.do",
+           url : "/clickmap.do",
            method : "GET",  //"POST", "GET",  v1.9.0.이전 type countyName
            contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-           data : "clat=${param.clat}&clng=${param.clng}&searchKey=${param.searchKey}&searchStr=${param.searchStr}",  //***********
+           data : "clat=${param.clat}&clng=${param.clng}&aptStr=${param.aptStr}",  //***********
            dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
            success : function(resultList){ 
               //console.log("ajax데이터: "+resultList); //
@@ -625,6 +690,8 @@
    } //e.o.paintMarker()
 
 </script> 
+
+
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
 <script>
@@ -776,7 +843,7 @@ function printZWLinearChart(aptConym, aptDeposit) {
        data: {   
           json:{
              x: aptConym,
-             전세: aptDeposit 
+             전세: aptDeposit
           },
          x:'x',
           type : 'line'

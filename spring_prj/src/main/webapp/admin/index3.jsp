@@ -67,7 +67,7 @@
             <div class="container-fluid p-0">
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							<h3><strong>ISLAND 서울시 아파트 실거래 및가격 지수 정보 시스템 </strong> 
 							</h3>
 						</div>
 					</div>
@@ -116,19 +116,7 @@
 					
 					
 
-			<div class="row">
-                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
-                     <div class="card flex-fill w-100">
-                        <div class="card-header">
-                          <h5 class="card-title mb-0">아파트 위치</h5>
-                        </div>
-                        <div class="card-body px-4">
-                         <!--<div id="world_map" style="height:350px;"></div>-->
-                             <div id="mapdiv" style="height:500px"></div>  
-                        </div>
-                     </div>
-                  </div>                          		
-			</div>
+
 		
 			<div class="row">
 				<div class="col-12 col-xl-7 col-xxl-7 d-flex">
@@ -137,7 +125,7 @@
 									<div class="col-sm-12 col-xxl-12">
 										<div class="card">
 										<div class="card-header">
-											<h5 class="card-title mb-0">서울시 아파트 매매가격지수 (2017.11=100 기준)</h5>
+											<h4 class="card-title mb-0"><b>서울시 아파트 매매가격지수 (2017.11=100 기준)</b></h5>
 										</div>
 										<div class="card-body py-3">
 											<div class="chart chart-sm">
@@ -152,7 +140,7 @@
 										<div class="card">
 										<div class="card-header">
 
-											<h5 class="card-title mb-0">서울시 아파트 전세가격지수 (2017.11=100 기준)</h5>
+											<h4 class="card-title mb-0"><b>서울시 아파트 전세가격지수 (2017.11=100 기준)</b></h5>
 										</div>
 										<div class="card-body py-3">
 											<div class="chart chart-sm">
@@ -167,7 +155,7 @@
                   <div class="col-12 col-xl-5 col-xxl-5 d-flex order-2 order-xxl-6">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-                           <h5 class="card-title mb-0">서울시 자치구별 아파트 비율 (총 1,679,639채)</h5>
+                           <h4 class="card-title mb-0"><b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b></h5>
                         </div>
                         <div class="card-body d-flex">
                            <div class="align-self-center w-100">
@@ -193,13 +181,45 @@
 						 	
 			</div>
 
- 
-                  
-                   <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
-                      
+ 			<div class="row">	
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
+                     <div class="card flex-fill w-100">
+	           	<div class="card-header">
+	           		<i class="fas fa-table mr-1"></i>
+	           				<b>Today 부동산 시장동향 뉴스</b>
+	            </div>
 
-                      
-                  </div>
+
+	            <div class="card-body">
+	            	<div class="table-responsive">
+	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	            			<!-- 상세정보 표 -->
+							<tr>
+								<td>이미지</td>
+								<td>기사제목</td>
+								<td>내용</td>
+								<td>출처</td>
+								<td>날짜</td>
+							</tr>									
+										
+							<!-- 상세정보 받아온 값 뿌리기 -->
+									<c:forEach items="${NEWSLISTKKK}" var="vo">
+										<tr>
+									 		<td><img src="${vo.img}" width="245" height="138"></td>
+											<td><a href="${vo.url}">${vo.title}</a></td> 
+											<td>${vo.contents}</td>
+											<td>${vo.writing}</td>
+											<td>${vo.date}</td>	
+										</tr>
+									</c:forEach>                                   
+	                   </table>
+	                 </div>
+	              </div>
+	           </div>
+	           </div>
+             </div>
+                  
+                   
                   
                </div>
 

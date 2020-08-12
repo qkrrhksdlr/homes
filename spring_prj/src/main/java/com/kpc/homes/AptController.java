@@ -43,6 +43,7 @@ public class AptController {
    public String aptview(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr) {
+	   
       ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);   
       model.addAttribute("APTVIEWKKK", list);
       //return "apt_view";
@@ -64,14 +65,14 @@ public class AptController {
    }
    
    //오늘의 부동산 시장 동향 뉴스
-   @RequestMapping(value = "/news.do", method = RequestMethod.GET)
+   @RequestMapping(value = "/main.do", method = RequestMethod.GET)
    public String news(Model model) {
 
       NewsCraw news = new NewsCraw();
       ArrayList<NewsVO> list = news.getNews();
 
       model.addAttribute("NEWSLISTKKK", list);
-      return "news_list";
+      return "admin/index3";
    }
       
 
