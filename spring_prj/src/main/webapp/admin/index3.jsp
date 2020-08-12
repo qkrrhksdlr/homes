@@ -182,7 +182,7 @@
 						</div>		 	
 			</div>
 
-
+ 
                   
                    <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
                       
