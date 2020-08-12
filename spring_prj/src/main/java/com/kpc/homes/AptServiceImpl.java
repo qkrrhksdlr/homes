@@ -36,6 +36,14 @@ public class AptServiceImpl implements AptService {
 		return list;
 	}
 	
+	//맵
+	@Override
+	public ArrayList<AptVO> svcClickmap(String aptStr) {
+		System.out.println("클릭맵서비스.....");
+		ArrayList<AptVO> list = dao.clickmap(aptStr);
+		return list;
+	}
+	
 	//상세보기
 	@Override
 	public ArrayList<AptVO> svcAptview(String aptStr, String areaStr) {

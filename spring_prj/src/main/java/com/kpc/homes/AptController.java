@@ -20,7 +20,7 @@ public class AptController {
    
    private static final Logger logger = LoggerFactory.getLogger(AptController.class);
 
-
+ 
    @Autowired
    AptServiceImpl svc;
    
@@ -43,6 +43,7 @@ public class AptController {
    public String aptview(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr) {
+	   
       ArrayList<AptVO> list = svc.svcAptview(aptStr, areaStr);   
       model.addAttribute("APTVIEWKKK", list);
       //return "apt_view";
@@ -50,7 +51,7 @@ public class AptController {
       InfoCraw info = new InfoCraw();
       ArrayList<InfoVO> list1 = info.getInfo(aptStr);
       model.addAttribute("AptInfoKKK", list1);
-      return "apt_view2";
+      return "admin/index5";
    } 
    
    //카운트
@@ -64,14 +65,14 @@ public class AptController {
    }
    
    //오늘의 부동산 시장 동향 뉴스
-   @RequestMapping(value = "/news.do", method = RequestMethod.GET)
+   @RequestMapping(value = "/main.do", method = RequestMethod.GET)
    public String news(Model model) {
 
       NewsCraw news = new NewsCraw();
       ArrayList<NewsVO> list = news.getNews();
 
       model.addAttribute("NEWSLISTKKK", list);
-      return "news_list";
+      return "admin/index3";
    }
       
 

@@ -68,6 +68,17 @@
 		<!-- where rn between #{startSeq} and #{endSeq} -->
 	</select>
 	
+	
+	<!-- 클릭맵 -->
+ 	<select id="clickmap" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select distinct a.*, b.lat, b.lng
+		from apt a, aptxy b
+		where a.dong = b.dong
+		and a.addr1 = b.addr1
+		and a. apt = #{aptStr}
+	</select>
+	
+	
 	<!-- 상세보기 -->
  	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select distinct a.*, b.lat, b.lng

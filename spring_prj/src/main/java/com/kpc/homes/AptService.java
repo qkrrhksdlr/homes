@@ -18,6 +18,9 @@ public interface AptService {
 	//구글맵
 	public	ArrayList<AptVO> svcGooglemap(String searchKey, String searchStr);
 
+	//클릭맵
+	public	ArrayList<AptVO> svcClickmap(String aptStr);
+	
 	//글상세보기	
 	public  ArrayList<AptVO> svcAptview(String aptStr, String areaStr);
 

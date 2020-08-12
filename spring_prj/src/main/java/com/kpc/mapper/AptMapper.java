@@ -25,6 +25,10 @@ public interface AptMapper {
 	public ArrayList<AptVO> googlemap(
 			@Param("searchKey")  String searchKey
 			,@Param("searchStr")  String searchStr);
+	
+	//클릭맵
+	public ArrayList<AptVO> clickmap(
+			@Param("aptStr") String aptStr);
 
 	//상세보기
 	public ArrayList<AptVO> aptview(

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -130,41 +129,79 @@
                      </div>
                   </div>                          		
 			</div>
-		
+            
 
-               
-			<div class="row">
-					<div class="col-12 col-xl-12 col-xxl-12 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">아파트 목록</h5>
-								</div>
-								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>단지명 - 전용면적(㎡)</th>
-											<th class="d-none d-xl-table-cell">도로명 주소</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											
-										</tr>
-									</thead>
-									<tbody>
-	 									
-										<c:forEach items="${APTLISTKKK}" var="vo">
-										   <tr>
-										        <td><a id="aptviewBtn" href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-										      <td>${vo.gu} ${vo.street}</td>
-										      <td>${vo.dong}</td>
-										   </tr>
-										</c:forEach>
-						
+               	<div class="row">	
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
+                     <div class="card flex-fill w-100">
+	           	<div class="card-header">
+	           		<i class="fas fa-table mr-1"></i>
+	           				건물 상세정보
+	            </div>
+	            <div class="card-body">
+	            	<div class="table-responsive">
+	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	            			<!-- 상세정보 표 -->
+							<tr>
+							   <td>단지명</td>
+							   <td>종류</td>
+							   <td>세대수</td>
+							   <td>동수</td>
+							   <td>준공년도</td>
+							   <td>관리실</td>
+							   <td>면적</td>
+							   <td>학군정보</td>
+							   <td>도로명주소</td>
+							</tr>									
 										
-									</tbody>
-								</table>
-							</div>
-						</div>
-			</div>
+							<!-- 상세정보 받아온 값 뿌리기 -->
+							<c:forEach items="${AptInfoKKK}" var="voo">
+								<tr>
+								    <td>${voo.apt}</td>
+									<td>${voo.type}</td>
+									<td>${voo.numhouse}</td>	
+									<td>${voo.numbldg}</td>	
+									<td>${voo.archyear}</td>			
+									<td>${voo.office}</td>	
+									<td>${voo.arealist}</td>	
+									<td>${voo.school}</td>			
+									<td>${voo.street}</td>	
+								</tr>   
+							</c:forEach>                                   
+	                   </table>
+	                 </div>
+	              </div>
+	           </div>
+	           </div>
+             </div>
+               	                  <div class="row">
+	                       <div class="col-xl-6">
+	                          <div class="card mb-4">
+	                             <div class="card-header">
+	                                 <i class="fas fa-chart-area mr-1"></i>
+	                                		 아파트 매매 가격 변화 추이
+	                             </div>
+	                          <table width="100%" border=1>
+	                            <tr>
+	                           		<td id="mchart"></td>
+	                         	</tr> 			                                                
+	                   		  </table>
+	                          </div>
+	                       </div>
+	                       <div class="col-xl-6">
+	                         <div class="card mb-4">
+	                          <div class="card-header">
+	                          	<i class="fas fa-chart-bar mr-1"></i>
+	                          		전세 가격 변화 추이		                                
+		                      </div>	                            
+		                      <table>
+		                         <tr>
+		                            <td id="zwchart"></td>
+		                         </tr>
+		                      </table>
+	                          </div>
+	                       </div>
+	                   </div>
                
 
          </main>
@@ -596,30 +633,26 @@
    //-------------------------------------------
    // 동검색
    //-------------------------------------------
-   $("#searchBtn").click(function(){ 
-      if($("#searchStr").val() == "") {
-         alert("동이름, 도로명주소, 또는 단지명을 검색하세요");
-         $("#searchStr").focus();
-      } else {
-         var searchKey = $("#searchKey option:selected").val();
-         var searchStr = $("#searchStr").val();
-         //alert(gu + "," + dong);
-         paintMarker('','', searchKey, searchStr); 
-      }
+   $("#aptviewBtn").click(function(){ 
+         var aptStr = $("#aptStr").val();
+         var areaStr = $("#areaStr").val();
+         paintMarker('','', aptStr); 
+      
    });
 
+   
 
    
    //-------------------------------------------
    // 자신의 접속지 or 동검색 : DB의 위경도 가져와 마커그리기
    //-------------------------------------------
-   function  paintMarker(clat, clng, searchKey, searchStr) {
+   function  paintMarker(clat, clng, aptStr) {
       //--------- DB의 위경도 가져와 마커그리기
       $.ajax({
-           url : "/googlemap.do",
+           url : "/clickmap.do",
            method : "GET",  //"POST", "GET",  v1.9.0.이전 type countyName
            contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-           data : "clat=${param.clat}&clng=${param.clng}&searchKey=${param.searchKey}&searchStr=${param.searchStr}",  //***********
+           data : "clat=${param.clat}&clng=${param.clng}&aptStr=${param.aptStr}",  //***********
            dataType : "json",  //서버로부터 오는 응답 xml, json, script, html
            success : function(resultList){ 
               //console.log("ajax데이터: "+resultList); //
@@ -657,6 +690,8 @@
    } //e.o.paintMarker()
 
 </script> 
+
+
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
 <script>
@@ -741,7 +776,83 @@ function printRatioLinearChart(dataJson, keyArray) {
 
 </script>
 
+<script>
+/* 매매차트 그리기*/
+$.ajax({
+     url : "/aptmchart.do",
+     method : "GET",  
+     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+     data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
+     dataType : "json",  
+     success : function(jsonObjList){
+        var aptConym = [];   
+        var aptPrice = []; 
+        
+        $.map(jsonObjList, function(vv, i){
+              aptConym.push(vv.conym);
+              aptPrice.push(vv.price);
+           })
+       
+        printMLinearChart(aptConym, aptPrice);
+     }
+});      
 
+/* 매매차트 함수 */
+function printMLinearChart(aptConym, aptPrice) {   
+   var chart = c3.generate({
+
+      bindto: "#mchart",
+       data: {   
+          json:{
+             x: aptConym,
+             매매: aptPrice
+          },
+         x:'x',
+          type : 'line'
+          },
+       grid: { x: {show: false}, y: { show: true}},
+       size: {height: 200, width: 800}
+   });
+
+}
+
+/* 전월세 차트 그리기 */
+$.ajax({
+     url : "/aptzwchart.do",
+     method : "GET",  
+     contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+     data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
+     dataType : "json",  
+     success : function(jsonObjList){ 
+        var aptConym = [];   
+        var aptDeposit = []; 
+        $.map(jsonObjList, function(vv, i){
+              aptConym.push(vv.conym);
+              aptDeposit.push(vv.deposit);
+
+           })
+
+        printZWLinearChart(aptConym, aptDeposit);
+     }
+});      
+
+/* 전월세 차트 함수 */
+function printZWLinearChart(aptConym, aptDeposit) {
+   var chart = c3.generate({
+      bindto: "#zwchart",
+       data: {   
+          json:{
+             x: aptConym,
+             전세: aptDeposit
+          },
+         x:'x',
+          type : 'line'
+          },
+       grid: { x: {show: false}, y: { show: true}},
+       size: {height: 200, width: 800}
+   });
+}
+</script>
 
 </body>
 
