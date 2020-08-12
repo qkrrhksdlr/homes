@@ -7,48 +7,43 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.kpc.homes.AptVO;
+import com.kpc.homes.ChartVO;
 
 @Repository
 @Mapper
 public interface AptMapper {
-
-	//메서드명 = BoardMapper.xml에서 sql문의 id명과 일치 11
-	
-	public String aptCount();
-
 	//목록보기
-	public ArrayList<AptVO> aptlist(
-			@Param("searchKey")  String searchKey
-			,@Param("searchStr")  String searchStr);
-
-	//맵
-	public ArrayList<AptVO> googlemap(
+	public ArrayList<AptVO> aptList(
 			@Param("searchKey")  String searchKey
 			,@Param("searchStr")  String searchStr);
 	
-	//클릭맵
-	public ArrayList<AptVO> clickmap(
+	//상세보기
+	public ArrayList<AptVO> aptView(
+			@Param("aptStr") String aptStr
+			,@Param("areaStr") String areaStr);
+	
+	//맵보기
+	public ArrayList<AptVO> googleMap(
+			@Param("searchKey")  String searchKey
+			,@Param("searchStr")  String searchStr);
+	
+	//맵클릭
+	public ArrayList<AptVO> clickMap(
 			@Param("aptStr") String aptStr);
 
-	//상세보기
-	public ArrayList<AptVO> aptview(
-			@Param("aptStr") String aptStr
-			,@Param("areaStr") String areaStr);
-	
 	//매매차트
-	public ArrayList<AptVO> aptmchart(
+	public ArrayList<ChartVO> aptDealChart(
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
 	
-	//전월세차트
-	public ArrayList<AptVO> aptzwchart(
+	//전세차트
+	public ArrayList<ChartVO> aptRentChart(
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
 	
 	//가격지수
-	public ArrayList<AptVO> aptindex(); 
+	public ArrayList<ChartVO> aptIndexChart(); 
 	
 	//아파트비율
-	public ArrayList<AptVO> aptratio();
-	
+	public ArrayList<ChartVO> aptRatioChart();
 }
