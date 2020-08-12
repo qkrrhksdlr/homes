@@ -67,7 +67,7 @@
             <div class="container-fluid p-0">
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							<h3><strong>ISLAND 서울시 아파트 실거래 및가격 지수 정보 시스템 </strong> 
 							</h3>
 						</div>
 					</div>
@@ -120,7 +120,7 @@
                   <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-                          <h5 class="card-title mb-0">아파트 위치</h5>
+                          <h5 class="card-title mb-0"><b>검색 지역 아파트 위치 정보</b></h5>
                         </div>
                         <div class="card-body px-4">
                          <!--<div id="world_map" style="height:350px;"></div>-->
@@ -136,7 +136,7 @@
                      <div class="card flex-fill w-100">
 	           	<div class="card-header">
 	           		<i class="fas fa-table mr-1"></i>
-	           				건물 상세정보
+	           				<b>아파트 단지 상세정보</b>
 	            </div>
 	            <div class="card-body">
 	            	<div class="table-responsive">
@@ -174,14 +174,14 @@
 	           </div>
 	           </div>
              </div>
-               	                  <div class="row">
+               	        <div class="row">
 	                       <div class="col-xl-6">
 	                          <div class="card mb-4">
 	                             <div class="card-header">
 	                                 <i class="fas fa-chart-area mr-1"></i>
-	                                		 아파트 매매 가격 변화 추이
+	                                		 <b>아파트 매매 가격 변화 추이</b>
 	                             </div>
-	                          <table width="100%" border=1>
+	                          <table>
 	                            <tr>
 	                           		<td id="mchart"></td>
 	                         	</tr> 			                                                
@@ -192,7 +192,7 @@
 	                         <div class="card mb-4">
 	                          <div class="card-header">
 	                          	<i class="fas fa-chart-bar mr-1"></i>
-	                          		전세 가격 변화 추이		                                
+	                          		<b>전세 가격 변화 추이	</b>	                                
 		                      </div>	                            
 		                      <table>
 		                         <tr>
@@ -207,32 +207,33 @@
          </main>
 
   
-         <footer class="footer">
-            <div class="container-fluid">
-               <div class="row text-muted">
-                  <div class="col-6 text-left">
-                     <p class="mb-0">
-                     </p>
-                  </div>
-                  <div class="col-6 text-right">
-                     <ul class="list-inline">
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Support</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Help Center</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Privacy</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <a class="text-muted" href="#">Terms</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </footer>
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="index.html" class="text-muted"><strong>Team ISLAND</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-right">
+		 					<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
       
       </div>
    </div>

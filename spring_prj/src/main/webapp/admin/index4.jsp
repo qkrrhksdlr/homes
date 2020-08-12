@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -57,7 +58,7 @@
 
    <link href="css/app.css" rel="stylesheet">
 
-   
+    
 </head>
 
 <body>
@@ -67,7 +68,7 @@
             <div class="container-fluid p-0">
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							<h3><strong>ISLAND 서울시 아파트 실거래 및가격 지수 정보 시스템 </strong> 
 							</h3>
 						</div>
 					</div>
@@ -120,7 +121,7 @@
                   <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-                          <h5 class="card-title mb-0">아파트 위치</h5>
+                          <h5 class="card-title mb-0"><b>검색 지역 아파트 위치 정보</b></h5>
                         </div>
                         <div class="card-body px-4">
                          <!--<div id="world_map" style="height:350px;"></div>-->
@@ -137,14 +138,14 @@
 							<div class="card flex-fill">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">아파트 목록</h5>
+									<h5 class="card-title mb-0"><b>검색 지역 아파트 목록</b></h5>
 								</div>
 								<table class="table table-hover my-0">
 									<thead>
 										<tr>
 											<th>단지명 - 전용면적(㎡)</th>
 											<th class="d-none d-xl-table-cell">도로명 주소</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
+											<th class="d-none d-xl-table-cell">법정동</th>
 											
 										</tr>
 									</thead>
@@ -169,32 +170,33 @@
          </main>
 
   
-         <footer class="footer">
-            <div class="container-fluid">
-               <div class="row text-muted">
-                  <div class="col-6 text-left">
-                     <p class="mb-0">
-                     </p>
-                  </div>
-                  <div class="col-6 text-right">
-                     <ul class="list-inline">
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Support</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Help Center</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <!--<a class="text-muted" href="#">Privacy</a>-->
-                        </li>
-                        <li class="list-inline-item">
-                           <a class="text-muted" href="#">Terms</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </footer>
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-left">
+							<p class="mb-0">
+								<a href="index.html" class="text-muted"><strong>Team ISLAND</strong></a> &copy;
+							</p>
+						</div>
+						<div class="col-6 text-right">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Help Center</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Privacy</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="#">Terms</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
       
       </div>
    </div>
