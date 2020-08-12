@@ -149,7 +149,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										
+	 									
 										<c:forEach items="${APTLISTKKK}" var="vo">
 										   <tr>
 										        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>

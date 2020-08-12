@@ -75,7 +75,7 @@
 						<div id="infodiv"  style="float:left">
 						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
 						(검색어: 도로명주소 or 동 or 아파트명)
-						
+ 						
 							<form name="searchform" method="get" action="/aptlist.do">
 							<select name="searchKey" id="searchKey">
 						   <option value ="강남구">강남구</option>
