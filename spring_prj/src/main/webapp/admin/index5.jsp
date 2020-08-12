@@ -776,7 +776,7 @@ function printZWLinearChart(aptConym, aptDeposit) {
        data: {   
           json:{
              x: aptConym,
-             전세: aptDeposit
+             전세: aptDeposit 
           },
          x:'x',
           type : 'line'
