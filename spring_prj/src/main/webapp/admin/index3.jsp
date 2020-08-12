@@ -143,23 +143,12 @@
                            <div class="align-self-center w-100">
                               <div class="py-3">
                                  <div class="chart chart-xs">
-                                    <canvas id="chartjs-dashboard-pie"></canvas>
+                                    <div id="ratiochart"></div>
                                  </div>
                               </div>
                               <table class="table mb-0">
                                  <tbody>
-                                    <tr>
-                                       <td>매매</td>
-                                       <td class="text-right">4306</td>
-                                    </tr>
-                                    <tr>
-                                       <td>전세</td>
-                                       <td class="text-right">3801</td>
-                                    </tr>
-                                    <tr>
-                                       <td>월세</td>
-                                       <td class="text-right">1689</td>
-                                    </tr>
+                                    
                                  </tbody>
                               </table>
                            </div>
@@ -192,21 +181,7 @@
                   
                </div>
 
-            <!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
-            <div>
-               
-               <table width="75%" border=0>
-                  <tr>
-                     <td align="center"><b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b></td>
-                     <td align="center"><b>서울시 아파트 가격지수 (2017년 11월 기준 : 100)</b></td>
-                  </tr>
-                  <tr>
-                     <td id="ratiochart"></td>
-                     <td id="indexchart"></td>
-                  </tr>
-               </table>
-               
-            </div>
+
 
          </main>
 
@@ -241,7 +216,6 @@
       </div>
    </div>
    
-   <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
    
    
    						<!-- 아파트 검색 결과 테이블 -->						
@@ -664,7 +638,7 @@ function printRatioLinearChart(dataJson, keyArray) {
             },
             legend : {position : 'right'},
           grid: { x: {show: false}, y: { show: true}},
-          size: {height: 600, width: 800}
+          size: {height: 400, width: 500}
       });
 }
 

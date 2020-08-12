@@ -354,37 +354,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 </div>
 				
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-						
-						
-						
+		
 					
 					
 					
@@ -436,13 +406,13 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 						</div>
 						
 						
-						<div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
+						<div class="col-13 col-md-12 col-xxl-8 d-flex order-3 order-xxl-2">
 							<div class="card flex-fill w-100">
 								<div class="card-header">
 
 									<h5 class="card-title mb-0">Real-Time</h5>
 								</div>
-								<div class="card-body px-4">
+								<!--  <div class="card-body px-4"> -->
 								 <!--<div id="world_map" style="height:350px;"></div>--> <!-- JGH202000811 -->
 		
 								  	<div id="mapdiv" style="float:right"></div>  <!-- JGH202000811 -->
@@ -607,7 +577,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 									<!--<a class="text-muted" href="#">Privacy</a>-->
 								</li>
 								<li class="list-inline-item">
-									<a class="text-muted" href="#">Terms</a>
+									<!--  <a class="text-muted" href="#">Terms</a> -->
 								</li>
 							</ul>
 						</div>
@@ -1021,13 +991,14 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 </script> 
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
+<!--
 <table border="1" width="900" cellpadding="0" cellspacing="0">
  <tr>
       <td><b>단지명 - 전용면적(㎡)</b></td>
       <td><b>도로명 주소</b></td>
       <td><b>법정동</b></td>
    </tr>
-
+-->
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
 <!--  
 <c:forEach items="${APTLISTKKK}" var="vo">
