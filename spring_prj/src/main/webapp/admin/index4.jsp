@@ -9,12 +9,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
-	<meta name="author" content="AdminKit">
-	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
+   <meta name="author" content="AdminKit">
+   <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
 
 <!-- Load c3.css -->
@@ -28,7 +28,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.min.js"></script>
 
 
-	
+   
 <!-- JGH추가20200811----------------------------------------------S -->
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4&callback=initLocation&libraries=&v=weekly" defer></script>
@@ -51,322 +51,87 @@
 </style>
 <!-- JGH추가20200811----------------------------------------------E -->
 
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+   <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+   <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
 
-	<link href="css/app.css" rel="stylesheet">
-	
-	
-	
-	<!-- 메인 그래프 관익 S----------------------------------- -->
+   <link href="css/app.css" rel="stylesheet">
 
-	
-	<!-- 메인 그래프 관익 E------------------------------------ -->
-	
+   
 </head>
 
-<!--  메인 그래프 관익----------------------------------------S -->
-
-<script>
-/* 서울시 아파트 가격지수 차트 */
-$.ajax({
-    url : "/aptindexchart.do",
-    method : "GET",  
-    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    dataType : "json",  
-    success : function(jsonObjList){
-       var year = [];   
-       var deal = []; 
-       var rent = []; 
-       
-       $.map(jsonObjList, function(vv, i){
-    	   year.push(vv.year);
-    	   deal.push(vv.deal_index);
-    	   rent.push(vv.rent_index);    	     
-          })  
-          printIndexLinearChart(year, deal, rent);
-    }
-});
-//리니어 차트 -------------------------------------------------
-function printIndexLinearChart(year, deal, rent) {   
-	   var chart = c3.generate({
-	      bindto: "#indexchart",
-	       data: {   
-	          json:{
-	             	x: year,
-	             	매매: deal,
-	            	전세 : rent
-	          		},
-	         	x:'x',
-	          	type : 'line'
-	         },
-	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 500, width: 600}
-	   });
-} 
-</script>
-
-<script>
-/* 서울시 자치구별 아파트 비율 차트 */
-$.ajax({  
-    url : "/aptratiochart.do",
-    method : "GET",  
-    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    dataType : "json",  
-    success : function(jsonObjList){
-       var dataJson = {};   
-       var keyArray = []; 
-       
-       $.map(jsonObjList, function(vv, i){
-    	   dataJson[vv.gu] = (vv.apt_cnt);
-    	   keyArray.push(vv.gu);  	     
-          })  
-          printRatioLinearChart(dataJson, keyArray);
-    }
-});
-// 도넛 차트 -------------------------------------------------
-function printRatioLinearChart(dataJson, keyArray) { 
-	var chart = c3.generate({
-	      bindto: "#ratiochart",
-	       data: {   
-	    	   	json: [dataJson],
-	         	keys: {value: keyArray},
-	          	type : 'donut'
-	         },
-	         donut: {
-	        	 title: "서울시 자치구별 아파트 비율"
-	         },
-	         legend : {position : 'right'},
-	       grid: { x: {show: false}, y: { show: true}},
-	       size: {height: 600, width: 800}
-	   });
-}
-
-
-
-
-/* 서울시 자치구별 아파트 건축연도 비율 차트 */
-
-</script>
-
-
-
-
-
-<!--  메인 그래프 관익----------------------------------------E -->
-
-
-
-
-
-
 <body>
-	<div class="wrapper">
-		<!--  
-		<nav id="sidebar" class="sidebar">
-			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
-        </a>
-
-				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Pages
-					</li>
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-settings.html">
-              <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-invoice.html">
-              <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Invoice</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
-					<li class="sidebar-item">
-						<a href="#ui" data-toggle="collapse" class="sidebar-link collapsed">
-              <i class="align-middle" data-feather="briefcase"></i> <span class="align-middle">UI Elements</span>
-            </a>
-						<ul id="ui" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Buttons</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Cards</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-general.html">General</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-grid.html">Grid</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-modals.html">Modals</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
-						</ul>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a href="#forms" data-toggle="collapse" class="sidebar-link collapsed">
-              <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
-            </a>
-						<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
-						</ul>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="tables-bootstrap.html">
-              <i class="align-middle" data-feather="list"></i> <span class="align-middle">Tables</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-            </a>
-					</li>
-				</ul>
-
-				<div class="sidebar-cta">
-					<div class="sidebar-cta-content">
-						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-						<div class="mb-3 text-sm">
-							Are you looking for more components?
-						</div>
-						<a href="https://adminkit.io/pricing" target="_blank" class="btn btn-outline-primary btn-block">Upgrade</a>
-					</div>
-				</div>
-			</div>
-		</nav>-->
-
-		<div class="main">
-			
-
-			<main class="content">
-				<div class="container-fluid p-0">
-
+   <div class="wrapper">
+      <div class="main">
+         <main class="content">
+            <div class="container-fluid p-0">
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Analytics 4</strong> Dashboard</h3>
+							<h3><strong>Team Island </strong> 서울시 아파트 정보 시스템
+							</h3>
 						</div>
-						<!--  
-						<div class="col-auto ml-auto text-right mt-n1">
-							<nav aria-label="breadcrumb">
-								<ol class="breadcrumb bg-transparent p-0 mt-1 mb-0">
-									<li class="breadcrumb-item"><a href="#">AdminKit</a></li>
-									<li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Analytics</li>
-								</ol>
-							</nav>
-						</div>
-						-->
+					</div>
+					<div class="row">
+						<div id="infodiv"  style="float:left">
+						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+						(검색어: 도로명주소 or 동 or 아파트명)
+						
+							<form name="searchform" method="get" action="/aptlist.do">
+							<select name="searchKey" id="searchKey">
+						   <option value ="강남구">강남구</option>
+						   <option value ="강동구">강동구</option>
+						   <option value ="강북구">강북구</option>
+						   <option value ="강서구">강서구</option>
+						   <option value ="관악구">관악구</option>
+						   <option value ="광진구">광진구</option>
+						   <option value ="구로구">구로구</option>
+						   <option value ="금천구">금천구</option>
+						   <option value ="노원구">노원구</option>
+						   <option value ="도봉구">도봉구</option>
+						   <option value ="동대문구">동대문구</option>
+						   <option value ="동작구">동작구</option>
+						   <option value ="마포구">마포구</option>
+						   <option value ="서대문구">서대문구</option>
+						   <option value ="서초구">서초구</option>
+						   <option value ="성동구">성동구</option>
+						   <option value ="성북구">성북구</option>
+						   <option value ="송파구">송파구</option>
+						   <option value ="양천구">양천구</option>
+						   <option value ="영등포구">영등포구</option>
+						   <option value ="용산구">용산구</option>
+						   <option value ="은평구">은평구</option>
+						   <option value ="종로구">종로구</option>
+						   <option value ="중구">중구</option>
+						   <option value ="중랑구">중랑구</option>
+							</select>
+							<input type ="text" name="searchStr" id="searchStr">
+							<input type ="submit" id="searchBtn" value="검색">
+							</form>
+						<hr>
+						<br>
+
+						</div>					
+					
 					</div>
 					
 					
-					
-					
-					
-					
-					<div class="row">
-					<!--  -->
-					
-<div id="infodiv"  style="float:left">
-찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-(검색어: 도로명주소 or 동 or 아파트명)
 
-<!--  <form name="searchform" method="get" action="/aptlist.do">-->
-<form name="searchform" method="get" action="/index4.do">
-<select name="searchKey" id="searchKey">
-   <option value ="강남구">강남구</option>
-   <option value ="강동구">강동구</option>
-   <option value ="강북구">강북구</option>
-   <option value ="강서구">강서구</option>
-   <option value ="관악구">관악구</option>
-   <option value ="광진구">광진구</option>
-   <option value ="구로구">구로구</option>
-   <option value ="금천구">금천구</option>
-   <option value ="노원구">노원구</option>
-   <option value ="도봉구">도봉구</option>
-   <option value ="동대문구">동대문구</option>
-   <option value ="동작구">동작구</option>
-   <option value ="마포구">마포구</option>
-   <option value ="서대문구">서대문구</option>
-   <option value ="서초구">서초구</option>
-   <option value ="성동구">성동구</option>
-   <option value ="성북구">성북구</option>
-   <option value ="송파구">송파구</option>
-   <option value ="양천구">양천구</option>
-   <option value ="영등포구">영등포구</option>
-   <option value ="용산구">용산구</option>
-   <option value ="은평구">은평구</option>
-   <option value ="종로구">종로구</option>
-   <option value ="중구">중구</option>
-   <option value ="중랑구">중랑구</option>
-</select>
-<input type ="text" name="searchStr" id="searchStr">
-<input type ="submit" id="searchBtn" value="검색">
-</form>
-<hr>
-<br>
-<!--  
-${param.searchKey} ${param.searchStr} 검색 결과 입니다.
--->
-
-
-
-
-
-</div>
-				
-					
+			<div class="row">
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
+                     <div class="card flex-fill w-100">
+                        <div class="card-header">
+                          <h5 class="card-title mb-0">아파트 위치</h5>
+                        </div>
+                        <div class="card-body px-4">
+                         <!--<div id="world_map" style="height:350px;"></div>-->
+                             <div id="mapdiv" style="height:500px"></div>  
+                        </div>
+                     </div>
+                  </div>                          		
+			</div>
 		
-					
-					
-					
-					
-						<!-- 원형그래프 추가 -->
-						<div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
-							
-							  
-							<div class="card flex-fill w-100">
-								 
-								<div class="card-header">
 
+<<<<<<< HEAD
 									<h5 class="card-title mb-0">매매/전세/월세 비율</h5>
 								</div>
 								
@@ -596,10 +361,15 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 
 
 	<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+=======
+               
+			<div class="row">
+					<div class="col-12 col-xl-12 col-xxl-12 d-flex">
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 							<div class="card flex-fill">
 								<div class="card-header">
 
-									<h5 class="card-title mb-0">Latest Projects</h5>
+									<h5 class="card-title mb-0">아파트 목록</h5>
 								</div>
 								<table class="table table-hover my-0">
 									<thead>
@@ -607,37 +377,11 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 											<th>단지명 - 전용면적(㎡)</th>
 											<th class="d-none d-xl-table-cell">도로명 주소</th>
 											<th class="d-none d-xl-table-cell">End Date</th>
-											<!--  
-											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
-											-->
+											
 										</tr>
 									</thead>
 									<tbody>
-										<!--  
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
-										-->
-										<!-- JGH20200812  추가 -->
+	 									
 										<c:forEach items="${APTLISTKKK}" var="vo">
 										   <tr>
 										        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
@@ -651,13 +395,63 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 								</table>
 							</div>
 						</div>
+			</div>
+               
 
+         </main>
 
+  
+         <footer class="footer">
+            <div class="container-fluid">
+               <div class="row text-muted">
+                  <div class="col-6 text-left">
+                     <p class="mb-0">
+                     </p>
+                  </div>
+                  <div class="col-6 text-right">
+                     <ul class="list-inline">
+                        <li class="list-inline-item">
+                           <!--<a class="text-muted" href="#">Support</a>-->
+                        </li>
+                        <li class="list-inline-item">
+                           <!--<a class="text-muted" href="#">Help Center</a>-->
+                        </li>
+                        <li class="list-inline-item">
+                           <!--<a class="text-muted" href="#">Privacy</a>-->
+                        </li>
+                        <li class="list-inline-item">
+                           <a class="text-muted" href="#">Terms</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </footer>
+      
+      </div>
+   </div>
+   
 
+   
+   						<!-- 아파트 검색 결과 테이블 -->						
+						<table border="1" width="900" cellpadding="0" cellspacing="0">
 
-	<script src="js/vendor.js"></script>
-	<script src="js/app.js"></script>
+						<c:forEach items="${APTLISTKKK}" var="vo">
+						   <tr>
+						        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+						      <td>${vo.gu} ${vo.street}</td>
+						      <td>${vo.dong}</td>
+						   </tr>
+						</c:forEach>
+						</table>
+   
+   
+   
+   
+   <script src="js/vendor.js"></script>
+   <script src="js/app.js"></script>
 
+<<<<<<< HEAD
 	<script>
 		$(function() {
 			var ctx = document.getElementById('chartjs-dashboard-line').getContext("2d");
@@ -885,6 +679,355 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 			});
 		});
 	</script>
+=======
+   <script>
+      $(function() {
+         var ctx = document.getElementById('chartjs-dashboard-line').getContext("2d");
+         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+         gradient.addColorStop(0, 'rgba(215, 227, 244, 1)');
+         gradient.addColorStop(1, 'rgba(215, 227, 244, 0)');
+         // Line chart
+         new Chart(document.getElementById("chartjs-dashboard-line"), {
+            type: 'line',
+            data: {
+               labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+               datasets: [{
+                  label: "매매가격지수",
+                  fill: true,
+                  backgroundColor: gradient,
+                  borderColor: window.theme.primary,
+                  data: [
+                	  93.4,
+                	  93,
+                	  86.8,
+                	  85.7,
+                	  87.4,
+                	  93.3,
+                	  96.3,
+                	  100.8,
+                	  108.9,
+                	  110.1
+                  ]
+               }]
+            },
+            options: {
+               maintainAspectRatio: false,
+               legend: {
+                  display: false
+               },
+               tooltips: {
+                  intersect: false
+               },
+               hover: {
+                  intersect: true
+               },
+               plugins: {
+                  filler: {
+                     propagate: false
+                  }
+               },
+               scales: {
+                  xAxes: [{
+                     reverse: true,
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }],
+                  yAxes: [{
+                     ticks: {
+                        stepSize: 50
+                     },
+                     display: true,
+                     borderDash: [3, 3],
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }]
+               }
+            }
+         });
+      });
+   </script>
+   
+      <script>
+      $(function() {
+         var ctx = document.getElementById('chartjs-dashboard-line2').getContext("2d");
+         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+         gradient.addColorStop(0, 'rgba(215, 227, 244, 1)');
+         gradient.addColorStop(1, 'rgba(215, 227, 244, 0)');
+         // Line chart
+         new Chart(document.getElementById("chartjs-dashboard-line2"), {
+            type: 'line',
+            data: {
+               labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+               datasets: [{
+                  label: "전세가격지수",
+                  fill: true,
+                  backgroundColor: gradient,
+                  borderColor: window.theme.primary,
+                  data: [
+                	  66.2,
+                	  74.8,
+                	  74.8,
+                	  81.6,
+                	  85.9,
+                	  95.2,
+                	  97.9,
+                	  100.2,
+                	  100.2,
+                	  99.5
+                  ]
+               }]
+            },
+            options: {
+               maintainAspectRatio: false,
+               legend: {
+                  display: false
+               },
+               tooltips: {
+                  intersect: false
+               },
+               hover: {
+                  intersect: true
+               },
+               plugins: {
+                  filler: {
+                     propagate: false
+                  }
+               },
+               scales: {
+                  xAxes: [{
+                     reverse: true,
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }],
+                  yAxes: [{
+                     ticks: {
+                        stepSize: 50
+                     },
+                     display: true,
+                     borderDash: [3, 3],
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }]
+               }
+            }
+         });
+      });
+   </script>
+   
+   <script>
+      $(function() {
+         // Pie chart
+         new Chart(document.getElementById("chartjs-dashboard-pie"), {
+            type: 'pie',
+            data: {
+               labels: [
+            	   "종로구",
+            	   "중구",
+            	   "용산구",
+            	   "성동구",
+            	   "광진구",
+            	   "동대문구",
+            	   "중랑구",
+            	   "성북구",
+            	   "강북구",
+            	   "도봉구",
+            	   "노원구",
+            	   "은평구",
+            	   "서대문구",
+            	   "마포구",
+            	   "양천구",
+            	   "강서구",
+            	   "구로구",
+            	   "금천구",
+            	   "영등포구",
+            	   "동작구",
+            	   "관악구",
+            	   "서초구",
+            	   "강남구",
+            	   "송파구",
+            	   "강동구"
+            	   ],
+               datasets: [{
+                  data: [
+                	  14530,
+                	  24417,
+                	  35728,
+                	  63976,
+                	  30425,
+                	  60386,
+                	  51475,
+                	  71754,
+                	  33282,
+                	  64580,
+                	  161273,
+                	  52607,
+                	  48277,
+                	  66582,
+                	  85921,
+                	  111811,
+                	  77194,
+                	  30918,
+                	  68984,
+                	  59188,
+                	  53915,
+                	  93299,
+                	  124418,
+                	  119226,
+                	  75473,
+                	  ],
+                  backgroundColor: [
+                     window.theme.primary,
+                     window.theme.warning,
+                     window.theme.danger
+                  ],
+                  borderWidth: 7
+               }]
+            },
+            options: {
+               responsive: !window.MSInputMethodContext,
+               maintainAspectRatio: false,
+               legend: {
+                  display: false
+               },
+               cutoutPercentage: 75
+            }
+         });
+      });
+   </script>
+   <script>
+      $(function() {
+         // Bar chart
+         new Chart(document.getElementById("chartjs-dashboard-bar"), {
+            type: 'bar',
+            data: {
+               labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+               datasets: [{
+                  label: "This year",
+                  backgroundColor: window.theme.primary,
+                  borderColor: window.theme.primary,
+                  hoverBackgroundColor: window.theme.primary,
+                  hoverBorderColor: window.theme.primary,
+                  data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+                  barPercentage: .75,
+                  categoryPercentage: .5
+               }]
+            },
+            options: {
+               maintainAspectRatio: false,
+               legend: {
+                  display: false
+               },
+               scales: {
+                  yAxes: [{
+                     gridLines: {
+                        display: false
+                     },
+                     stacked: false,
+                     ticks: {
+                        stepSize: 20
+                     }
+                  }],
+                  xAxes: [{
+                     stacked: false,
+                     gridLines: {
+                        color: "transparent"
+                     }
+                  }]
+               }
+            }
+         });
+      });
+   </script>
+   <script>
+      $(function() {
+         $("#world_map").vectorMap({
+            map: "world_mill",
+            normalizeFunction: "polynomial",
+            hoverOpacity: .7,
+            hoverColor: false,
+            regionStyle: {
+               initial: {
+                  fill: "#e3eaef"
+               }
+            },
+            markerStyle: {
+               initial: {
+                  "r": 9,
+                  "fill": window.theme.primary,
+                  "fill-opacity": .95,
+                  "stroke": "#fff",
+                  "stroke-width": 7,
+                  "stroke-opacity": .4
+               },
+               hover: {
+                  "stroke": "#fff",
+                  "fill-opacity": 1,
+                  "stroke-width": 1.5
+               }
+            },
+            backgroundColor: "transparent",
+            zoomOnScroll: false,
+            markers: [{
+                  latLng: [31.230391, 121.473701],
+                  name: "Shanghai"
+               },
+               {
+                  latLng: [28.704060, 77.102493],
+                  name: "Delhi"
+               },
+               {
+                  latLng: [6.524379, 3.379206],
+                  name: "Lagos"
+               },
+               {
+                  latLng: [35.689487, 139.691711],
+                  name: "Tokyo"
+               },
+               {
+                  latLng: [23.129110, 113.264381],
+                  name: "Guangzhou"
+               },
+               {
+                  latLng: [40.7127837, -74.0059413],
+                  name: "New York"
+               },
+               {
+                  latLng: [34.052235, -118.243683],
+                  name: "Los Angeles"
+               },
+               {
+                  latLng: [41.878113, -87.629799],
+                  name: "Chicago"
+               },
+               {
+                  latLng: [51.507351, -0.127758],
+                  name: "London"
+               },
+               {
+                  latLng: [40.416775, -3.703790],
+                  name: "Madrid"
+               }
+            ]
+         });
+         setTimeout(function() {
+            $(window).trigger('resize');
+         }, 250)
+      });
+   </script>
+   <script>
+      $(function() {
+         $('#datetimepicker-dashboard').datetimepicker({
+            inline: true,
+            sideBySide: false,
+            format: 'L'
+         });
+      });
+   </script>
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 
 <!-- 20200811전경환추가-------------------------------------------------S -->
 <script>
@@ -991,25 +1134,88 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 </script> 
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
-<!--
-<table border="1" width="900" cellpadding="0" cellspacing="0">
- <tr>
-      <td><b>단지명 - 전용면적(㎡)</b></td>
-      <td><b>도로명 주소</b></td>
-      <td><b>법정동</b></td>
-   </tr>
--->
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<!--  
-<c:forEach items="${APTLISTKKK}" var="vo">
-   <tr>
-        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-      <td>${vo.gu} ${vo.street}</td>
-      <td>${vo.dong}</td>
-   </tr>
-</c:forEach>
-</table>
--->
+<script>
+/* 서울시 아파트 가격지수 차트 */
+$.ajax({
+    url : "/aptindexchart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var year = [];   
+       var deal = []; 
+       var rent = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          year.push(vv.year);
+          deal.push(vv.deal_index);
+          rent.push(vv.rent_index);            
+          })  
+          printIndexLinearChart(year, deal, rent);
+    }
+});
+//리니어 차트 -------------------------------------------------
+function printIndexLinearChart(year, deal, rent) {   
+      var chart = c3.generate({
+         bindto: "#indexchart",
+          data: {   
+             json:{
+                   x: year,
+                   매매: deal,
+                  전세 : rent
+                   },
+               x:'x',
+                type : 'line'
+            },
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 500, width: 600}
+      });
+} 
+</script>
+
+<script>
+/* 서울시 자치구별 아파트 비율 차트 */
+$.ajax({  
+    url : "/aptratiochart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          dataJson[vv.gu] = (vv.apt_cnt);
+          keyArray.push(vv.gu);          
+          })  
+          printRatioLinearChart(dataJson, keyArray);
+    }
+});
+// 도넛 차트 -------------------------------------------------
+function printRatioLinearChart(dataJson, keyArray) { 
+   var chart = c3.generate({
+         bindto: "#ratiochart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "서울시 자치구별 아파트 비율"
+            },
+            legend : {position : 'right'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 400, width: 650}
+      });
+}
+
+
+
+
+
+
+</script>
+
 
 
 </body>
