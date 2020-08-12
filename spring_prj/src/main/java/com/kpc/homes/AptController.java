@@ -47,6 +47,7 @@ public class AptController {
 	
 	//목록보기
 	@RequestMapping(value = "/aptlist.do", method = RequestMethod.GET)
+	//@RequestMapping(value = "http://localhost/admin/index4.jsp", method = RequestMethod.GET)
 	public String aptlist(Model model
 			,@RequestParam(value="searchKey", required=false) String searchKey
 			,@RequestParam(value="searchStr", required=false) String searchStr) {
@@ -54,7 +55,8 @@ public class AptController {
 		ArrayList<AptVO> list = svc.svcAptlist(searchKey, searchStr);
 
 		model.addAttribute("APTLISTKKK", list);
-		return "apt_list";
+		//return "apt_list";
+		return "admin/index4";
 	}
 
 	//상세보기

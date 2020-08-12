@@ -282,7 +282,7 @@ function printRatioLinearChart(dataJson, keyArray) {
 
 					<div class="row mb-2 mb-xl-3">
 						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Analytics 3</strong> Dashboard</h3>
+							<h3><strong>Analytics 4</strong> Dashboard</h3>
 						</div>
 						<!--  
 						<div class="col-auto ml-auto text-right mt-n1">
@@ -309,8 +309,8 @@ function printRatioLinearChart(dataJson, keyArray) {
 찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
 (검색어: 도로명주소 or 동 or 아파트명)
 
-  <form name="searchform" method="get" action="/aptlist.do">
-<!--<form name="searchform" method="get" action="http://localhost/admin/index4.jsp"> -->
+<!--  <form name="searchform" method="get" action="/aptlist.do">-->
+<form name="searchform" method="get" action="/index4.do">
 <select name="searchKey" id="searchKey">
    <option value ="강남구">강남구</option>
    <option value ="강동구">강동구</option>
@@ -348,24 +348,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 -->
 
 
-<table border="1" width="900" cellpadding="0" cellspacing="0">
-   <!--  
-   <tr>
-      <td><b>단지명 - 전용면적(㎡)</b></td>
-      <td><b>도로명 주소</b></td>
-      <td><b>법정동</b></td>
-   </tr>
-	-->
 
-<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
-<c:forEach items="${APTLISTKKK}" var="vo">
-   <tr>
-        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-      <td>${vo.gu} ${vo.street}</td>
-      <td>${vo.dong}</td>
-   </tr>
-</c:forEach>
-</table>
 
 
 </div>
@@ -1017,7 +1000,22 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 </script> 
 <!-- 20200811전경환추가-------------------------------------------------E -->
 
+<table border="1" width="900" cellpadding="0" cellspacing="0">
+ <tr>
+      <td><b>단지명 - 전용면적(㎡)</b></td>
+      <td><b>도로명 주소</b></td>
+      <td><b>법정동</b></td>
+   </tr>
 
+<!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
+<c:forEach items="${APTLISTKKK}" var="vo">
+   <tr>
+        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+      <td>${vo.gu} ${vo.street}</td>
+      <td>${vo.dong}</td>
+   </tr>
+</c:forEach>
+</table>
 
 
 
