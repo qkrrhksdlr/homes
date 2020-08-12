@@ -60,84 +60,113 @@
    
 </head>
 
-
-<!--  메인 그래프 관익----------------------------------------E -->
-
 <body>
    <div class="wrapper">
       <div class="main">
          <main class="content">
             <div class="container-fluid p-0">
-					<div class="row mb-2 mb-xl-3">
-						<div class="col-auto d-none d-sm-block">
-							<h3><strong>Analytics 3</strong> Dashboard</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div id="infodiv"  style="float:left">
-						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-						(검색어: 도로명주소 or 동 or 아파트명)
-						
-							<form name="searchform" method="get" action="/aptlist.do">
-							<select name="searchKey" id="searchKey">
-						   <option value ="강남구">강남구</option>
-						   <option value ="강동구">강동구</option>
-						   <option value ="강북구">강북구</option>
-						   <option value ="강서구">강서구</option>
-						   <option value ="관악구">관악구</option>
-						   <option value ="광진구">광진구</option>
-						   <option value ="구로구">구로구</option>
-						   <option value ="금천구">금천구</option>
-						   <option value ="노원구">노원구</option>
-						   <option value ="도봉구">도봉구</option>
-						   <option value ="동대문구">동대문구</option>
-						   <option value ="동작구">동작구</option>
-						   <option value ="마포구">마포구</option>
-						   <option value ="서대문구">서대문구</option>
-						   <option value ="서초구">서초구</option>
-						   <option value ="성동구">성동구</option>
-						   <option value ="성북구">성북구</option>
-						   <option value ="송파구">송파구</option>
-						   <option value ="양천구">양천구</option>
-						   <option value ="영등포구">영등포구</option>
-						   <option value ="용산구">용산구</option>
-						   <option value ="은평구">은평구</option>
-						   <option value ="종로구">종로구</option>
-						   <option value ="중구">중구</option>
-						   <option value ="중랑구">중랑구</option>
-							</select>
-							<input type ="text" name="searchStr" id="searchStr">
-							<input type ="submit" id="searchBtn" value="검색">
-							</form>
-						<hr>
-						<br>
+               <div class="row mb-2 mb-xl-3">
+                  <div class="col-auto d-none d-sm-block">
+                     <h3><strong>Team Island </strong> 서울시 아파트 정보 시스템</h3>
+                  </div>
+               </div>
+               <div class="row">
+                  <div id="infodiv"  style="float:left">
+                  찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+                  (검색어: 도로명주소 or 동 or 아파트명)
+                  
+                     <form name="searchform" method="get" action="/aptlist.do">
+                     <select name="searchKey" id="searchKey">
+                     <option value ="강남구">강남구</option>
+                     <option value ="강동구">강동구</option>
+                     <option value ="강북구">강북구</option>
+                     <option value ="강서구">강서구</option>
+                     <option value ="관악구">관악구</option>
+                     <option value ="광진구">광진구</option>
+                     <option value ="구로구">구로구</option>
+                     <option value ="금천구">금천구</option>
+                     <option value ="노원구">노원구</option>
+                     <option value ="도봉구">도봉구</option>
+                     <option value ="동대문구">동대문구</option>
+                     <option value ="동작구">동작구</option>
+                     <option value ="마포구">마포구</option>
+                     <option value ="서대문구">서대문구</option>
+                     <option value ="서초구">서초구</option>
+                     <option value ="성동구">성동구</option>
+                     <option value ="성북구">성북구</option>
+                     <option value ="송파구">송파구</option>
+                     <option value ="양천구">양천구</option>
+                     <option value ="영등포구">영등포구</option>
+                     <option value ="용산구">용산구</option>
+                     <option value ="은평구">은평구</option>
+                     <option value ="종로구">종로구</option>
+                     <option value ="중구">중구</option>
+                     <option value ="중랑구">중랑구</option>
+                     </select>
+                     <input type ="text" name="searchStr" id="searchStr">
+                     <input type ="submit" id="searchBtn" value="검색">
+                     </form>
+                  <hr>
+                  <br>
 
-						</div>					
-					
-					</div>
-					
-					
+                  </div>               
+               
+               </div>
+               
+               
 
-			<div class="row">
-                  <div class="col-12 col-md-12 col-xxl-10 d-flex order-3 order-xxl-2">
+         <div class="row">
+                  <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-
-                           <h5 class="card-title mb-0">지도</h5>
+                          <h5 class="card-title mb-0">아파트 위치</h5>
                         </div>
                         <div class="card-body px-4">
                          <!--<div id="world_map" style="height:350px;"></div>-->
                              <div id="mapdiv" style="height:500px"></div>  
                         </div>
                      </div>
-                  </div>                          		
-			</div>
-		
-			<div class="row">
-                  <div class="col-12 col-md-6 col-xxl-5 d-flex order-2 order-xxl-3">
+                  </div>                                
+         </div>
+      
+         <div class="row">
+            <div class="col-12 col-xl-7 col-xxl-7 d-flex">
+                     <div class="w-100">
+                        <div class="row">
+                           <div class="col-sm-12 col-xxl-12">
+                              <div class="card">
+                              <div class="card-header">
+                                 <h5 class="card-title mb-0">서울시 아파트 매매가격지수 (2017.11=100 기준)</h5>
+                              </div>
+                              <div class="card-body py-3">
+                                 <div class="chart chart-sm">
+                                    <canvas id="chartjs-dashboard-line"></canvas>
+                                 </div>
+                              </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm-12 col-xxl-12">
+                              <div class="card">
+                              <div class="card-header">
+
+                                 <h5 class="card-title mb-0">서울시 아파트 전세가격지수 (2017.11=100 기준)</h5>
+                              </div>
+                              <div class="card-body py-3">
+                                 <div class="chart chart-sm">
+                                    <canvas id="chartjs-dashboard-line2"></canvas>
+                                 </div>
+                              </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+            </div>
+                  <div class="col-12 col-xl-5 col-xxl-5 d-flex order-2 order-xxl-6">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
-                           <h5 class="card-title mb-0">매매/전세/월세 비율</h5>
+                           <h5 class="card-title mb-0">서울시 자치구별 아파트 비율 (총 1,679,639채)</h5>
                         </div>
                         <div class="card-body d-flex">
                            <div class="align-self-center w-100">
@@ -147,6 +176,7 @@
                                  </div>
                               </div>
                               <table class="table mb-0">
+
                                  <tbody>
                                     
                                  </tbody>
@@ -156,20 +186,11 @@
                      </div>
                   </div>
                   
-                  		<div class="col-xl-6 col-xxl-5">
-							<div class="card flex-fill w-100">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">서울시 아파트 가격지수 (2017.11=100 기준)</h5>
-								</div>
-								<div class="card-body py-3">
-									<div class="chart chart-sm">
-										<canvas id="chartjs-dashboard-line"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>		 	
-			</div>
+                        
+                  
+                  
+                      
+         </div>
 
  
                   
@@ -181,8 +202,6 @@
                   
                </div>
 
-
- 
          </main>
 
   
@@ -216,19 +235,19 @@
       </div>
    </div>
    
-   
-   
-   						<!-- 아파트 검색 결과 테이블 -->						
-						<table border="1" width="900" cellpadding="0" cellspacing="0">
 
-						<c:forEach items="${APTLISTKKK}" var="vo">
-						   <tr>
-						        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
-						      <td>${vo.gu} ${vo.street}</td>
-						      <td>${vo.dong}</td>
-						   </tr>
-						</c:forEach>
-						</table>
+   
+                     <!-- 아파트 검색 결과 테이블 -->                  
+                  <table border="1" width="900" cellpadding="0" cellspacing="0">
+
+                  <c:forEach items="${APTLISTKKK}" var="vo">
+                     <tr>
+                          <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+                        <td>${vo.gu} ${vo.street}</td>
+                        <td>${vo.dong}</td>
+                     </tr>
+                  </c:forEach>
+                  </table>
    
    
    
@@ -253,16 +272,16 @@
                   backgroundColor: gradient,
                   borderColor: window.theme.primary,
                   data: [
-                	  93.4,
-                	  93,
-                	  86.8,
-                	  85.7,
-                	  87.4,
-                	  93.3,
-                	  96.3,
-                	  100.8,
-                	  108.9,
-                	  110.1
+                     93.4,
+                     93,
+                     86.8,
+                     85.7,
+                     87.4,
+                     93.3,
+                     96.3,
+                     100.8,
+                     108.9,
+                     110.1
                   ]
                }]
             },
@@ -291,7 +310,7 @@
                   }],
                   yAxes: [{
                      ticks: {
-                        stepSize: 100
+                        stepSize: 50
                      },
                      display: true,
                      borderDash: [3, 3],
@@ -304,21 +323,143 @@
          });
       });
    </script>
+   
+      <script>
+      $(function() {
+         var ctx = document.getElementById('chartjs-dashboard-line2').getContext("2d");
+         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
+         gradient.addColorStop(0, 'rgba(215, 227, 244, 1)');
+         gradient.addColorStop(1, 'rgba(215, 227, 244, 0)');
+         // Line chart
+         new Chart(document.getElementById("chartjs-dashboard-line2"), {
+            type: 'line',
+            data: {
+               labels: ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+               datasets: [{
+                  label: "전세가격지수",
+                  fill: true,
+                  backgroundColor: gradient,
+                  borderColor: window.theme.primary,
+                  data: [
+                     66.2,
+                     74.8,
+                     74.8,
+                     81.6,
+                     85.9,
+                     95.2,
+                     97.9,
+                     100.2,
+                     100.2,
+                     99.5
+                  ]
+               }]
+            },
+            options: {
+               maintainAspectRatio: false,
+               legend: {
+                  display: false
+               },
+               tooltips: {
+                  intersect: false
+               },
+               hover: {
+                  intersect: true
+               },
+               plugins: {
+                  filler: {
+                     propagate: false
+                  }
+               },
+               scales: {
+                  xAxes: [{
+                     reverse: true,
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }],
+                  yAxes: [{
+                     ticks: {
+                        stepSize: 50
+                     },
+                     display: true,
+                     borderDash: [3, 3],
+                     gridLines: {
+                        color: "rgba(0,0,0,0.0)"
+                     }
+                  }]
+               }
+            }
+         });
+      });
+   </script>
+   
    <script>
       $(function() {
          // Pie chart
          new Chart(document.getElementById("chartjs-dashboard-pie"), {
             type: 'pie',
             data: {
-               labels: ["Chrome", "Firefox", "IE"],
+               labels: [
+                  "종로구",
+                  "중구",
+                  "용산구",
+                  "성동구",
+                  "광진구",
+                  "동대문구",
+                  "중랑구",
+                  "성북구",
+                  "강북구",
+                  "도봉구",
+                  "노원구",
+                  "은평구",
+                  "서대문구",
+                  "마포구",
+                  "양천구",
+                  "강서구",
+                  "구로구",
+                  "금천구",
+                  "영등포구",
+                  "동작구",
+                  "관악구",
+                  "서초구",
+                  "강남구",
+                  "송파구",
+                  "강동구"
+                  ],
                datasets: [{
-                  data: [4306, 3801, 1689],
+                  data: [
+                     14530,
+                     24417,
+                     35728,
+                     63976,
+                     30425,
+                     60386,
+                     51475,
+                     71754,
+                     33282,
+                     64580,
+                     161273,
+                     52607,
+                     48277,
+                     66582,
+                     85921,
+                     111811,
+                     77194,
+                     30918,
+                     68984,
+                     59188,
+                     53915,
+                     93299,
+                     124418,
+                     119226,
+                     75473,
+                     ],
                   backgroundColor: [
                      window.theme.primary,
                      window.theme.warning,
                      window.theme.danger
                   ],
-                  borderWidth: 5
+                  borderWidth: 7
                }]
             },
             options: {
@@ -638,14 +779,14 @@ function printRatioLinearChart(dataJson, keyArray) {
             },
             legend : {position : 'right'},
           grid: { x: {show: false}, y: { show: true}},
-          size: {height: 400, width: 500}
+          size: {height: 400, width: 650}
       });
 }
 
 
 
 
-/* 서울시 자치구별 아파트 건축연도 비율 차트 */
+
 
 </script>
 

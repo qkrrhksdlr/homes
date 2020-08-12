@@ -384,15 +384,15 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 											<tbody>
 												<tr>
 													<td>매매</td>
-													<td class="text-right">4306</td>
+													<td class="text-right">312046</td>
 												</tr>
 												<tr>
 													<td>전세</td>
-													<td class="text-right">3801</td>
+													<td class="text-right">422592</td>
 												</tr>
 												<tr>
 													<td>월세</td>
-													<td class="text-right">1689</td>
+													<td class="text-right">174361</td>
 												</tr>
 											</tbody>
 										</table>
@@ -734,7 +734,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 			new Chart(document.getElementById("chartjs-dashboard-pie"), {
 				type: 'pie',
 				data: {
-					labels: ["Chrome", "Firefox", "IE"],
+					labels: ["매매", "전세", "월세"],
 					datasets: [{
 						data: [4306, 3801, 1689],
 						backgroundColor: [
