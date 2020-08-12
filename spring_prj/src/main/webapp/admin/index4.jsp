@@ -382,52 +382,9 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 					
 					
 					
-						<!--  
-						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
-							<div class="card flex-fill">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Latest Projects</h5>
-								</div>
-								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th class="d-none d-xl-table-cell">Start Date</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-										</tr>
-										<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2020</td>
-											<td class="d-none d-xl-table-cell">31/06/2020</td>
-											<td><span class="badge badge-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-										</tr>
 						
-										
-									</tbody>
-								</table>
-							</div>
-						</div>
-						-->
+						
+						
 					
 					
 					
@@ -518,7 +475,8 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 						
 					</div>
 
-				<!-- JGH추가 원형 그래프 선 그래프용 --> <!--  -->
+				<!-- JGH추가 원형 그래프 선 그래프용 -->  
+				<!--
 				<div>
 					
 					<table width="75%" border=0>
@@ -533,7 +491,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 					</table>
 					
 				</div>
-
+				-->
 
 
 
@@ -660,9 +618,72 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
 		</div>
 	</div>
 	
+	<!--  
 	<div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+	-->
 	
-	
+
+
+
+	<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+							<div class="card flex-fill">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Latest Projects</h5>
+								</div>
+								<table class="table table-hover my-0">
+									<thead>
+										<tr>
+											<th>단지명 - 전용면적(㎡)</th>
+											<th class="d-none d-xl-table-cell">도로명 주소</th>
+											<th class="d-none d-xl-table-cell">End Date</th>
+											<!--  
+											<th>Status</th>
+											<th class="d-none d-md-table-cell">Assignee</th>
+											-->
+										</tr>
+									</thead>
+									<tbody>
+										<!--  
+										<tr>
+											<td>Project Apollo</td>
+											<td class="d-none d-xl-table-cell">01/01/2020</td>
+											<td class="d-none d-xl-table-cell">31/06/2020</td>
+											<td><span class="badge badge-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+										</tr>
+										<tr>
+											<td>Project Fireball</td>
+											<td class="d-none d-xl-table-cell">01/01/2020</td>
+											<td class="d-none d-xl-table-cell">31/06/2020</td>
+											<td><span class="badge badge-danger">Cancelled</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+										</tr>
+										<tr>
+											<td>Project Hades</td>
+											<td class="d-none d-xl-table-cell">01/01/2020</td>
+											<td class="d-none d-xl-table-cell">31/06/2020</td>
+											<td><span class="badge badge-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Sharon Lessman</td>
+										</tr>
+										-->
+										<!-- JGH20200812  추가 -->
+										<c:forEach items="${APTLISTKKK}" var="vo">
+										   <tr>
+										        <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
+										      <td>${vo.gu} ${vo.street}</td>
+										      <td>${vo.dong}</td>
+										   </tr>
+										</c:forEach>
+						
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+
+
 
 	<script src="js/vendor.js"></script>
 	<script src="js/app.js"></script>
@@ -1008,6 +1029,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
    </tr>
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
+<!--  
 <c:forEach items="${APTLISTKKK}" var="vo">
    <tr>
         <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
@@ -1016,7 +1038,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
    </tr>
 </c:forEach>
 </table>
-
+-->
 
 
 </body>

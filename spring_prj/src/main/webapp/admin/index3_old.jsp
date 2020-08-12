@@ -102,7 +102,7 @@ function printIndexLinearChart(year, deal, rent) {
                 type : 'line'
             },
           grid: { x: {show: false}, y: { show: true}},
-          size: {height: 500, width: 600}
+          size: {height: 400, width: 500}
       });
 } 
 </script>
@@ -139,7 +139,7 @@ function printRatioLinearChart(dataJson, keyArray) {
             },
             legend : {position : 'right'},
           grid: { x: {show: false}, y: { show: true}},
-          size: {height: 600, width: 800}
+          size: {height: 500, width: 600}
       });
 }
 
@@ -360,6 +360,7 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
    -->
 
 <!-- MYLISTKKKKK에서 리스트 가져와서 vo에 담아줘 -->
+ 
 <c:forEach items="${APTLISTKKK}" var="vo">
    <tr>
         <td><a href="/aptview.do?aptStr=${vo.apt}&areaStr=${vo.area}">${vo.apt} - ${vo.area}㎡</a></td>
@@ -476,15 +477,43 @@ ${param.searchKey} ${param.searchStr} 검색 결과 입니다.
                                  <tbody>
                                     <tr>
                                        <td>매매</td>
-                                       <td class="text-right">4306</td>
+                                       <td class="text-right">312046</td>
                                     </tr>
                                     <tr>
                                        <td>전세</td>
-                                       <td class="text-right">3801</td>
+                                       <td class="text-right">422592</td>
                                     </tr>
                                     <tr>
                                        <td>월세</td>
-                                       <td class="text-right">1689</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
+                                    </tr>
+                                    <tr>
+                                       <td>월세</td>
+                                       <td class="text-right">174361</td>
                                     </tr>
                                  </tbody>
                               </table>
