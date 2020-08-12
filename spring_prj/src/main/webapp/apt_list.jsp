@@ -32,6 +32,24 @@ AIzaSyAw5bpQF-Nyr305E5mnyou25qSQz6KjLo4
         padding: 0;
       }
 </style>
+<<<<<<< HEAD
+=======
+<!-- JGH추가20200811----------------------------------------------E -->
+
+   <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+   <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+
+   <link href="admin/css/app.css" rel="stylesheet">
+   
+   
+   
+   <!-- 메인 그래프 관익 S----------------------------------- -->
+
+   
+   <!-- 메인 그래프 관익 E------------------------------------ -->
+   
+>>>>>>> branch 'master' of https://github.com/qkrrhksdlr/homes.git
 </head>
 <body>
 
