@@ -14,6 +14,14 @@ public class ChartVO {
 	private String aptStr;
 	private String areaStr;
 	
+	private int y1990_1999;
+	
+	public int getY1990_1999() {
+		return y1990_1999;
+	}
+	public void setY1990_1999(int y1990_1999) {
+		this.y1990_1999 = y1990_1999;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -79,6 +87,6 @@ public class ChartVO {
 	public String toString() {
 		return "ChartVO [gu=" + gu + ", apt_cnt=" + apt_cnt + ", year=" + year + ", deal_index=" + deal_index
 				+ ", rent_index=" + rent_index + ", conym=" + conym + ", deposit=" + deposit + ", price=" + price
-				+ ", aptStr=" + aptStr + ", areaStr=" + areaStr + "]";
+				+ ", aptStr=" + aptStr + ", areaStr=" + areaStr + ", y1990_1999=" + y1990_1999 + "]";
 	}	
 }

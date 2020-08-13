@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -12,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
-<meta name="author" content="AdminKit">
+<meta name="author" content="A +dminKit">
 <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
 <link href="css/app.css" rel="stylesheet"> 
@@ -66,12 +67,12 @@ $.ajax({
           dataJson[vv.gu] = (vv.apt_cnt);
           keyArray.push(vv.gu);          
           })  
-          printRatioLinearChart(dataJson, keyArray);
+          printRatioChart(dataJson, keyArray);
     }
 });
 
 /* 도넛 차트 함수 */
-function printRatioLinearChart(dataJson, keyArray) { 
+function printRatioChart(dataJson, keyArray) { 
    var chart = c3.generate({
          bindto: "#ratiochart",
           data: {   
@@ -227,6 +228,43 @@ function printRatioLinearChart(dataJson, keyArray) {
             }
          });
       });
+</script>
+
+<!-- 서울시 자치구별 아파트 건축연도 비율 차트 -->
+<script>
+$.ajax({
+    url : "/aptarchchart.do", 
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          dataJson[vv.gu] = (vv.y1990_1999);
+          keyArray.push(vv.gu);          
+          })  
+          printArchChart(dataJson, keyArray);
+    }
+});
+
+function printArchChart(dataJson, keyArray) { 
+   var chart = c3.generate({
+         bindto: "#archchart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "서울시 자치구별 준공 20~30년 아파트 비율"
+            },
+            legend : {position : 'right'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 600, width: 800}
+      });
+}
 </script>
 <!-- script 끝 -->
 

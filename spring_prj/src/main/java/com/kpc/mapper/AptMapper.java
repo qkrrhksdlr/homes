@@ -41,9 +41,12 @@ public interface AptMapper {
 			@Param("aptStr") String aptStr
 			,@Param("areaStr") String areaStr);
 	
-	//가격지수
+	//가격지수차트
 	public ArrayList<ChartVO> aptIndexChart(); 
 	
-	//아파트비율
+	//아파트비율차트
 	public ArrayList<ChartVO> aptRatioChart();
+	
+	//아파트 건축연도 비율차트
+	public ArrayList<ChartVO> aptArchChart();
 }

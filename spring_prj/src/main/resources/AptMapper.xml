@@ -98,8 +98,8 @@
 	</select>
 	
 	<!-- 자치구별 아파트 건축년도 비율 차트-->
-	<select id="aptarch" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select *
+	<select id="aptArchChart" parameterType="map" resultType="com.kpc.homes.ChartVO">
+		select gu, Y1990_1999
 		from apt_arch
 	</select>
 </mapper>

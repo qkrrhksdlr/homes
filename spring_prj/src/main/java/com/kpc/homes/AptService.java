@@ -29,12 +29,15 @@ public interface AptService {
 	//가격지수 차트
 	public ArrayList<ChartVO> svcAptIndexChart();
 	
-	//아파트 비율
+	//아파트 비율차트
 	public ArrayList<ChartVO> svcAptRatioChart();
+	
+	//아파트 건축연도 차트
+	public ArrayList<ChartVO> svcAptArchChart();
 	
 	//오늘의 뉴스
 	public ArrayList<CrawlVO> svcAptNews();
 	
 	//아파트 단지 세부 정보
-	public ArrayList<CrawlVO> svcAptInfo(String aptStr);
+	public ArrayList<CrawlVO> svcAptInfo(String aptStr);	
 }
