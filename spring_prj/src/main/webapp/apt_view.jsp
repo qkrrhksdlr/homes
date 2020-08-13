@@ -68,7 +68,7 @@
 
 /* 매매차트 */
 $.ajax({
-     url : "/aptmchart.do",
+     url : "/aptdealchart.do",
      method : "GET",  
      contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
      data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
@@ -106,7 +106,7 @@ function printMLinearChart(aptConym, aptPrice) {
 
 /* 전월세 차트 */
 $.ajax({
-     url : "/aptzwchart.do",
+     url : "/aptrentchart.do",
      method : "GET",  
      contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
      data : "aptStr=${param.aptStr}&areaStr=${param.areaStr}",
