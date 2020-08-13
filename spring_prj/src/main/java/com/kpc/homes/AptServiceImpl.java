@@ -76,7 +76,7 @@ public class AptServiceImpl implements AptService {
 		return list;
 	}
 
-	//가격지수
+	//가격지수 차트
 	@Override
 	public ArrayList<ChartVO> svcAptIndexChart() {
 		System.out.println("가격지수 서비스.....");
@@ -84,11 +84,19 @@ public class AptServiceImpl implements AptService {
 		return list;
 	}
 
-	//아파트비율
+	//아파트비율 차트
 	@Override
 	public ArrayList<ChartVO> svcAptRatioChart() {
 		System.out.println("아파트비율 서비스.....");
 		ArrayList<ChartVO> list = dao.aptRatioChart();
+		return list;
+	}
+	
+	//아파트 건축연도 차트
+	@Override
+	public ArrayList<ChartVO> svcAptArchChart() {
+		System.out.println("아파트비율 서비스.....");
+		ArrayList<ChartVO> list = dao.aptArchChart();
 		return list;
 	}
 		

@@ -22,7 +22,7 @@ public class AptController {
    
    //메인화면 (오늘의 부동산 시장 동향 뉴스)
    @RequestMapping(value = "/main.do", method = RequestMethod.GET)
-   public String news(Model model) {
+   public String aptNews(Model model) {
 	   
 	  ArrayList<CrawlVO> list = svc.svcAptNews();
       model.addAttribute("NEWSLISTKKK", list);
@@ -32,7 +32,7 @@ public class AptController {
    
    //목록보기
    @RequestMapping(value = "/aptlist.do", method = RequestMethod.GET)
-   public String aptlist(Model model
+   public String aptList(Model model
          ,@RequestParam(value="searchKey", required=false) String searchKey
          ,@RequestParam(value="searchStr", required=false) String searchStr) {
       
@@ -44,7 +44,7 @@ public class AptController {
 
    //상세보기
    @RequestMapping(value = "/aptview.do", method = RequestMethod.GET)
-   public String aptview(Model model
+   public String aptView(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr) {
 	   

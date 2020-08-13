@@ -22,7 +22,7 @@ public class AptRestController {
 
    //맵보기
    @RequestMapping(value = "/googlemap.do", method = RequestMethod.GET)
-   public ArrayList<AptVO> aptmap(Model model
+   public ArrayList<AptVO> aptMap(Model model
          ,@RequestParam(value="clat", required=false) String clat
          ,@RequestParam(value="clng", required=false) String clng
          ,@RequestParam(value="searchKey", required=false) String searchKey
@@ -38,7 +38,7 @@ public class AptRestController {
    
    //맵클릭
    @RequestMapping(value = "/clickmap.do", method = RequestMethod.GET)
-   public ArrayList<AptVO> clickmap(Model model
+   public ArrayList<AptVO> aptMapClick(Model model
          ,@RequestParam(value="clat", required=false) String clat
          ,@RequestParam(value="clng", required=false) String clng
          ,@RequestParam(value="aptStr", required=false) String aptStr
@@ -53,7 +53,7 @@ public class AptRestController {
    
    //매매 차트
    @RequestMapping(value = "/aptdealchart.do", method = RequestMethod.GET)
-   public ArrayList<ChartVO> aptmchart(Model model
+   public ArrayList<ChartVO> aptDealChart(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr
          ,HttpServletRequest request, HttpServletResponse response) {
@@ -67,7 +67,7 @@ public class AptRestController {
    
    //전세 차트
    @RequestMapping(value = "/aptrentchart.do", method = RequestMethod.GET)
-   public ArrayList<ChartVO> aptzwchart(Model model
+   public ArrayList<ChartVO> aptRentChart(Model model
          ,@RequestParam(value="aptStr", required=false) String aptStr
          ,@RequestParam(value="areaStr", required=false) String areaStr
          ,HttpServletRequest request, HttpServletResponse response) {
@@ -81,7 +81,7 @@ public class AptRestController {
    
    //가격지수 차트
    @RequestMapping(value = "/aptindexchart.do", method = RequestMethod.GET)
-   public ArrayList<ChartVO> aptindexchart(Model model
+   public ArrayList<ChartVO> aptIndexChart(Model model
          ,HttpServletRequest request, HttpServletResponse response) {
       
       System.out.println("가격지수차트");
@@ -93,11 +93,23 @@ public class AptRestController {
    
    //아파트비율 차트
    @RequestMapping(value = "/aptratiochart.do", method = RequestMethod.GET)
-   public ArrayList<ChartVO> aptratiochart(Model model
+   public ArrayList<ChartVO> aptRatioChart(Model model
          ,HttpServletRequest request, HttpServletResponse response) {
       
       System.out.println("아파트비율차트");
       ArrayList<ChartVO> list = svc.svcAptRatioChart();
+      System.out.println(list);
+      
+      return list;
+   }
+   
+   //아파트비율 차트
+   @RequestMapping(value = "/aptarchchart.do", method = RequestMethod.GET)
+   public ArrayList<ChartVO> aptArchChart(Model model
+         ,HttpServletRequest request, HttpServletResponse response) {
+      
+      System.out.println("아파트건축연도차트");
+      ArrayList<ChartVO> list = svc.svcAptArchChart();
       System.out.println(list);
       
       return list;

@@ -38,11 +38,11 @@ $.ajax({
           deal.push(vv.deal_index);
           rent.push(vv.rent_index);            
           })  
-          printIndexLinearChart(year, deal, rent);
+          printIndexChart(year, deal, rent);
     }
 });
 
-function printIndexLinearChart(year, deal, rent) {   
+function printIndexChart(year, deal, rent) {   
       var chart = c3.generate({
          bindto: "#indexchart",
           data: {   
@@ -73,11 +73,11 @@ $.ajax({
           dataJson[vv.gu] = (vv.apt_cnt);
           keyArray.push(vv.gu);          
           })  
-          printRatioLinearChart(dataJson, keyArray);
+          printRatioChart(dataJson, keyArray);
     }
 });
 
-function printRatioLinearChart(dataJson, keyArray) { 
+function printRatioChart(dataJson, keyArray) { 
    var chart = c3.generate({
          bindto: "#ratiochart",
           data: {   
@@ -95,7 +95,39 @@ function printRatioLinearChart(dataJson, keyArray) {
 }
 
 /* 서울시 자치구별 아파트 건축연도 비율 차트 */
+$.ajax({
+    url : "/aptarchchart.do", 
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          dataJson[vv.gu] = (vv.y1990_1999);
+          keyArray.push(vv.gu);          
+          })  
+          printArchChart(dataJson, keyArray);
+    }
+});
 
+function printArchChart(dataJson, keyArray) { 
+   var chart = c3.generate({
+         bindto: "#archchart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "서울시 자치구별 준공 20~30년 아파트 비율"
+            },
+            legend : {position : 'right'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 600, width: 800}
+      });
+}
 </script>
 
 <body> 
@@ -104,9 +136,9 @@ function printRatioLinearChart(dataJson, keyArray) {
 <div id="indexchart"></div><hr>
 
 서울시 자치구별 아파트 비율 (총 1,679,639채)
-<div id="ratiochart"></div>
+<div id="ratiochart"></div><hr>
 
-서울시 자치구별 아파트 건축연도 비율 (1980년 ~ 2020년)
+서울시 자치구별 준공 20~30년 아파트 비율(1990-1999)
 <div id="archchart"></div>
 
 </body>
