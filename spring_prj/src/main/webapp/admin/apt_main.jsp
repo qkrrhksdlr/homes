@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -17,7 +16,7 @@
 <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
 <link href="css/app.css" rel="stylesheet"> 
-<!-- css 스타일 -->
+<!-- map 스타일 -->
 <style type="text/css">
       #mapdiv {
         height: 100%;
@@ -52,43 +51,7 @@
 <script src="js/vendor.js"></script>
 <script src="js/app.js"></script>
 	
-<script>
-/* 서울시 자치구별 아파트 비율 차트 */
-$.ajax({  
-    url : "/aptratiochart.do",
-    method : "GET",  
-    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
-    dataType : "json",  
-    success : function(jsonObjList){
-       var dataJson = {};   
-       var keyArray = []; 
-       
-       $.map(jsonObjList, function(vv, i){
-          dataJson[vv.gu] = (vv.apt_cnt);
-          keyArray.push(vv.gu);          
-          })  
-          printRatioChart(dataJson, keyArray);
-    }
-});
 
-/* 도넛 차트 함수 */
-function printRatioChart(dataJson, keyArray) { 
-   var chart = c3.generate({
-         bindto: "#ratiochart",
-          data: {   
-                json: [dataJson],
-               keys: {value: keyArray},
-                type : 'donut'
-            },
-            donut: {
-               title: "서울시 자치구별 아파트 비율"
-            },
-            legend : {position : 'right'},
-          grid: { x: {show: false}, y: { show: true}},
-          size: {height: 400, width: 650}
-      });
-}
-</script>
 
 <!-- 서울시 아파트 매매 가격변화 추이 차트 -->
 <script>
@@ -165,8 +128,8 @@ function printRatioChart(dataJson, keyArray) {
       $(function() {
          var ctx = document.getElementById('chartjs-dashboard-line2').getContext("2d");
          var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-         gradient.addColorStop(0, 'rgba(215, 227, 244, 1)');
-         gradient.addColorStop(1, 'rgba(215, 227, 244, 0)');
+         gradient.addColorStop(0, 'rgba(244, 179, 80, 1)');
+         gradient.addColorStop(1, 'rgba(244, 179, 80, 0)');
          // Line chart
          new Chart(document.getElementById("chartjs-dashboard-line2"), {
             type: 'line',
@@ -176,7 +139,7 @@ function printRatioChart(dataJson, keyArray) {
                   label: "전세가격지수",
                   fill: true,
                   backgroundColor: gradient,
-                  borderColor: window.theme.primary,
+                  borderColor: "rgba(242, 121, 53, 1)",
                   data: [
                 	  66.2,
                 	  74.8,
@@ -201,6 +164,7 @@ function printRatioChart(dataJson, keyArray) {
                },
                hover: {
                   intersect: true
+                  
                },
                plugins: {
                   filler: {
@@ -229,7 +193,43 @@ function printRatioChart(dataJson, keyArray) {
          });
       });
 </script>
+<script>
+/* 서울시 자치구별 아파트 비율 차트 */
+$.ajax({  
+    url : "/aptratiochart.do",
+    method : "GET",  
+    contentType : 'application/x-www-form-urlencoded; charset=UTF-8',  
+    dataType : "json",  
+    success : function(jsonObjList){
+       var dataJson = {};   
+       var keyArray = []; 
+       
+       $.map(jsonObjList, function(vv, i){
+          dataJson[vv.gu] = (vv.apt_cnt);
+          keyArray.push(vv.gu);          
+          })  
+          printRatioChart(dataJson, keyArray);
+    }
+});
 
+/* 도넛 차트 함수 */
+function printRatioChart(dataJson, keyArray) { 
+   var chart = c3.generate({
+         bindto: "#ratiochart",
+          data: {   
+                json: [dataJson],
+               keys: {value: keyArray},
+                type : 'donut'
+            },
+            donut: {
+               title: "자치구별 아파트 비율"
+            },
+            legend : {position : 'bottom'},
+          grid: { x: {show: false}, y: { show: true}},
+          size: {height: 400, width: 500}
+      });
+}
+</script>
 <!-- 서울시 자치구별 아파트 건축연도 비율 차트 -->
 <script>
 $.ajax({
@@ -258,11 +258,11 @@ function printArchChart(dataJson, keyArray) {
                 type : 'donut'
             },
             donut: {
-               title: "서울시 자치구별 준공 20~30년 아파트 비율"
+               title: "준공 20~30년 아파트 비율"
             },
-            legend : {position : 'right'},
+            legend : {position : 'bottom'},
           grid: { x: {show: false}, y: { show: true}},
-          size: {height: 600, width: 800}
+          size: {height: 400, width: 500}
       });
 }
 </script>
@@ -322,17 +322,16 @@ function printArchChart(dataJson, keyArray) {
 				<!-- e.o 검색 -->
 				<!-- 차트 그리기 -->
 				<div class="row">	
-					<!-- 아파트 가격지수 차트 -->
-					<div class="col-12 col-xl-7 col-xxl-7 d-flex">
+					<div class="col-12 col-xl-6 col-xxl-6 d-flex">
 						<div class="w-100">
+
 							<div class="row">	
-								<!-- 아파트 매매 가격지수 차트 -->
 								<div class="col-sm-12 col-xxl-12">
 									<div class="card">
 										<div class="card-header">
 											<h5 class="card-title mb-0">
-												<b>서울시 아파트 매매가격지수 (2017.11=100 기준)</b>
-												</h5>
+												<span style = " font-size:1.5em;  color: black;"> <b>서울시 아파트 매매가격지수 (2017.11=100 기준)</b> </span>
+											</h5>
 										</div>
 										<div class="card-body py-3">
 											<div class="chart chart-sm">
@@ -342,13 +341,13 @@ function printArchChart(dataJson, keyArray) {
 									</div>
 								</div>
 							</div>
+							<!-- 아파트 전세 가격지수 차트-->
 							<div class="row">
-								<!-- 아파트 전세 가격지수 차트-->
 								<div class="col-sm-12 col-xxl-12">
 									<div class="card">
 										<div class="card-header">
 											<h5 class="card-title mb-0">
-												<b>서울시 아파트 전세가격지수 (2017.11=100 기준)</b>
+												<span style = " font-size:1.5em;  color: black;"> <b>서울시 아파트 전세가격지수 (2017.11=100 기준)</b> </span>
 												</h5>
 										</div>
 										<div class="card-body py-3">
@@ -361,37 +360,59 @@ function printArchChart(dataJson, keyArray) {
 							</div>
 						</div>
 					</div>
-					<!-- e.o 아파트 가격지수 차트 -->
-					<div class="col-12 col-xl-5 col-xxl-5 d-flex order-2 order-xxl-6">
+
 						<!-- 자치구별 아파트 비율 차트 -->
-						<div class="card flex-fill w-100">
-							<div class="card-header">
-								<h5 class="card-title mb-0">
-									<b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b>
-									</h5>
+						<div class="col-12 col-xl-6 col-xxl-3 d-flex order-2 order-xxl-6">
+						
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">
+										<span style = " font-size:1.5em;  color: black;"> <b>서울시 자치구별 아파트 비율 (총 1,679,639채)</b> </span>
+										</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<!-- 차트 -->
+											<div class="chart chart-xs">
+												<div id="ratiochart"></div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="card-body d-flex">
-								<div class="align-self-center w-100">
-									<div class="py-3">
-										<!-- 차트 -->
-										<div class="chart chart-xs">
-											<div id="ratiochart"></div>
+						</div>	
+						<!-- 20~30년 아파트 비율 차트 -->
+						<div class="col-12 col-xl-6 col-xxl-3 d-flex order-2 order-xxl-6">
+							<div class="card flex-fill w-100">
+								<div class="card-header">
+									<h5 class="card-title mb-0">
+										<span style = " font-size:1.5em;  color: black;"> <b>서울시 자치구별 준공 20~30년 아파트 비율(1990-1999)</b> </span>
+										</h5>
+								</div>
+								<div class="card-body d-flex">
+									<div class="align-self-center w-100">
+										<div class="py-3">
+											<!-- 차트 -->
+											<div class="chart chart-xs">
+												<div id="archchart"></div>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- e.o 자치구별 아파트 비율 차트 -->
+									
 				</div>
 				<!-- e.o 차트 그리기 -->
+				
 				<!-- 오늘의 부동산 뉴스 -->
 				<div class="row">
 					<div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
 						<div class="card flex-fill w-100">
 							<div class="card-header">
 								<i class="fas fa-table mr-1"></i> 
-								<b>Today 부동산 시장동향 뉴스</b>
+								<span style = " font-size:1.5em;  color: black;"> <b>Today 부동산 시장동향 뉴스</b> </span>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -422,10 +443,11 @@ function printArchChart(dataJson, keyArray) {
 					</div>
 				</div>
 				<!-- e.o 오늘의 부동산 뉴스 -->
-			</div>
+			
 			</main>
 		</div>
 	</div>
 </body>
 <!-- body 끝 -->
 </html>
+
