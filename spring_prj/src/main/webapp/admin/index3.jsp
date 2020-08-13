@@ -188,7 +188,7 @@
 
 	            <div class="card-body">
 	            	<div class="table-responsive">
-	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	            		<table class="table table-bordered" id="dataTablejjjjjjjjjjjjjjjjj" width="100%" cellspacing="0">
 	            			<!-- 상세정보 표 -->
 							<tr>
 								<td>이미지</td>
