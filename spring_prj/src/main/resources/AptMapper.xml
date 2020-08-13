@@ -20,67 +20,23 @@
 		<result property="street" column="street"/>
 		<result property="lat" column="lat"/>
 		<result property="lng" column="lng"/>
-
 	</resultMap>
 	
-	<!-- <collection property="rlist" columnPrefix="r_" javaType="ArrayList" resultMap="replyMap" /> -->
-	
-	<select id="aptCount" resultType="Integer">
-		select count(1) as cnt from apt
-	</select>
-	
 	<!-- 목록보기 -->
-	<select id="aptlist" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select tt.*
-		from (
-			select rownum as rn, t.*
-			from (
-				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
-				from apt a, aptxy b
-				where a.dong = b.dong
-				and a.addr1 = b.addr1
-				and a.gu = #{searchKey}
-				and ((a.dong like '%' || #{searchStr} || '%')
-	 				or (a.street like '%' || #{searchStr} || '%')
-					or (a.apt like '%' || #{searchStr} || '%')) 
-				order by apt asc, dong asc, street asc
-				) t
-			) tt	
-	</select>
-	
-	<!-- 맵 -->
-	<select id="googlemap" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select tt.*
-		from (
-			select rownum as rn, t.*
-			from (
-				select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
-				from apt a, aptxy b
-				where a.dong = b.dong
-				and a.addr1 = b.addr1
-				and a.gu = #{searchKey}
-				and ((a.dong like '%' || #{searchStr} || '%')
-	 				or (a.street like '%' || #{searchStr} || '%')
-					or (a.apt like '%' || #{searchStr} || '%')) 
-				order by apt asc, dong asc, street asc
-				) t
-			) tt		
-		<!-- where rn between #{startSeq} and #{endSeq} -->
-	</select>
-	
-	
-	<!-- 클릭맵 -->
- 	<select id="clickmap" parameterType="map" resultType="com.kpc.homes.AptVO">
-		select distinct a.*, b.lat, b.lng
+	<select id="aptList" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
 		from apt a, aptxy b
 		where a.dong = b.dong
 		and a.addr1 = b.addr1
-		and a. apt = #{aptStr}
+		and a.gu = #{searchKey}
+		and ((a.dong like '%' || #{searchStr} || '%')
+				or (a.street like '%' || #{searchStr} || '%')
+				or (a.apt like '%' || #{searchStr} || '%')) 
+		order by apt asc, dong asc, street asc	
 	</select>
 	
-	
 	<!-- 상세보기 -->
- 	<select id="aptview" parameterType="map" resultType="com.kpc.homes.AptVO">
+ 	<select id="aptView" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select distinct a.*, b.lat, b.lng
 		from apt a, aptxy b
 		where a.dong = b.dong
@@ -89,8 +45,30 @@
 		and a. area = #{areaStr}
 	</select>
 	
+	<!-- 맵보기 -->
+	<select id="googleMap" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select distinct a.apt, a.gu, a.street, a.dong, a.addr1, a.area, b.lat, b.lng
+		from apt a, aptxy b
+		where a.dong = b.dong
+		and a.addr1 = b.addr1
+		and a.gu = #{searchKey}
+		and ((a.dong like '%' || #{searchStr} || '%')
+				or (a.street like '%' || #{searchStr} || '%')
+				or (a.apt like '%' || #{searchStr} || '%')) 
+		order by apt asc, dong asc, street asc		
+	</select>
+	
+	<!-- 클릭맵 -->
+ 	<select id="clickMap" parameterType="map" resultType="com.kpc.homes.AptVO">
+		select distinct a.*, b.lat, b.lng
+		from apt a, aptxy b
+		where a.dong = b.dong
+		and a.addr1 = b.addr1
+		and a. apt = #{aptStr}
+	</select>
+
 	<!-- 매매차트 -->
-	<select id="aptmchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+	<select id="aptDealChart" parameterType="map" resultType="com.kpc.homes.ChartVO">
 		select apt, price, conym
 		from apt 
 		where apt = #{aptStr}
@@ -98,8 +76,8 @@
 		and gubun = '매매'
 	</select>
 	
-	<!-- 전월세차트 -->
-	<select id="aptzwchart" parameterType="map" resultType="com.kpc.homes.AptVO">
+	<!-- 전세차트 -->
+	<select id="aptRentChart" parameterType="map" resultType="com.kpc.homes.ChartVO">
 		select apt, deposit, conym
 		from apt 
 		where apt = #{aptStr}
@@ -107,22 +85,22 @@
 		and gubun = '전세'
 	</select>
 	
-	<!-- 전세/매매 가격지수 -->
-	<select id="aptindex" parameterType="map" resultType="com.kpc.homes.AptVO">
+	<!-- 전세/매매 가격지수 차트 -->
+	<select id="aptIndexChart" parameterType="map" resultType="com.kpc.homes.ChartVO">
 		select *
 		from aptprice_index 
 	</select>
 	
-	<!-- 자치구별 아파트비율 -->
-	<select id="aptratio" parameterType="map" resultType="com.kpc.homes.AptVO">
+	<!-- 자치구별 아파트비율 차트-->
+	<select id="aptRatioChart" parameterType="map" resultType="com.kpc.homes.ChartVO">
 		select gu, apt_cnt
 		from apt_gucnt_2018
 	</select>
 	
-	<!-- 자치구별 아파트 건축년도 비율 -->
+	<!-- 자치구별 아파트 건축년도 비율 차트-->
 	<select id="aptarch" parameterType="map" resultType="com.kpc.homes.AptVO">
 		select *
 		from apt_arch
 	</select>
-	
 </mapper>
+

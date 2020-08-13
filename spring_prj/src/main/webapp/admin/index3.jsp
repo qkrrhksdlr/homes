@@ -55,7 +55,7 @@
 
    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-   <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+   <title>ISLAND APT SYSTEM</title>
 
    <link href="css/app.css" rel="stylesheet">
 
@@ -189,7 +189,7 @@
 
 	            <div class="card-body">
 	            	<div class="table-responsive">
-	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	            		<table class="table table-bordered" id="dataTablejjjjjjjjjjjjjjjjj" width="100%" cellspacing="0">
 	            			<!-- 상세정보 표 -->
 							<tr>
 								<td>이미지</td>

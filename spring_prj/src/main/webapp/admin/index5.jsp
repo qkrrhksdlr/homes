@@ -53,7 +53,7 @@
 
    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-   <title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+   <title>ISLAND APT SYSTEM</title>
 
    <link href="css/app.css" rel="stylesheet">
 
@@ -65,58 +65,58 @@
       <div class="main">
          <main class="content">
             <div class="container-fluid p-0">
-					<div class="row mb-2 mb-xl-3">
-						<div class="col-auto d-none d-sm-block">
-							<h3><strong>ISLAND 서울시 아파트 실거래 및가격 지수 정보 시스템 </strong> 
-							</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div id="infodiv"  style="float:left">
-						찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
-						(검색어: 도로명주소 or 동 or 아파트명)
-						
-							<form name="searchform" method="get" action="/aptlist.do">
-							<select name="searchKey" id="searchKey">
-						   <option value ="강남구">강남구</option>
-						   <option value ="강동구">강동구</option>
-						   <option value ="강북구">강북구</option>
-						   <option value ="강서구">강서구</option>
-						   <option value ="관악구">관악구</option>
-						   <option value ="광진구">광진구</option>
-						   <option value ="구로구">구로구</option>
-						   <option value ="금천구">금천구</option>
-						   <option value ="노원구">노원구</option>
-						   <option value ="도봉구">도봉구</option>
-						   <option value ="동대문구">동대문구</option>
-						   <option value ="동작구">동작구</option>
-						   <option value ="마포구">마포구</option>
-						   <option value ="서대문구">서대문구</option>
-						   <option value ="서초구">서초구</option>
-						   <option value ="성동구">성동구</option>
-						   <option value ="성북구">성북구</option>
-						   <option value ="송파구">송파구</option>
-						   <option value ="양천구">양천구</option>
-						   <option value ="영등포구">영등포구</option>
-						   <option value ="용산구">용산구</option>
-						   <option value ="은평구">은평구</option>
-						   <option value ="종로구">종로구</option>
-						   <option value ="중구">중구</option>
-						   <option value ="중랑구">중랑구</option>
-							</select>
-							<input type ="text" name="searchStr" id="searchStr">
-							<input type ="submit" id="searchBtn" value="검색">
-							</form>
-						<hr>
-						<br>
+               <div class="row mb-2 mb-xl-3">
+                  <div class="col-auto d-none d-sm-block">
+                     <h3><strong>ISLAND 서울시 아파트 실거래 및가격 지수 정보 시스템 </strong> 
+                     </h3>
+                  </div>
+               </div>
+               <div class="row">
+                  <div id="infodiv"  style="float:left">
+                  찾고싶은 지역구를 선택한 후 검색어를 입력하세요.
+                  (검색어: 도로명주소 or 동 or 아파트명)
+                  
+                     <form name="searchform" method="get" action="/aptlist.do">
+                     <select name="searchKey" id="searchKey">
+                     <option value ="강남구">강남구</option>
+                     <option value ="강동구">강동구</option>
+                     <option value ="강북구">강북구</option>
+                     <option value ="강서구">강서구</option>
+                     <option value ="관악구">관악구</option>
+                     <option value ="광진구">광진구</option>
+                     <option value ="구로구">구로구</option>
+                     <option value ="금천구">금천구</option>
+                     <option value ="노원구">노원구</option>
+                     <option value ="도봉구">도봉구</option>
+                     <option value ="동대문구">동대문구</option>
+                     <option value ="동작구">동작구</option>
+                     <option value ="마포구">마포구</option>
+                     <option value ="서대문구">서대문구</option>
+                     <option value ="서초구">서초구</option>
+                     <option value ="성동구">성동구</option>
+                     <option value ="성북구">성북구</option>
+                     <option value ="송파구">송파구</option>
+                     <option value ="양천구">양천구</option>
+                     <option value ="영등포구">영등포구</option>
+                     <option value ="용산구">용산구</option>
+                     <option value ="은평구">은평구</option>
+                     <option value ="종로구">종로구</option>
+                     <option value ="중구">중구</option>
+                     <option value ="중랑구">중랑구</option>
+                     </select>
+                     <input type ="text" name="searchStr" id="searchStr">
+                     <input type ="submit" id="searchBtn" value="검색">
+                     </form>
+                  <hr>
+                  <br>
 
-						</div>					
-					
-					</div>
-					
-					
+                  </div>               
+               
+               </div>
+               
+               
 
-			<div class="row">
+         <div class="row">
                   <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
                         <div class="card-header">
@@ -127,113 +127,113 @@
                              <div id="mapdiv" style="height:500px"></div>  
                         </div>
                      </div>
-                  </div>                          		
-			</div>
+                  </div>                                
+         </div>
             
 
-               	<div class="row">	
+                  <div class="row">   
                   <div class="col-12 col-md-12 col-xxl-12 d-flex order-3 order-xxl-2">
                      <div class="card flex-fill w-100">
-	           	<div class="card-header">
-	           		<i class="fas fa-table mr-1"></i>
-	           				<b>아파트 단지 상세정보</b>
-	            </div>
-	            <div class="card-body">
-	            	<div class="table-responsive">
-	            		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-	            			<!-- 상세정보 표 -->
-							<tr>
-							   <td>단지명</td>
-							   <td>종류</td>
-							   <td>세대수</td>
-							   <td>동수</td>
-							   <td>준공년도</td>
-							   <td>관리실</td>
-							   <td>면적</td>
-							   <td>학군정보</td>
-							   <td>도로명주소</td>
-							</tr>									
-										
-							<!-- 상세정보 받아온 값 뿌리기 -->
-							<c:forEach items="${AptInfoKKK}" var="voo">
-								<tr>
-								    <td>${voo.apt}</td>
-									<td>${voo.type}</td>
-									<td>${voo.numhouse}</td>	
-									<td>${voo.numbldg}</td>	
-									<td>${voo.archyear}</td>			
-									<td>${voo.office}</td>	
-									<td>${voo.arealist}</td>	
-									<td>${voo.school}</td>			
-									<td>${voo.street}</td>	
-								</tr>   
-							</c:forEach>                                   
-	                   </table>
-	                 </div>
-	              </div>
-	           </div>
-	           </div>
+                 <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                          <b>아파트 단지 상세정보</b>
+               </div>
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <!-- 상세정보 표 -->
+                     <tr>
+                        <td>단지명</td>
+                        <td>종류</td>
+                        <td>세대수</td>
+                        <td>동수</td>
+                        <td>준공년도</td>
+                        <td>관리실</td>
+                        <td>면적</td>
+                        <td>학군정보</td>
+                        <td>도로명주소</td>
+                     </tr>                           
+                              
+                     <!-- 상세정보 받아온 값 뿌리기 -->
+                     <c:forEach items="${AptInfoKKK}" var="voo">
+                        <tr>
+                            <td>${voo.apt}</td>
+                           <td>${voo.type}</td>
+                           <td>${voo.numhouse}</td>   
+                           <td>${voo.numbldg}</td>   
+                           <td>${voo.archyear}</td>         
+                           <td>${voo.office}</td>   
+                           <td>${voo.arealist}</td>   
+                           <td>${voo.school}</td>         
+                           <td>${voo.street}</td>   
+                        </tr>   
+                     </c:forEach>                                   
+                      </table>
+                    </div>
+                 </div>
+              </div>
+              </div>
              </div>
-               	        <div class="row">
-	                       <div class="col-xl-6">
-	                          <div class="card mb-4">
-	                             <div class="card-header">
-	                                 <i class="fas fa-chart-area mr-1"></i>
-	                                		 <b>아파트 매매 가격 변화 추이</b>
-	                             </div>
-	                          <table>
-	                            <tr>
-	                           		<td id="mchart"></td>
-	                         	</tr> 			                                                
-	                   		  </table>
-	                          </div>
-	                       </div>
-	                       <div class="col-xl-6">
-	                         <div class="card mb-4">
-	                          <div class="card-header">
-	                          	<i class="fas fa-chart-bar mr-1"></i>
-	                          		<b>전세 가격 변화 추이	</b>	                                
-		                      </div>	                            
-		                      <table>
-		                         <tr>
-		                            <td id="zwchart"></td>
-		                         </tr>
-		                      </table>
-	                          </div>
-	                       </div>
-	                   </div>
+                          <div class="row">
+                          <div class="col-xl-6">
+                             <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-area mr-1"></i>
+                                          <b>아파트 매매 가격 변화 추이</b>
+                                </div>
+                             <table>
+                               <tr>
+                                    <td id="mchart"></td>
+                               </tr>                                                          
+                              </table>
+                             </div>
+                          </div>
+                          <div class="col-xl-6">
+                            <div class="card mb-4">
+                             <div class="card-header">
+                                <i class="fas fa-chart-bar mr-1"></i>
+                                   <b>전세 가격 변화 추이   </b>                                   
+                            </div>                               
+                            <table>
+                               <tr>
+                                  <td id="zwchart"></td>
+                               </tr>
+                            </table>
+                             </div>
+                          </div>
+                      </div>
                
 
          </main>
 
   
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="row text-muted">
-						<div class="col-6 text-left">
-							<p class="mb-0">
-								<a href="index.html" class="text-muted"><strong>Team ISLAND</strong></a> &copy;
-							</p>
-						</div>
-						<div class="col-6 text-right">
-		 					<ul class="list-inline">
-								<li class="list-inline-item">
-									<a class="text-muted" href="#">Support</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="#">Help Center</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="#">Privacy</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="#">Terms</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
+         <footer class="footer">
+            <div class="container-fluid">
+               <div class="row text-muted">
+                  <div class="col-6 text-left">
+                     <p class="mb-0">
+                        <a href="index.html" class="text-muted"><strong>Team ISLAND</strong></a> &copy;
+                     </p>
+                  </div>
+                  <div class="col-6 text-right">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                           <a class="text-muted" href="#">Support</a>
+                        </li>
+                        <li class="list-inline-item">
+                           <a class="text-muted" href="#">Help Center</a>
+                        </li>
+                        <li class="list-inline-item">
+                           <a class="text-muted" href="#">Privacy</a>
+                        </li>
+                        <li class="list-inline-item">
+                           <a class="text-muted" href="#">Terms</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </footer>
       
       </div>
    </div>
@@ -261,16 +261,16 @@
                   backgroundColor: gradient,
                   borderColor: window.theme.primary,
                   data: [
-                	  93.4,
-                	  93,
-                	  86.8,
-                	  85.7,
-                	  87.4,
-                	  93.3,
-                	  96.3,
-                	  100.8,
-                	  108.9,
-                	  110.1
+                     93.4,
+                     93,
+                     86.8,
+                     85.7,
+                     87.4,
+                     93.3,
+                     96.3,
+                     100.8,
+                     108.9,
+                     110.1
                   ]
                }]
             },
@@ -330,16 +330,16 @@
                   backgroundColor: gradient,
                   borderColor: window.theme.primary,
                   data: [
-                	  66.2,
-                	  74.8,
-                	  74.8,
-                	  81.6,
-                	  85.9,
-                	  95.2,
-                	  97.9,
-                	  100.2,
-                	  100.2,
-                	  99.5
+                     66.2,
+                     74.8,
+                     74.8,
+                     81.6,
+                     85.9,
+                     95.2,
+                     97.9,
+                     100.2,
+                     100.2,
+                     99.5
                   ]
                }]
             },
@@ -389,60 +389,60 @@
             type: 'pie',
             data: {
                labels: [
-            	   "종로구",
-            	   "중구",
-            	   "용산구",
-            	   "성동구",
-            	   "광진구",
-            	   "동대문구",
-            	   "중랑구",
-            	   "성북구",
-            	   "강북구",
-            	   "도봉구",
-            	   "노원구",
-            	   "은평구",
-            	   "서대문구",
-            	   "마포구",
-            	   "양천구",
-            	   "강서구",
-            	   "구로구",
-            	   "금천구",
-            	   "영등포구",
-            	   "동작구",
-            	   "관악구",
-            	   "서초구",
-            	   "강남구",
-            	   "송파구",
-            	   "강동구"
-            	   ],
+                  "종로구",
+                  "중구",
+                  "용산구",
+                  "성동구",
+                  "광진구",
+                  "동대문구",
+                  "중랑구",
+                  "성북구",
+                  "강북구",
+                  "도봉구",
+                  "노원구",
+                  "은평구",
+                  "서대문구",
+                  "마포구",
+                  "양천구",
+                  "강서구",
+                  "구로구",
+                  "금천구",
+                  "영등포구",
+                  "동작구",
+                  "관악구",
+                  "서초구",
+                  "강남구",
+                  "송파구",
+                  "강동구"
+                  ],
                datasets: [{
                   data: [
-                	  14530,
-                	  24417,
-                	  35728,
-                	  63976,
-                	  30425,
-                	  60386,
-                	  51475,
-                	  71754,
-                	  33282,
-                	  64580,
-                	  161273,
-                	  52607,
-                	  48277,
-                	  66582,
-                	  85921,
-                	  111811,
-                	  77194,
-                	  30918,
-                	  68984,
-                	  59188,
-                	  53915,
-                	  93299,
-                	  124418,
-                	  119226,
-                	  75473,
-                	  ],
+                     14530,
+                     24417,
+                     35728,
+                     63976,
+                     30425,
+                     60386,
+                     51475,
+                     71754,
+                     33282,
+                     64580,
+                     161273,
+                     52607,
+                     48277,
+                     66582,
+                     85921,
+                     111811,
+                     77194,
+                     30918,
+                     68984,
+                     59188,
+                     53915,
+                     93299,
+                     124418,
+                     119226,
+                     75473,
+                     ],
                   backgroundColor: [
                      window.theme.primary,
                      window.theme.warning,
