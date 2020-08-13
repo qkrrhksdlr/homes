@@ -4716,7 +4716,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .card>.list-group:last-child .list-group-item:last-child {
-	border-bottom-right-radius: .25rem;
+	border-bottom-right-radius: z.25rem;
 	border-bottom-left-radius: .25rem
 }
 
