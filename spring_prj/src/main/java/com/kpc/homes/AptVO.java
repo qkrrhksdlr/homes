@@ -1,25 +1,29 @@
 package com.kpc.homes;
 
 public class AptVO {
-
-	//파란글씨 : Property
 	private long seq;
 	private String gu;
 	private String dong;
-	private String addr1;
-	private String addr2;
+	private int addr1;
+	private int addr2;
 	private String apt;
 	private String gubun;
 	private String area;
-	private String conym;
-	private String price;
-	private String deposit;
-	private String mrent;
-	private String floor;
-	private String archyear;
+	private int conym;
+	private int price;
+	private int deposit;
+	private int mrent;
+	private int floor;
+	private int archyear;
 	private String street;
 	
-	
+	private String searchKey;
+	private String searchStr;
+	private String aptStr;
+	private String areaStr;
+
+	private double lat;
+	private double lng;
 	
 	public long getSeq() {
 		return seq;
@@ -39,16 +43,16 @@ public class AptVO {
 	public void setDong(String dong) {
 		this.dong = dong;
 	}
-	public String getAddr1() {
+	public int getAddr1() {
 		return addr1;
 	}
-	public void setAddr1(String addr1) {
+	public void setAddr1(int addr1) {
 		this.addr1 = addr1;
 	}
-	public String getAddr2() {
+	public int getAddr2() {
 		return addr2;
 	}
-	public void setAddr2(String addr2) {
+	public void setAddr2(int addr2) {
 		this.addr2 = addr2;
 	}
 	public String getApt() {
@@ -69,40 +73,40 @@ public class AptVO {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getConym() {
+	public int getConym() {
 		return conym;
 	}
-	public void setConym(String conym) {
+	public void setConym(int conym) {
 		this.conym = conym;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getDeposit() {
+	public int getDeposit() {
 		return deposit;
 	}
-	public void setDeposit(String deposit) {
+	public void setDeposit(int deposit) {
 		this.deposit = deposit;
 	}
-	public String getMrent() {
+	public int getMrent() {
 		return mrent;
 	}
-	public void setMrent(String mrent) {
+	public void setMrent(int mrent) {
 		this.mrent = mrent;
 	}
-	public String getFloor() {
+	public int getFloor() {
 		return floor;
 	}
-	public void setFloor(String floor) {
+	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	public String getArchyear() {
+	public int getArchyear() {
 		return archyear;
 	}
-	public void setArchyear(String archyear) {
+	public void setArchyear(int archyear) {
 		this.archyear = archyear;
 	}
 	public String getStreet() {
@@ -111,20 +115,49 @@ public class AptVO {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+	public String getSearchStr() {
+		return searchStr;
+	}
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
+	}
+	public String getAptStr() {
+		return aptStr;
+	}
+	public void setAptStr(String aptStr) {
+		this.aptStr = aptStr;
+	}
+	public String getAreaStr() {
+		return areaStr;
+	}
+	public void setAreaStr(String areaStr) {
+		this.areaStr = areaStr;
+	}
+	public double getLat() {
+		return lat;
+	}
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+	public double getLng() {
+		return lng;
+	}
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
 	
 	@Override
 	public String toString() {
 		return "AptVO [seq=" + seq + ", gu=" + gu + ", dong=" + dong + ", addr1=" + addr1 + ", addr2=" + addr2
 				+ ", apt=" + apt + ", gubun=" + gubun + ", area=" + area + ", conym=" + conym + ", price=" + price
 				+ ", deposit=" + deposit + ", mrent=" + mrent + ", floor=" + floor + ", archyear=" + archyear
-				+ ", street=" + street + "]";
+				+ ", street=" + street + ", searchKey=" + searchKey + ", searchStr=" + searchStr + ", aptStr=" + aptStr
+				+ ", areaStr=" + areaStr + ", lat=" + lat + ", lng=" + lng + "]";
 	}
-	
-	
-	
-
-
-	
-	
 }

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns    ="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!-- DI: @어노테이션 기반  -->
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.kpc.**" />
+
+<!-- DBCP -->
+	<!-- 
+	<context:property-placeholder location="classpath:oracle.properties" />
+	<bean id="mydataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+	-->
+	<bean id="dataSourceSpied"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@172.30.1.12:1521:XE" />
+		<property name="username" value="homes" />
+		<property name="password" value="0000" />
+	</bean>
+	
+	<!-- mybatis log4j 로그 설정 -->
+	<bean id="mydataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="dataSourceSpied" />
+		<property name="logFormatter">
+			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<property name="loggingType" value="MULTI_LINE" />
+				<property name="sqlPrefix" value="SQL : " />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- Mybatis-Spring 연동 -->
+	<bean id="mysqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mydataSource" />
+		<property name="mapperLocations" value="classpath:*Mapper.xml"/>
+		<property name="configLocation" value="classpath:mybatis-context.xml"></property>
+	</bean>
+	<bean id="mysqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="mysqlSessionFactory" />
+	</bean>
+	
+	<!-- MapperInterface.java 사용 시에만 아래 설정 추가 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.kpc.mapper" />
+	</bean>
+
+<!-- Transaction Manager 설정 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="mydataSource" />
+	</bean>
+
+	<!-- transactionManager 적용 범위 지정(advice) -->
+	<tx:advice id="mytxAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="*" rollback-for="Exception" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- transactionManager pointcut -->
+	<aop:config>
+		<aop:pointcut id="tx-mycut"
+			expression="execution(* com.kpc..*ServiceImpl.*(..))" />
+		<!-- WHEN??? WHERE : method -->
+		<aop:advisor advice-ref="mytxAdvice"
+			pointcut-ref="tx-mycut" />
+	</aop:config>
+	
+<!-- Spring MVC view -->	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	
+<!-- AOP 설정 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+<!-- 
+	<bean name="myaspect" class="com.kpc.board.CommonLogAdvice2" />
+	<aop:config>
+		<aop:pointcut id="mycut"
+			expression="execution(* com.kpc..BoardService.*(..))" />
+		<aop:aspect ref="myaspect">
+			WHEN WHERE : method
+			<aop:around pointcut-ref="mycut" method="beforeLogWrite" />
+		</aop:aspect>
+	</aop:config>	 -->
+	
+</beans>
