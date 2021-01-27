@@ -3,9 +3,9 @@
 - Duration : 1 week   
    
 ## Data Source   
-- 국토교통부 실거래가 공개시스템   
-- 서울 열린데이터광장   
-- 네이버 부동산   
+- 국토교통부 실거래가 공개시스템 (https://rt.molit.go.kr/)   
+- 서울 열린데이터광장 (https://data.seoul.go.kr/dataList/datasetList.do)   
+- 네이버 부동산 (https://land.naver.com/)   
    
 ## Technologies Used   
 - Java, JSP, JSTL/EL, jQuery(Ajax), UI/UX Template(BootStrap)   
