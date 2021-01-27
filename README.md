@@ -1,6 +1,7 @@
 # [Project] 부동산 정보 검색 시스템 및 시각화 웹서비스 (2020.08)   
 100만건의 DB와 Spring MVC 패턴을 사용한 서울시 부동산 정보시스템   
 - Duration : 1 week   
+- Overview : APT_Project_Island.pdf
    
 ## Data Source   
 - 국토교통부 실거래가 공개시스템 (https://rt.molit.go.kr/)   
